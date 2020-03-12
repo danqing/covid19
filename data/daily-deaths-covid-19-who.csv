@@ -1,0 +1,327 @@
+Entity,Code,Year,Daily new confirmed deaths due to COVID-19
+Argentina,ARG,48,0
+Argentina,ARG,49,0
+Argentina,ARG,50,0
+Australia,AUS,42,0
+Australia,AUS,43,0
+Australia,AUS,44,0
+Australia,AUS,45,1
+Australia,AUS,46,0
+Australia,AUS,47,1
+Australia,AUS,48,0
+Australia,AUS,49,0
+Australia,AUS,50,0
+China,CHN,1,0
+China,CHN,2,11
+China,CHN,3,8
+China,CHN,4,16
+China,CHN,5,15
+China,CHN,6,24
+China,CHN,7,26
+China,CHN,8,26
+China,CHN,9,38
+China,CHN,10,43
+China,CHN,11,46
+China,CHN,12,45
+China,CHN,13,57
+China,CHN,14,64
+China,CHN,15,66
+China,CHN,16,73
+China,CHN,17,73
+China,CHN,18,86
+China,CHN,19,89
+China,CHN,20,97
+China,CHN,21,108
+China,CHN,22,97
+China,CHN,23,254
+China,CHN,24,13
+China,CHN,25,143
+China,CHN,26,142
+China,CHN,27,106
+China,CHN,28,98
+China,CHN,29,136
+China,CHN,30,115
+China,CHN,31,118
+China,CHN,32,109
+China,CHN,33,97
+China,CHN,34,150
+China,CHN,35,71
+China,CHN,36,52
+China,CHN,37,29
+China,CHN,38,44
+China,CHN,39,47
+China,CHN,40,35
+China,CHN,41,42
+China,CHN,42,31
+China,CHN,43,38
+China,CHN,44,31
+China,CHN,45,30
+China,CHN,46,28
+China,CHN,47,27
+China,CHN,48,23
+China,CHN,49,17
+China,CHN,50,22
+Egypt,EGY,49,0
+Egypt,EGY,50,0
+France,FRA,27,0
+France,FRA,28,0
+France,FRA,29,0
+France,FRA,30,0
+France,FRA,31,0
+France,FRA,32,0
+France,FRA,33,0
+France,FRA,34,0
+France,FRA,35,0
+France,FRA,36,0
+France,FRA,37,1
+France,FRA,38,0
+France,FRA,39,0
+France,FRA,40,0
+France,FRA,41,0
+France,FRA,42,1
+France,FRA,43,1
+France,FRA,44,0
+France,FRA,45,2
+France,FRA,46,3
+France,FRA,47,1
+France,FRA,48,9
+France,FRA,49,11
+France,FRA,50,3
+Germany,DEU,50,0
+International,,31,0
+International,,32,0
+International,,33,1
+International,,34,0
+International,,35,0
+International,,36,0
+International,,37,1
+International,,38,0
+International,,39,2
+International,,40,0
+International,,41,0
+International,,42,0
+International,,43,0
+International,,44,0
+International,,45,0
+International,,46,0
+International,,47,1
+International,,48,0
+International,,49,0
+International,,50,0
+Iran,IRN,31,0
+Iran,IRN,32,2
+Iran,IRN,33,1
+Iran,IRN,34,3
+Iran,IRN,35,4
+Iran,IRN,36,3
+Iran,IRN,37,7
+Iran,IRN,38,4
+Iran,IRN,39,8
+Iran,IRN,40,9
+Iran,IRN,41,11
+Iran,IRN,42,12
+Iran,IRN,43,11
+Iran,IRN,44,15
+Iran,IRN,45,15
+Iran,IRN,46,17
+Iran,IRN,47,21
+Iran,IRN,48,49
+Iran,IRN,49,43
+Iran,IRN,50,54
+Iraq,IRQ,45,0
+Iraq,IRQ,46,2
+Iraq,IRQ,47,0
+Iraq,IRQ,48,2
+Iraq,IRQ,49,0
+Iraq,IRQ,50,0
+Italy,ITA,34,0
+Italy,ITA,35,4
+Italy,ITA,36,5
+Italy,ITA,37,1
+Italy,ITA,38,5
+Italy,ITA,39,4
+Italy,ITA,40,8
+Italy,ITA,41,6
+Italy,ITA,42,17
+Italy,ITA,43,28
+Italy,ITA,44,27
+Italy,ITA,45,41
+Italy,ITA,46,49
+Italy,ITA,47,37
+Italy,ITA,48,132
+Italy,ITA,49,97
+Italy,ITA,50,168
+Japan,JPN,25,0
+Japan,JPN,26,0
+Japan,JPN,27,0
+Japan,JPN,28,0
+Japan,JPN,29,0
+Japan,JPN,30,0
+Japan,JPN,31,0
+Japan,JPN,32,0
+Japan,JPN,33,0
+Japan,JPN,34,0
+Japan,JPN,35,0
+Japan,JPN,36,0
+Japan,JPN,37,2
+Japan,JPN,38,1
+Japan,JPN,39,1
+Japan,JPN,40,0
+Japan,JPN,41,1
+Japan,JPN,42,0
+Japan,JPN,43,0
+Japan,JPN,44,0
+Japan,JPN,45,0
+Japan,JPN,46,0
+Japan,JPN,47,0
+Japan,JPN,48,1
+Japan,JPN,49,2
+Japan,JPN,50,3
+Netherlands,NLD,47,0
+Netherlands,NLD,48,2
+Netherlands,NLD,49,0
+Netherlands,NLD,50,1
+Philippines,PHL,13,0
+Philippines,PHL,14,0
+Philippines,PHL,15,0
+Philippines,PHL,16,0
+Philippines,PHL,17,0
+Philippines,PHL,18,0
+Philippines,PHL,19,0
+Philippines,PHL,20,0
+Philippines,PHL,21,0
+Philippines,PHL,22,0
+Philippines,PHL,23,0
+Philippines,PHL,24,0
+Philippines,PHL,25,0
+Philippines,PHL,26,0
+Philippines,PHL,27,0
+Philippines,PHL,28,0
+Philippines,PHL,29,0
+Philippines,PHL,30,0
+Philippines,PHL,31,0
+Philippines,PHL,32,0
+Philippines,PHL,33,0
+Philippines,PHL,34,0
+Philippines,PHL,35,0
+Philippines,PHL,36,0
+Philippines,PHL,37,0
+Philippines,PHL,38,0
+Philippines,PHL,39,0
+Philippines,PHL,40,0
+Philippines,PHL,41,0
+Philippines,PHL,42,0
+Philippines,PHL,43,0
+Philippines,PHL,44,0
+Philippines,PHL,45,0
+Philippines,PHL,46,0
+Philippines,PHL,47,0
+Philippines,PHL,48,0
+Philippines,PHL,49,0
+Philippines,PHL,50,0
+San Marino,SMR,48,0
+San Marino,SMR,49,1
+San Marino,SMR,50,0
+South Korea,KOR,31,0
+South Korea,KOR,32,1
+South Korea,KOR,33,3
+South Korea,KOR,34,2
+South Korea,KOR,35,3
+South Korea,KOR,36,2
+South Korea,KOR,37,1
+South Korea,KOR,38,0
+South Korea,KOR,39,4
+South Korea,KOR,40,1
+South Korea,KOR,41,4
+South Korea,KOR,42,6
+South Korea,KOR,43,4
+South Korea,KOR,44,3
+South Korea,KOR,45,7
+South Korea,KOR,46,2
+South Korea,KOR,47,6
+South Korea,KOR,48,1
+South Korea,KOR,49,3
+South Korea,KOR,50,6
+Spain,ESP,45,2
+Spain,ESP,46,2
+Spain,ESP,47,0
+Spain,ESP,48,5
+Spain,ESP,49,18
+Spain,ESP,50,8
+Switzerland,CHE,46,0
+Switzerland,CHE,47,1
+Switzerland,CHE,48,0
+Switzerland,CHE,49,0
+Switzerland,CHE,50,1
+Thailand,THA,42,0
+Thailand,THA,43,0
+Thailand,THA,44,0
+Thailand,THA,45,0
+Thailand,THA,46,0
+Thailand,THA,47,0
+Thailand,THA,48,0
+Thailand,THA,49,0
+Thailand,THA,50,0
+United Kingdom,GBR,47,1
+United Kingdom,GBR,48,0
+United Kingdom,GBR,49,1
+United Kingdom,GBR,50,3
+United States,USA,43,4
+United States,USA,44,3
+United States,USA,45,1
+United States,USA,46,1
+United States,USA,47,0
+United States,USA,48,0
+United States,USA,49,8
+United States,USA,50,6
+Worldwide,,0,0
+Worldwide,,1,0
+Worldwide,,2,11
+Worldwide,,3,8
+Worldwide,,4,16
+Worldwide,,5,15
+Worldwide,,6,24
+Worldwide,,7,26
+Worldwide,,8,26
+Worldwide,,9,38
+Worldwide,,10,43
+Worldwide,,11,46
+Worldwide,,12,45
+Worldwide,,13,57
+Worldwide,,14,64
+Worldwide,,15,66
+Worldwide,,16,73
+Worldwide,,17,73
+Worldwide,,18,86
+Worldwide,,19,89
+Worldwide,,20,97
+Worldwide,,21,108
+Worldwide,,22,97
+Worldwide,,23,254
+Worldwide,,24,13
+Worldwide,,25,143
+Worldwide,,26,142
+Worldwide,,27,106
+Worldwide,,28,98
+Worldwide,,29,136
+Worldwide,,30,115
+Worldwide,,31,118
+Worldwide,,32,112
+Worldwide,,33,102
+Worldwide,,34,155
+Worldwide,,35,82
+Worldwide,,36,62
+Worldwide,,37,42
+Worldwide,,38,54
+Worldwide,,39,66
+Worldwide,,40,53
+Worldwide,,41,64
+Worldwide,,42,67
+Worldwide,,43,86
+Worldwide,,44,79
+Worldwide,,45,99
+Worldwide,,46,104
+Worldwide,,47,96
+Worldwide,,48,224
+Worldwide,,49,201
+Worldwide,,50,275
