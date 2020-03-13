@@ -103,7 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-.DS_Store
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -128,3 +127,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .idea
+
+package-lock.json

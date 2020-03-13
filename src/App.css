@@ -1,0 +1,16 @@
+#title-row {
+  padding: 60px 0;
+}
+
+h1 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 2rem;
+  color: var(--gray-dark);
+}
+
+#title-separator {
+  width: 120px;
+  height: 4px;
+  background-color: var(--yellow);
+  margin-top: 20px;
+}
