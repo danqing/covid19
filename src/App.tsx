@@ -1,9 +1,9 @@
 import Papa from "papaparse";
 import React, { useEffect, useState } from "react";
 
-import "./App.css";
 import ChartControl from "./chart-control";
-import State from "./state";
+
+import "./App.css";
 
 function useCsvFetch<RowType>(path: string): RowType[] | null {
   const [csvData, setCsvData] = useState<RowType[] | null>(null);
@@ -34,7 +34,6 @@ const useCountryPopulation = (): CountryPopulation[] | null => {
 function App() {
   const countryPopulation = useCountryPopulation();
   console.log(countryPopulation);
-  console.log(State.load());
 
   return (
     <div className="container">
