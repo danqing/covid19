@@ -1,0 +1,12 @@
+#chart-control {
+  justify-content: space-between;
+}
+
+#scale-toggle {
+  color: var(--gray);
+}
+
+#zoom-control svg {
+  width: 20px;
+  color: var(--gray);
+}

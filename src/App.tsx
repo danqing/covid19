@@ -1,6 +1,10 @@
 import Papa from "papaparse";
 import React, { useEffect, useState } from "react";
 
+import ChartControl from "./chart-control";
+
+import "./App.css";
+
 function useCsvFetch<RowType>(path: string): RowType[] | null {
   const [csvData, setCsvData] = useState<RowType[] | null>(null);
 
@@ -33,11 +37,13 @@ function App() {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-12 col-md-8 col-lg-6 mx-auto">
-          <h1>COVID Graphs</h1>
+      <div id="title-row" className="row">
+        <div className="col-12 mx-auto">
+          <h1>COVID-19 Data Explorer</h1>
+          <div id="title-separator"/>
         </div>
       </div>
+      <ChartControl/>
     </div>
   );
 }
