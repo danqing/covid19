@@ -10,6 +10,7 @@ export const all: EMode[] = [
   EMode.Confirmed,
   EMode.ConfirmedNew,
   EMode.Deaths,
+  EMode.DeathsNew,
 ]
 
 export function toString(mode: EMode): string {

@@ -3,10 +3,37 @@
 }
 
 #scale-toggle {
-  color: var(--gray);
+  margin-right: 1rem;
+}
+
+#scale-toggle button {
+  color: var(--gray-dark);
+  text-decoration: none;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 0.5rem;
+  opacity: 0.3;
+  border-bottom: 2px solid transparent;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#scale-toggle button:hover {
+  opacity: 0.6;
+}
+
+#scale-toggle button.selected {
+  border-bottom: 2px solid var(--yellow);
+  opacity: 1;
 }
 
 #zoom-control svg {
   width: 20px;
-  color: var(--gray);
+  color: var(--gray-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  #scale-toggle button, #zoom-control svg {
+    color: white;
+  }
 }
