@@ -29,7 +29,7 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
 
   renderModePicker(): JSX.Element {
     return (
-      <Dropdown onSelect={this.changeMode}>
+      <Dropdown id="mode-control" onSelect={this.changeMode}>
         <Dropdown.Toggle variant="light" id="mode-dropdown">
           {mode.toString(this.props.mode)}
         </Dropdown.Toggle>

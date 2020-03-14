@@ -10,11 +10,43 @@ import "./x-axis.css";
 
 type TXAxisProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-class XAxis extends React.PureComponent<TXAxisProps, {}> {
+interface IXAxisState {
+  enteringRegion: boolean;
+}
+
+class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
+  constructor(props: TXAxisProps) {
+    super(props);
+
+    this.state = {enteringRegion: false};
+    this.removeRegion = this.removeRegion.bind(this);
+    this.showNewRegionInput = this.showNewRegionInput.bind(this);
+    this.dismissNewRegionInput = this.dismissNewRegionInput.bind(this);
+  }
+
+  removeRegion() {
+
+  }
+
+  showNewRegionInput() {
+    this.setState({enteringRegion: true});
+  }
+
+  dismissNewRegionInput() {
+    this.setState({enteringRegion: false});
+  }
+
+  renderDays(): JSX.Element {
+    return (
+      <div>
+
+      </div>
+    );
+  }
 
   renderRegion(r: region.IRegion): JSX.Element {
     return (
-      <div>
+      <div className="region-row">
 
       </div>
     );
@@ -22,8 +54,9 @@ class XAxis extends React.PureComponent<TXAxisProps, {}> {
 
   renderRegionInput(): JSX.Element {
     return (
-      <div>
-
+      <div className="region-row region-input-row">
+        <input className="form-control" type="text"
+          placeholder="Country or region"/>
       </div>
     );
   }
@@ -31,7 +64,7 @@ class XAxis extends React.PureComponent<TXAxisProps, {}> {
   renderAddRegion(): JSX.Element {
     return (
       <div id="add-region">
-        <button className="btn btn-primary">
+        <button className="btn btn-primary" onClick={this.showNewRegionInput}>
           <PlusSign/>
           <span>Add Country / Region</span>
         </button>
@@ -44,7 +77,8 @@ class XAxis extends React.PureComponent<TXAxisProps, {}> {
       <div id="x-axis">
         <hr/>
         {this.props.regions.map(r => this.renderRegion(r))}
-        {this.renderAddRegion()}
+        {this.state.enteringRegion ?
+          this.renderRegionInput() : this.renderAddRegion()}
       </div>
     );
   }

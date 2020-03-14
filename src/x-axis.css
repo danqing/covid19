@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+#add-region button:hover {
+  transform: scale(1.02);
+}
+
 @media (prefers-color-scheme: dark) {
   #x-axis hr {
     border-color: var(--gray);

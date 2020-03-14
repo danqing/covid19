@@ -2,6 +2,20 @@
   justify-content: space-between;
 }
 
+#mode-control button {
+  padding-left: 1rem;
+  padding-right: 0.75rem;
+}
+
+#mode-control button:after {
+  margin: 0 0.125rem 0 0.75rem;
+}
+
+#mode-control .dropdown-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 #scale-toggle {
   margin-right: 1rem;
 }
