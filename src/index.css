@@ -16,3 +16,25 @@ code {
   display: flex;
   align-items: baseline;
 }
+
+button.btn {
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #1d2024;
+  }
+
+  button.btn-light {
+    color: white;
+    border-color: var(--gray-dark);
+    background-color: var(--gray-dark);
+  }
+
+  button.btn-light:hover, button.btn-light:active, button.btn-light:focus {
+    color: white;
+    border-color: var(--gray);
+    background-color: var(--gray);
+  }
+}

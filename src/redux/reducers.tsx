@@ -1,11 +1,10 @@
 import qs from "query-string";
 
-import { EnumParser } from "../util";
 import * as actions from "./actions";
 import * as mode from "./mode";
 import * as region from "./region";
 
-enum EScale {
+export enum EScale {
   Linear = "linear",
   Log = "log",
 }
@@ -57,10 +56,7 @@ function changeZoom(state: AppState, data: number): AppState {
 }
 
 function changeMode(state: AppState, to: string): AppState {
-  return persistedState({
-    ...state,
-    mode: EnumParser.parse(to, mode.EMode, state.mode),
-  });
+  return persistedState({ ...state, mode: to as mode.EMode });
 }
 
 function persistedState(state: AppState): AppState {
@@ -78,8 +74,12 @@ function loadState(): AppState {
   const query = qs.parse(window.location.search);
   let state = { ...defaultState };
 
-  state.scale = EnumParser.parse(query.s, EScale, state.scale);
-  state.mode = EnumParser.parse(query.m, mode.EMode, state.mode);
+  if (Object.values(EScale).includes(query.s as EScale)) {
+    state.scale = query.s as EScale;
+  }
+  if (Object.values(mode.EMode).includes(query.m as mode.EMode)) {
+    state.mode = query.m as mode.EMode;
+  }
   if (Array.isArray(query.r)) {
     state.regions = query.r.map(r => region.fromString(r));
   } else if (query.r) {

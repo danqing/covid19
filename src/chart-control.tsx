@@ -1,10 +1,11 @@
 import React from "react";
+import Dropdown from "react-bootstrap/Dropdown";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
 
 import { changeMode, changeZoom, toggleScale } from "./redux/actions";
 import * as mode from "./redux/mode";
-import { AppState } from "./redux/reducers";
+import { AppState, EScale } from "./redux/reducers";
 import { PlusSign, MinusSign } from "./svg";
 
 import "./chart-control.css";
@@ -19,44 +20,27 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
     this.changeMode = this.changeMode.bind(this);
     this.zoomIn = this.zoomIn.bind(this);
     this.zoomOut = this.zoomOut.bind(this);
+    this.toggleScale = this.toggleScale.bind(this);
   }
 
-  changeMode(e: React.MouseEvent<HTMLElement>) {
-    if (e.target instanceof HTMLElement) {
-      this.props.changeMode(e.target.dataset["key"] || "");
-    }
-  }
-
-  renderModePickerItem(m: mode.EMode): JSX.Element {
-    return (
-      <div
-        key={m}
-        data-key={m}
-        className="dropdown-item"
-        onClick={this.changeMode}
-      >
-        {mode.toString(m)}
-      </div>
-    )
+  changeMode(key: string) {
+    this.props.changeMode(key);
   }
 
   renderModePicker(): JSX.Element {
     return (
-      <div className="dropdown">
-        <button
-          className="btn btn-light dropdown-toggle"
-          type="button"
-          id="modeButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
+      <Dropdown onSelect={this.changeMode}>
+        <Dropdown.Toggle variant="light" id="mode-dropdown">
           {mode.toString(this.props.mode)}
-        </button>
-        <div className="dropdown-menu" aria-labelledby="modeButton">
-          {mode.all.map(m => this.renderModePickerItem(m))}
-        </div>
-      </div>
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          {mode.all.map(m =>
+            <Dropdown.Item key={m} eventKey={m}>
+              {mode.toString(m)}
+            </Dropdown.Item>
+          )}
+        </Dropdown.Menu>
+      </Dropdown>
     );
   }
 
@@ -91,14 +75,29 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
     );
   }
 
+  toggleScale(e: React.MouseEvent<HTMLElement>) {
+    if (e.target instanceof HTMLElement) {
+      if (e.target.dataset["key"] !== this.props.scale) {
+        this.props.toggleScale();
+      }
+    }
+  }
+
   renderScaleToggle(): JSX.Element {
+    const baseClass = "btn btn-link btn-sm";
     return (
-      <div id="scale-toggle" className="baseline-flex">
-        <span>Scale:</span>
-        <div className="btn-group" aria-label="Scale">
-          <button type="button" className="btn btn-link">Linear</button>
-          <button type="button" className="btn btn-link">Log</button>
-        </div>
+      <div id="scale-toggle" className="btn-group" aria-label="Scale">
+        {[EScale.Linear, EScale.Log].map(s =>
+          <button
+            key={s}
+            data-key={s}
+            type="button"
+            className={baseClass + (this.props.scale === s ? " selected" : "")}
+            onClick={this.toggleScale}
+          >
+            {s}
+          </button>
+        )}
       </div>
     );
   }

@@ -2,6 +2,7 @@ import Papa from "papaparse";
 import React, { useEffect, useState } from "react";
 
 import ChartControl from "./chart-control";
+import XAxis from "./x-axis";
 
 import "./App.css";
 
@@ -44,6 +45,7 @@ function App() {
         </div>
       </div>
       <ChartControl/>
+      <XAxis/>
     </div>
   );
 }
