@@ -15,6 +15,11 @@ h1 {
   margin-top: 20px;
 }
 
+footer {
+  margin-top: 60px;
+  padding: 40px;
+}
+
 @media (prefers-color-scheme: dark) {
   h1 {
     color: white;

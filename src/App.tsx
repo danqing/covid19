@@ -1,10 +1,10 @@
 import React from "react";
 
+import { Chart } from "./Chart";
 import ChartControl from "./chart-control";
 import XAxis from "./x-axis";
 
 import "./App.css";
-import { Chart } from "./Chart";
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
         </div>
       </div>
       <ChartControl />
-
       <Chart />
       <XAxis />
+      <footer>Yada yada.</footer>
     </div>
   );
 }
