@@ -38,6 +38,12 @@ export default function(state: AppState = loadState(), action: ReduxAction) {
       return changeMode(state, action.data);
     case actions.EReduxActionTypes.SET_REGIONS:
       return setRegions(state, action.data);
+    case actions.EReduxActionTypes.ADD_REGION:
+      return addRegion(state, action.data);
+    case actions.EReduxActionTypes.REMOVE_REGION:
+      return removeRegion(state, action.data);
+    case actions.EReduxActionTypes.SHIFT_REGION:
+      return shiftRegion(state, action.data.index, action.data.by);
     default:
       return state;
   }
@@ -65,6 +71,24 @@ function changeMode(state: AppState, to: string): AppState {
 }
 
 function setRegions(state: AppState, regions: IRegion[]): AppState {
+  return persistedState({ ...state, regions });
+}
+
+function addRegion(state: AppState, name: string): AppState {
+  let regions = [ ...state.regions ];
+  regions.push({ country: name, offset: 0 });
+  return persistedState({ ...state, regions });
+}
+
+function removeRegion(state: AppState, index: number): AppState {
+  let regions = [ ...state.regions ];
+  regions.splice(index, 1);
+  return persistedState({ ...state, regions });
+}
+
+function shiftRegion(state: AppState, index: number, by: number): AppState {
+  let regions = [ ...state.regions ];
+  regions[index] = { ...regions[index], offset: regions[index].offset + by };
   return persistedState({ ...state, regions });
 }
 
