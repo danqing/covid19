@@ -1,6 +1,7 @@
 import Papa from "papaparse";
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import _ from "lodash";
 
 async function fetchCsv<RowType>(path: string): Promise<RowType[]> {
   const file = await fetch(path);
@@ -33,21 +34,31 @@ const getCasesForCountry = async (country: string): Promise<CountryCases> => {
 
 type Point = { x: number; y: number };
 
-const casesToPoints = (cases: CountryCases): Point[] => {
-  return cases.map(({ year, cases }) => ({ x: year, y: cases }));
+const casesToPoints = (cases: CountryCases, offset: number): Point[] => {
+  return cases.map(({ year, cases }) => ({ x: year + offset, y: cases }));
 };
 
 const colors = ["red", "green", "blue"];
 
-const getData = async (countries: string[]) => {
+type CountryToOffset = { [country: string]: number };
+
+const getData = async (countryToOffset: CountryToOffset) => {
   const countryToCases: any = {};
 
-  for (const country of countries) {
+  const sortedCountries = _.sortBy(Object.keys(countryToOffset));
+  const countryToColor = _.fromPairs(
+    _.map(countryToOffset, (_offset, country) => {
+      const countryIdx = sortedCountries.indexOf(country);
+      return [country, colors[countryIdx]];
+    })
+  );
+
+  for (const country of Object.keys(countryToOffset)) {
     countryToCases[country] = await getCasesForCountry(country);
   }
 
-  const datasets = Array.from(countries.entries()).map(([idx, country]) => {
-    const color = colors[idx];
+  const datasets = _.map(countryToOffset, (offset, country) => {
+    const color = countryToColor[country];
     return {
       label: country,
       fill: false,
@@ -67,7 +78,7 @@ const getData = async (countries: string[]) => {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: casesToPoints(countryToCases[country])
+      data: casesToPoints(countryToCases[country], offset)
     };
   });
 
@@ -80,15 +91,21 @@ const getData = async (countries: string[]) => {
 
 export function Chart() {
   const [data, setData] = useState<any>(null);
+  const [countryToOffset, setCountryToOffset] = useState<CountryToOffset>({
+    China: 10,
+    "United States": -20,
+    Italy: -20
+  });
 
   const fetchData = async () => {
-    const _data = await getData(["China", "United States", "Italy"]);
+    const _data = await getData(countryToOffset);
     setData(_data);
   };
 
+  const countryOffsetState = JSON.stringify(countryToOffset);
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [countryOffsetState]);
 
   if (!data) {
     return <div>loading</div>;
@@ -104,12 +121,43 @@ export function Chart() {
           scales: {
             xAxes: [
               {
-                type: "linear"
+                type: "linear",
+                ticks: {
+                  min: 0
+                }
               }
             ]
           }
         }}
       />
+
+      <div>
+        {_.map(countryToOffset, (offset, country) => (
+          <div key={country}>
+            {country} {offset}
+            <div
+              className="btn btn-link btn-sm"
+              onClick={() => {
+                setCountryToOffset(
+                  Object.assign({}, countryToOffset, { [country]: offset - 1 })
+                );
+              }}
+            >
+              -
+            </div>
+            <div
+              className="btn btn-link btn-sm"
+              onClick={() => {
+                setCountryToOffset(
+                  Object.assign({}, countryToOffset, { [country]: offset + 1 })
+                );
+              }}
+            >
+              +
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
