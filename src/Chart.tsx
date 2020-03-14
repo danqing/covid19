@@ -8,6 +8,14 @@ import { AnyAction, bindActionCreators, Dispatch } from "redux";
 import { setRegions } from "./redux/actions";
 import { connect } from "react-redux";
 import { IRegion } from "./redux/region";
+import dayjs from "dayjs";
+import dayOfYear from "dayjs/plugin/dayOfYear";
+
+dayjs.extend(dayOfYear);
+
+const START_DATE = dayjs("2020-01-27");
+
+const range = (n: number): number[] => Array.from(Array(n).keys());
 
 async function fetchCsv<RowType>(path: string): Promise<RowType[]> {
   const file = await fetch(path);
@@ -38,10 +46,19 @@ const getCasesForCountry = async (country: string): Promise<CountryCases> => {
   return allCases.filter(({ entity }) => entity === country);
 };
 
-type Point = { x: number; y: number };
+type Point = { x: number; y: number | null };
+
+const NUM_DAYS_TO_SHOW = 30;
 
 const casesToPoints = (cases: CountryCases, offset: number): Point[] => {
-  return cases.map(({ year, cases }) => ({ x: year + offset, y: cases }));
+  const dayToCases = _.fromPairs(
+    _.map(cases, ({ cases, year }) => [year, cases])
+  );
+
+  return range(NUM_DAYS_TO_SHOW).map(idx => ({
+    x: idx,
+    y: dayToCases[idx - offset] || null
+  }));
 };
 
 const colors = ["red", "green", "blue"];
@@ -138,6 +155,24 @@ function _Chart({
                 }
               }
             ]
+          },
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItem: any, data: any) {
+                console.log(tooltipItem, data);
+                const { datasetIndex, index } = tooltipItem;
+                const dataset = data.datasets[datasetIndex];
+                const country = dataset["label"];
+
+                const countryOffset = countryToOffset[country];
+
+                const dayString = START_DATE.add(
+                  index - countryOffset,
+                  "day"
+                ).format("MMM D");
+                return `${country} ${dayString}`;
+              }
+            }
           }
         }}
       />
