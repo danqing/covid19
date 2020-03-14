@@ -4,9 +4,7 @@ export interface IRegion {
 }
 
 export function toString(region: IRegion): string {
-  let parts: string[] = [region.country];
-  parts.push(region.offset.toString());
-  return parts.join(",");
+  return `${region.country},${region.offset}`;
 }
 
 export function fromString(str: string): IRegion {
@@ -20,6 +18,6 @@ export function fromString(str: string): IRegion {
   const [country, _offset] = parts;
   return {
     country,
-    offset: parseInt(_offset)
+    offset: parseInt(_offset) || 0
   };
 }
