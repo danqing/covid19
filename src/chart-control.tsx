@@ -10,10 +10,10 @@ import { PlusSign, MinusSign } from "./svg";
 
 import "./chart-control.css";
 
-type TChartControlProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type TChartControlProps = ReturnType<typeof mapStateToProps> &
+  ReturnType<typeof mapDispatchToProps>;
 
 class ChartControl extends React.PureComponent<TChartControlProps, {}> {
-
   constructor(props: TChartControlProps) {
     super(props);
 
@@ -34,11 +34,11 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
           {mode.toString(this.props.mode)}
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          {mode.all.map(m =>
+          {mode.all.map(m => (
             <Dropdown.Item key={m} eventKey={m}>
               {mode.toString(m)}
             </Dropdown.Item>
-          )}
+          ))}
         </Dropdown.Menu>
       </Dropdown>
     );
@@ -61,7 +61,7 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
           disabled={this.props.zoom === 1}
           onClick={this.zoomOut}
         >
-          <MinusSign/>
+          <MinusSign />
         </button>
         <button
           type="button"
@@ -69,7 +69,7 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
           disabled={this.props.zoom === 5}
           onClick={this.zoomIn}
         >
-          <PlusSign/>
+          <PlusSign />
         </button>
       </div>
     );
@@ -87,7 +87,7 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
     const baseClass = "btn btn-link btn-sm";
     return (
       <div id="scale-toggle" className="btn-group" aria-label="Scale">
-        {[EScale.Linear, EScale.Log].map(s =>
+        {[EScale.Linear, EScale.Log].map(s => (
           <button
             key={s}
             data-key={s}
@@ -97,7 +97,7 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
           >
             {s}
           </button>
-        )}
+        ))}
       </div>
     );
   }
@@ -118,7 +118,7 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
 const mapStateToProps = (state: AppState) => ({
   zoom: state.zoom,
   mode: state.mode,
-  scale: state.scale,
+  scale: state.scale
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
