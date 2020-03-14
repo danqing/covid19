@@ -2,15 +2,12 @@
   justify-content: space-between;
 }
 
-#scale-toggle, #scale-toggle button {
-  color: var(--darkgray);
-}
-
 #scale-toggle {
   margin-right: 1rem;
 }
 
 #scale-toggle button {
+  color: var(--gray-dark);
   text-decoration: none;
   padding-left: 0;
   padding-right: 0;
@@ -28,5 +25,11 @@
 
 #zoom-control svg {
   width: 20px;
-  color: var(--darkgray);
+  color: var(--gray-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  #scale-toggle button, #zoom-control svg {
+    color: white;
+  }
 }
