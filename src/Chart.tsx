@@ -1,7 +1,13 @@
 import Papa from "papaparse";
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import produce from "immer";
 import _ from "lodash";
+import { AppState } from "./redux/reducers";
+import { AnyAction, bindActionCreators, Dispatch } from "redux";
+import { setRegions } from "./redux/actions";
+import { connect } from "react-redux";
+import { IRegion } from "./redux/region";
 
 async function fetchCsv<RowType>(path: string): Promise<RowType[]> {
   const file = await fetch(path);
@@ -89,13 +95,18 @@ const getData = async (countryToOffset: CountryToOffset) => {
   return data;
 };
 
-export function Chart() {
+function _Chart({
+  regions,
+  setRegions
+}: {
+  regions: IRegion[];
+  setRegions: (regions: IRegion[]) => void;
+}) {
+  const countryToOffset = _.fromPairs(
+    _.map(regions, ({ country, offset }) => [country, offset])
+  );
+
   const [data, setData] = useState<any>(null);
-  const [countryToOffset, setCountryToOffset] = useState<CountryToOffset>({
-    China: 10,
-    "United States": -20,
-    Italy: -20
-  });
 
   const fetchData = async () => {
     const _data = await getData(countryToOffset);
@@ -138,9 +149,14 @@ export function Chart() {
             <div
               className="btn btn-link btn-sm"
               onClick={() => {
-                setCountryToOffset(
-                  Object.assign({}, countryToOffset, { [country]: offset - 1 })
-                );
+                const newRegions = produce(regions, draft => {
+                  draft.forEach(region => {
+                    if (region.country === country) {
+                      region.offset -= 1;
+                    }
+                  });
+                });
+                setRegions(newRegions);
               }}
             >
               -
@@ -148,9 +164,14 @@ export function Chart() {
             <div
               className="btn btn-link btn-sm"
               onClick={() => {
-                setCountryToOffset(
-                  Object.assign({}, countryToOffset, { [country]: offset + 1 })
-                );
+                const newRegions = produce(regions, draft => {
+                  draft.forEach(region => {
+                    if (region.country === country) {
+                      region.offset += 1;
+                    }
+                  });
+                });
+                setRegions(newRegions);
               }}
             >
               +
@@ -161,3 +182,11 @@ export function Chart() {
     </div>
   );
 }
+const mapStateToProps = (state: AppState) => ({
+  regions: state.regions
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
+  bindActionCreators({ setRegions }, dispatch);
+
+export const Chart = connect(mapStateToProps, mapDispatchToProps)(_Chart);

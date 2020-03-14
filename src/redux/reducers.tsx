@@ -1,12 +1,14 @@
 import qs from "query-string";
 
 import * as actions from "./actions";
+import {ReduxAction} from "./actions";
 import * as mode from "./mode";
 import * as region from "./region";
+import {IRegion} from "./region";
 
 export enum EScale {
   Linear = "linear",
-  Log = "log",
+  Log = "log"
 }
 
 export interface AppState {
@@ -20,15 +22,13 @@ const defaultState: AppState = {
   scale: EScale.Linear,
   zoom: 3,
   mode: mode.EMode.Confirmed,
-  regions: [],
+  regions: [
+    { country: "United States", offset: -10 },
+    { country: "China", offset: 20 }
+  ]
 };
 
-type TActions =
-  actions.IReduxToggleScaleAction |
-  actions.IReduxChangeZoomAction |
-  actions.IReduxChangeModeAction;
-
-export default function(state: AppState = loadState(), action: TActions) {
+export default function(state: AppState = loadState(), action: ReduxAction) {
   switch (action.type) {
     case actions.EReduxActionTypes.TOGGLE_SCALE:
       return toggleScale(state);
@@ -36,6 +36,8 @@ export default function(state: AppState = loadState(), action: TActions) {
       return changeZoom(state, action.data);
     case actions.EReduxActionTypes.CHANGE_MODE:
       return changeMode(state, action.data);
+    case actions.EReduxActionTypes.SET_REGIONS:
+      return setRegions(state, action.data);
     default:
       return state;
   }
@@ -44,14 +46,17 @@ export default function(state: AppState = loadState(), action: TActions) {
 function toggleScale(state: AppState): AppState {
   return persistedState({
     ...state,
-    scale: state.scale === EScale.Linear ? EScale.Log : EScale.Linear,
+    scale: state.scale === EScale.Linear ? EScale.Log : EScale.Linear
   });
 }
 
 function changeZoom(state: AppState, data: number): AppState {
   let zoom = state.zoom + data;
-  if (zoom > 5) { zoom = 5; }
-  else if (zoom < 1) { zoom = 1; }
+  if (zoom > 5) {
+    zoom = 5;
+  } else if (zoom < 1) {
+    zoom = 1;
+  }
   return persistedState({ ...state, zoom });
 }
 
@@ -59,12 +64,16 @@ function changeMode(state: AppState, to: string): AppState {
   return persistedState({ ...state, mode: to as mode.EMode });
 }
 
+function setRegions(state: AppState, regions: IRegion[]): AppState {
+  return persistedState({ ...state, regions });
+}
+
 function persistedState(state: AppState): AppState {
   let query = {
     s: state.scale,
     z: state.zoom,
     m: state.mode,
-    r: state.regions.map(r => region.toString(r)),
+    r: state.regions.map(r => region.toString(r))
   };
   window.history.replaceState(null, "", "?" + qs.stringify(query));
   return state;
