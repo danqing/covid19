@@ -18,6 +18,10 @@
   text-transform: uppercase;
 }
 
+#scale-toggle button:hover {
+  opacity: 0.6;
+}
+
 #scale-toggle button.selected {
   border-bottom: 2px solid var(--yellow);
   opacity: 1;

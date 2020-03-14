@@ -17,6 +17,10 @@ code {
   align-items: baseline;
 }
 
+button.btn {
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
 @media (prefers-color-scheme: dark) {
   html, body {
     background-color: #1d2024;
