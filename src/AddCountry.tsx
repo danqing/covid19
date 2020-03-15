@@ -1,9 +1,10 @@
 import algoliasearch from "algoliasearch/lite";
 import * as svg from "./svg";
-import React, {useEffect, useState} from "react";
-import {connect} from "react-redux";
-import {AnyAction, bindActionCreators, Dispatch} from "redux";
-import {addRegion} from "./redux/actions";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { AnyAction, bindActionCreators, Dispatch } from "redux";
+import { addRegion } from "./redux/actions";
+import "./AddCountry.css";
 
 const searchClient = algoliasearch(
   "ZOOMT5L4JY",
@@ -35,8 +36,8 @@ export const _AddRegion = ({
   }, [q]);
 
   return (
-    <div>
-      <div className={"d-flex region-name-wrapper"}>
+    <div id="region-input-row" className="region-row">
+      <div className="region-name-wrapper">
         <input
           value={q}
           onChange={e => setQ(e.target.value)}
@@ -55,8 +56,7 @@ export const _AddRegion = ({
           <svg.TrashSign />
         </button>
       </div>
-
-      <div>
+      <div className="autocomplete">
         {suggestions.map(suggestion => (
           <div
             key={suggestion}
