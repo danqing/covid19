@@ -141,7 +141,6 @@ function _Chart({
 
   return (
     <div>
-      <h2>Line Example</h2>
       <Line
         legend={null}
         data={data}
@@ -152,6 +151,10 @@ function _Chart({
                 type: "linear",
                 ticks: {
                   min: 0
+                },
+                display: false,
+                gridLines: {
+                  drawBorder: true
                 }
               }
             ]
