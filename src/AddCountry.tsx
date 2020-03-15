@@ -7,6 +7,8 @@ import { addRegion } from "./redux/actions";
 import { getAllConfirmedCases } from "./Chart";
 import _ from "lodash";
 
+import "./AddCountry.css";
+
 let countrySet: FuzzySet;
 
 export const _AddRegion = ({
@@ -41,8 +43,8 @@ export const _AddRegion = ({
   }, [q]);
 
   return (
-    <div>
-      <div className={"d-flex region-name-wrapper"}>
+    <div id="region-input-row" className="region-row">
+      <div className="region-name-wrapper">
         <input
           value={q}
           onChange={e => setQ(e.target.value)}
@@ -61,8 +63,7 @@ export const _AddRegion = ({
           <svg.TrashSign />
         </button>
       </div>
-
-      <div>
+      <div className="autocomplete">
         {suggestions.map(suggestion => (
           <div
             key={suggestion}
