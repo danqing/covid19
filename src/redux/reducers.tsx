@@ -21,7 +21,7 @@ export interface AppState {
 const defaultState: AppState = {
   scale: EScale.Linear,
   zoom: 3,
-  mode: mode.EMode.Confirmed,
+  mode: mode.EMode.TotalCases,
   regions: [
     { country: "United States", offset: -10 },
     { country: "China", offset: 20 }

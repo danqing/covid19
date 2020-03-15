@@ -1,20 +1,22 @@
-import dayjs from "dayjs";
-import { bisector, extent, max } from "d3-array";
+import { max } from "d3-array";
 import React from "react";
 import Measure, { BoundingRect } from "react-measure";
 import { connect } from "react-redux";
+import _ from "lodash";
 
-import { Bar, Line, LinePath } from '@vx/shape';
-import { curveMonotoneX } from '@vx/curve';
-import { GridRows, GridColumns } from '@vx/grid';
-import { scaleLinear, scaleLog } from '@vx/scale';
-import { withTooltip, Tooltip, TooltipWithBounds } from '@vx/tooltip';
+import { Bar, Line, LinePath } from "@vx/shape";
+import { curveMonotoneX } from "@vx/curve";
+import { scaleLinear } from "@vx/scale";
+import { Tooltip, withTooltip } from "@vx/tooltip";
 import { WithTooltipProvidedProps } from "@vx/tooltip/lib/enhancers/withTooltip";
-import { localPoint } from '@vx/event';
+import { localPoint } from "@vx/event";
 
-import { AppState, EScale } from "./redux/reducers";
+import { AppState } from "./redux/reducers";
 
 import "./vx.css";
+import { ModeToAllCountryData } from "./redux/mode";
+
+const range = (n: number): number[] => Array.from(Array(n).keys());
 
 interface IVXDataPoint {
   date: number;
@@ -31,9 +33,7 @@ interface IVXDataSeries {
 const x = (d: IVXDataPoint) => d.date;
 const y = (d: IVXDataPoint) => d.value;
 
-interface IVXProps {
-
-}
+interface IVXProps {}
 
 export interface IVXMarginShape {
   top: number;
@@ -56,118 +56,144 @@ interface IVXTooltipData {
   y: number;
 }
 
-type TVXProps = IVXProps & IVXProvidedProps & ReturnType<typeof mapStateToProps>;
+type TVXProps = IVXProps &
+  IVXProvidedProps &
+  ReturnType<typeof mapStateToProps>;
 
-const VX = withTooltip<TVXProps, IVXTooltipData[]>(({
-  margin = { top: 0, right: 0, bottom: 0, left: 0 },
-  showTooltip,
-  hideTooltip,
-  tooltipData,
-  tooltipTop = 0,
-  tooltipLeft = 0,
-}: TVXProps & WithTooltipProvidedProps<IVXTooltipData[]>) => {
+const DAYS_TO_SHOW = 15;
 
+const COLORS = [
+  "red",
+  "green",
+  "blue",
+  "purple",
+  "brown",
+  "gray",
+  "orange",
+  "turquoise",
+  "gray"
+];
+
+const VX = withTooltip<TVXProps, IVXTooltipData[]>(
+  ({
+    margin = { top: 0, right: 0, bottom: 0, left: 0 },
+    showTooltip,
+    hideTooltip,
+    tooltipData,
+    tooltipTop = 0,
+    tooltipLeft = 0,
+    mode,
+    regions
+  }: TVXProps & WithTooltipProvidedProps<IVXTooltipData[]>) => {
     const [dims, setDims] = React.useState<BoundingRect>({
-      top: 0, left: 0, bottom: 0, right: 0, width: 100, height: 100,
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      width: 100,
+      height: 100
     });
 
     const yMax = dims.height - margin.top - margin.bottom;
 
     const handleTooltip = (
-      event: React.TouchEvent<SVGRectElement> | React.MouseEvent<SVGRectElement>,
+      event: React.TouchEvent<SVGRectElement> | React.MouseEvent<SVGRectElement>
     ) => {
       const xValue = localPoint(event)?.x || 0;
       const index = Math.round(xScale.invert(xValue));
       let tooltipData: IVXTooltipData[] = [];
-      for (let i = 0; i < data.length; i++) {
-        const value = y(data[i].points[index - 1]);
+      for (let i = 0; i < vxData.length; i++) {
+        const value = y(vxData[i].points[index - 1]);
         tooltipData.push({
-          name: data[i].name,
-          color: data[i].color,
-          offset: data[i].offset,
+          name: vxData[i].name,
+          color: vxData[i].color,
+          offset: vxData[i].offset,
           date: index,
           value,
-          y: yScale(value),
-        })
+          y: yScale(value)
+        });
       }
 
       showTooltip({
         tooltipData,
         tooltipLeft: xScale(index),
-        tooltipTop: 0,
+        tooltipTop: 0
       });
     };
 
-    const data: IVXDataSeries[] = [{
-      name: "United States",
-      color: "#ff6348",
-      offset: 10,
-      points: [
-        {date: 1, value: 2},
-        {date: 2, value: 13},
-        {date: 3, value: 4},
-        {date: 4, value: 4},
-        {date: 5, value: 7},
-        {date: 6, value: 15},
-        {date: 7, value: 3},
-        {date: 8, value: 2},
-        {date: 9, value: 8},
-        {date: 10, value: 4},
-      ],
-    }, {
-      name: "Italy",
-      color: "#1e90ff",
-      offset: 5,
-      points: [
-        {date: 1, value: 12},
-        {date: 2, value: 5},
-        {date: 3, value: 3},
-        {date: 4, value: 7},
-        {date: 5, value: 8},
-        {date: 6, value: 2},
-        {date: 7, value: 6},
-        {date: 8, value: 2},
-        {date: 9, value: 5},
-        {date: 10, value: 6},
-      ],
-    }]
+    const vxData: IVXDataSeries[] = [];
+    const allCountryData = ModeToAllCountryData[mode];
+
+    regions.forEach(({ country, offset }, idx) => {
+      const countryData = allCountryData.filter(
+        countryRow => countryRow.country === country
+      );
+
+      const dayToCases = _.fromPairs(
+        _.map(countryData, ({ cases, year }) => [year, cases])
+      );
+
+      const points = range(DAYS_TO_SHOW)
+        .map(idx => ({
+          date: idx + 1,
+          value: dayToCases[idx - offset] || null
+        }))
+        .filter(point => point.value != null);
+
+      vxData.push({
+        name: country,
+        color: COLORS[idx],
+        offset: 10,
+        points
+      });
+    });
 
     const xScale = scaleLinear({
       range: [0, dims.width],
-      domain: [1, 10],
+      domain: [1, 10]
     });
 
     let maxY = 0;
-    for (let i = 0; i < data.length; i++) {
-      maxY = Math.max(max(data[i].points, y) || 0, maxY);
+    for (let i = 0; i < vxData.length; i++) {
+      maxY = Math.max(max(vxData[i].points, y) || 0, maxY);
     }
     const yScale = scaleLinear({
       range: [dims.height, 0],
-      domain: [0, maxY * 6 / 5],
+      domain: [0, (maxY * 6) / 5],
       nice: true
     });
 
     const common = {
       x: (d: IVXDataPoint) => xScale(x(d)),
       y: (d: IVXDataPoint) => yScale(y(d)),
-      curve: curveMonotoneX,
+      curve: curveMonotoneX
     };
 
     return (
-      <Measure bounds onResize={r => {r.bounds && setDims(r.bounds);}}>
-        {({ measureRef }) =>
+      <Measure
+        bounds
+        onResize={r => {
+          r.bounds && setDims(r.bounds);
+        }}
+      >
+        {({ measureRef }) => (
           <div ref={measureRef}>
             <svg width={dims.width} height={300}>
-              {data.map(d =>
-                <LinePath key={d.name} stroke={d.color} strokeWidth={3}
-                  {...common} data={d.points}/>
-              )}
+              {vxData.map(d => (
+                <LinePath
+                  key={d.name}
+                  stroke={d.color}
+                  strokeWidth={3}
+                  {...common}
+                  data={d.points}
+                />
+              ))}
               <Bar
                 x={0}
                 y={0}
                 width={dims.width}
                 height={300}
-                fill='transparent'
+                fill="transparent"
                 onTouchStart={handleTooltip}
                 onTouchMove={handleTooltip}
                 onMouseEnter={handleTooltip}
@@ -189,7 +215,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(({
             </svg>
             {tooltipData && (
               <div>
-                {tooltipData.map(d =>
+                {tooltipData.map(d => (
                   <Tooltip
                     key={d.name}
                     top={d.y - 20}
@@ -203,20 +229,21 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(({
                     <div className="tooltip-desc">{`${d.name}`}</div>
                     <div className="tooltip-value">{`${d.value}`}</div>
                   </Tooltip>
-                )}
+                ))}
               </div>
             )}
           </div>
-        }
+        )}
       </Measure>
     );
-  },
+  }
 );
 
 const mapStateToProps = (state: AppState) => ({
   regions: state.regions,
   zoom: state.zoom,
-  scale: state.scale
+  scale: state.scale,
+  mode: state.mode
 });
 
 export default connect(mapStateToProps)(VX);
