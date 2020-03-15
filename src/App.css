@@ -8,6 +8,10 @@ h1 {
   color: var(--gray-dark);
 }
 
+h5 {
+  color: var(--gray);
+}
+
 #title-separator {
   width: 120px;
   height: 4px;

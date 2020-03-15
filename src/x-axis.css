@@ -10,6 +10,7 @@
 
 .region-days-wrapper {
   position: relative;
+  overflow: hidden;
 }
 
 .region-days-gradient {
@@ -23,8 +24,8 @@
 }
 
 .region-days {
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
   line-height: 1.875rem;
-  overflow: hidden;
   color: var(--gray);
 }
 

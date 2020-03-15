@@ -12,6 +12,7 @@ function App() {
       <div id="title-row" className="row">
         <div className="col-12 mx-auto">
           <h1>COVID-19 Data Explorer</h1>
+          <h5>Let's flatten the curve together.</h5>
           <div id="title-separator" />
         </div>
       </div>
