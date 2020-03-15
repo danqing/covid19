@@ -108,7 +108,6 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
         {this.renderModePicker()}
         <div className="baseline-flex">
           {this.renderScaleToggle()}
-          {this.renderZoomControl()}
         </div>
       </div>
     );

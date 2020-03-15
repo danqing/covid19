@@ -1,26 +1,39 @@
+import TotalDeaths from "../data/total-deaths-covid-19-who.json";
+import DailyDeaths from "../data/daily-deaths-covid-19-who.json";
+import TotalCases from "../data/total-cases-covid-19-who.json";
+import DailyCases from "../data/daily-cases-covid-19-who.json";
+
 export enum EMode {
-  Confirmed = "confirmed",
-  ConfirmedNew = "confirmed_new",
-  Deaths = "deaths",
-  DeathsNew = "deaths_new"
+  TotalCases = "tc",
+  DailyCases = "dc",
+  TotalDeaths = "td",
+  DailyDeaths = "dd"
 }
 
+type DataRow = { country: string; code: string; year: number; cases: number };
+export const ModeToAllCountryData: Record<EMode, DataRow[]> = {
+  [EMode.TotalCases]: TotalCases,
+  [EMode.DailyCases]: DailyCases,
+  [EMode.TotalDeaths]: TotalDeaths,
+  [EMode.DailyDeaths]: DailyDeaths
+};
+
 export const all: EMode[] = [
-  EMode.Confirmed,
-  EMode.ConfirmedNew,
-  EMode.Deaths,
-  EMode.DeathsNew
+  EMode.TotalCases,
+  EMode.DailyCases,
+  EMode.TotalDeaths,
+  EMode.DailyDeaths
 ];
 
 export function toString(mode: EMode): string {
   switch (mode) {
-    case EMode.Confirmed:
-      return "Total Confirmed";
-    case EMode.ConfirmedNew:
-      return "New Confirmed";
-    case EMode.Deaths:
+    case EMode.TotalCases:
+      return "Total Cases";
+    case EMode.DailyCases:
+      return "Daily Cases";
+    case EMode.TotalDeaths:
       return "Total Deaths";
-    case EMode.DeathsNew:
-      return "New Deaths";
+    case EMode.DailyDeaths:
+      return "Daily Deaths";
   }
 }
