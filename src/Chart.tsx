@@ -1,11 +1,8 @@
 import Papa from "papaparse";
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import produce from "immer";
 import _ from "lodash";
-import { AppState } from "./redux/reducers";
-import { AnyAction, bindActionCreators, Dispatch } from "redux";
-import { setRegions } from "./redux/actions";
+import { AppState, EScale } from "./redux/reducers";
 import { connect } from "react-redux";
 import { IRegion } from "./redux/region";
 import dayjs from "dayjs";
@@ -132,12 +129,12 @@ const getData = async (countryToOffset: CountryToOffset, zoom: number) => {
 
 function _Chart({
   regions,
-  setRegions,
-  zoom
+  zoom,
+  scale
 }: {
   regions: IRegion[];
-  setRegions: (regions: IRegion[]) => void;
   zoom: number;
+  scale: EScale;
 }) {
   const countryToOffset = _.fromPairs(
     _.map(regions, ({ country, offset }) => [country, offset])
@@ -177,6 +174,14 @@ function _Chart({
                   drawBorder: true
                 }
               }
+            ],
+            yAxes: [
+              {
+                type: scale === EScale.Linear ? "linear" : "logarithmic",
+                ticks: {
+                  min: 0
+                }
+              }
             ]
           },
           tooltips: {
@@ -204,10 +209,8 @@ function _Chart({
 }
 const mapStateToProps = (state: AppState) => ({
   regions: state.regions,
-  zoom: state.zoom
+  zoom: state.zoom,
+  scale: state.scale
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
-  bindActionCreators({ setRegions }, dispatch);
-
-export const Chart = connect(mapStateToProps, mapDispatchToProps)(_Chart);
+export const Chart = connect(mapStateToProps)(_Chart);
