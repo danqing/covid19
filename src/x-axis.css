@@ -47,7 +47,6 @@
   flex: 0 0 6.25%;
   text-align: center;
   white-space: nowrap;
-  /* transform: translateX(-50%); */
   position: relative;
   height: 1.875rem;
 }
@@ -134,6 +133,7 @@
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
+  margin-left: -0.875rem;
 }
 
 #add-region button:hover {
@@ -165,6 +165,10 @@
     padding: 0 20px;
   }
 
+  .region-row {
+    padding: 0;
+  }
+
   .region-name-wrapper {
     position: relative;
   }
@@ -182,7 +186,7 @@
   }
 
   .region-shifter {
-    top: 1.5rem;
+    top: 1rem;
   }
 
   .region-shifter-left {
@@ -212,6 +216,16 @@
 
   .region-day-inner-mobile {
     display: block;
+  }
+
+  #add-region svg {
+    width: 1rem;
+  }
+
+  #add-region button {
+    height: 2rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
   }
 }
 

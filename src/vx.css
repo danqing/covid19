@@ -2,6 +2,10 @@
   margin: 0 60px;
 }
 
+.vx-wrapper svg {
+  overflow: visible;
+}
+
 .tooltip-desc {
   font-size: 0.75rem;
   margin-bottom: 0.5rem;
@@ -58,5 +62,11 @@
       0    2px 0 #1d2024,
       -2px  2px 0 #1d2024,
       -2px  0   0 #1d2024;
+  }
+}
+
+@media (max-width: 700px) {
+  .vx-wrapper {
+    margin: 0 20px;
   }
 }

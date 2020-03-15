@@ -3,7 +3,10 @@ import React from "react";
 import Measure, { BoundingRect } from "react-measure";
 import { connect } from "react-redux";
 import _ from "lodash";
+import { format } from "d3-format";
 
+import { AxisLeft } from "@vx/axis";
+import { Grid } from '@vx/grid';
 import { Bar, Line, LinePath } from "@vx/shape";
 import { curveMonotoneX } from "@vx/curve";
 import { scaleLinear } from "@vx/scale";
@@ -94,6 +97,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       height: 100
     });
 
+    const xMax = dims.width - margin.left - margin.right;
     const yMax = dims.height - margin.top - margin.bottom;
 
     const handleTooltip = (
@@ -177,8 +181,40 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
         }}
       >
         {({ measureRef }) => (
-          <div className="vx-wrapper" ref={measureRef}>
+          <div ref={measureRef}>
             <svg width={dims.width} height={300}>
+              <AxisLeft
+                top={margin.top}
+                left={0}
+                scale={yScale}
+                hideZero
+                numTicks={5}
+                stroke="var(--gray)"
+                tickStroke="var(--gray)"
+                tickFormat={format(".2s")}
+                tickLabelProps={() => ({
+                  fill: 'var(--gray)',
+                  textAnchor: 'end',
+                  fontSize: 10,
+                  dx: '-0.25em',
+                  dy: '0.25em'
+                })}
+                tickComponent={({ formattedValue, ...tickProps }) => (
+                  <text {...tickProps}>{formattedValue}</text>
+                )}
+              />
+              <Grid
+                top={margin.top}
+                left={margin.left}
+                xScale={xScale}
+                yScale={yScale}
+                stroke="var(--gray)"
+                opacity={0.1}
+                width={xMax}
+                height={yMax}
+                numTicksRows={5}
+                numTicksColumns={10}
+              />
               {vxData.map(d => (
                 <LinePath
                   key={d.name}
@@ -219,7 +255,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                   <Tooltip
                     key={d.name}
                     top={d.y - 30}
-                    left={tooltipLeft + 60}
+                    left={tooltipLeft}
                     style={{
                       color: d.color,
                       backgroundColor: "transparent",

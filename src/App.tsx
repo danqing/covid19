@@ -17,7 +17,9 @@ function App() {
         </div>
       </div>
       <ChartControl />
-      <VX />
+      <div className="vx-wrapper">
+        <VX />
+      </div>
       <XAxis />
       <footer>Yada yada.</footer>
     </div>
