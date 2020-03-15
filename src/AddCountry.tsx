@@ -1,15 +1,16 @@
+import algoliasearch from "algoliasearch/lite";
 import * as svg from "./svg";
 import React, { useEffect, useState } from "react";
-import FuzzySet from "fuzzyset.js";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
 import { addRegion } from "./redux/actions";
-import { getAllConfirmedCases } from "./Chart";
-import _ from "lodash";
-
 import "./AddCountry.css";
 
-let countrySet: FuzzySet;
+const searchClient = algoliasearch(
+  "ZOOMT5L4JY",
+  "43a938b4fe4feea7874320d044a19bc5"
+);
+const searchIndex = searchClient.initIndex("covid");
 
 export const _AddRegion = ({
   onSuccess,
@@ -22,20 +23,12 @@ export const _AddRegion = ({
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
   const getSuggestions = async (q: string) => {
-    if (!countrySet) {
-      const allCases = await getAllConfirmedCases();
-      const countries = _.uniq(allCases.map(({ entity }) => entity)).filter(
-        s => s
-      );
-      countrySet = FuzzySet(countries);
-    }
+    const { hits } = await searchIndex.search(q);
+    console.log(hits);
+    // @ts-ignore
+    const _suggestions = hits.map(hit => hit.name).slice(0, 5);
 
-    const _suggestions = countrySet
-      .get(q)
-      ?.slice(0, 5)
-      .map(([__, suggestion]) => suggestion);
-
-    setSuggestions(_suggestions || []);
+    setSuggestions(_suggestions);
   };
 
   useEffect(() => {
