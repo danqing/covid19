@@ -1,3 +1,7 @@
+#x-axis {
+  padding: 0 60px;
+}
+
 #x-axis hr {
   margin-top: 0;
 }
@@ -40,8 +44,9 @@
 }
 
 .region-day {
-  flex: 0 0 10%;
+  flex: 0 0 6.25%;
   text-align: center;
+  white-space: nowrap;
 }
 
 .region-shifter {

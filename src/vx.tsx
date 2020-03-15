@@ -60,7 +60,7 @@ type TVXProps = IVXProps &
   IVXProvidedProps &
   ReturnType<typeof mapStateToProps>;
 
-const DAYS_TO_SHOW = 15;
+const DAYS_TO_SHOW = 17;
 
 const COLORS = [
   "red",
@@ -103,7 +103,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       const index = Math.round(xScale.invert(xValue));
       let tooltipData: IVXTooltipData[] = [];
       for (let i = 0; i < vxData.length; i++) {
-        const value = y(vxData[i].points[index - 1]);
+        const value = y(vxData[i].points[index]);
         tooltipData.push({
           name: vxData[i].name,
           color: vxData[i].color,
@@ -135,8 +135,8 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
 
       const points = range(DAYS_TO_SHOW)
         .map(idx => ({
-          date: idx + 1,
-          value: dayToCases[idx - offset] || null
+          date: idx,
+          value: dayToCases[idx - offset] || 0
         }))
         .filter(point => point.value != null);
 
@@ -150,7 +150,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
 
     const xScale = scaleLinear({
       range: [0, dims.width],
-      domain: [1, 10]
+      domain: [0, DAYS_TO_SHOW - 1]
     });
 
     let maxY = 0;
@@ -177,7 +177,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
         }}
       >
         {({ measureRef }) => (
-          <div ref={measureRef}>
+          <div className="vx-wrapper" ref={measureRef}>
             <svg width={dims.width} height={300}>
               {vxData.map(d => (
                 <LinePath
@@ -218,8 +218,8 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                 {tooltipData.map(d => (
                   <Tooltip
                     key={d.name}
-                    top={d.y - 20}
-                    left={tooltipLeft}
+                    top={d.y - 30}
+                    left={tooltipLeft + 60}
                     style={{
                       color: d.color,
                       backgroundColor: "transparent",

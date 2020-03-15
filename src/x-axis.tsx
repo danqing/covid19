@@ -91,7 +91,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
         <div
           className="region-days baseline-flex"
           style={{
-            transform: `translateX(${offset * 10}%`
+            transform: `translateX(${offset * 100 / 14}%`
           }}
         >
           {[...Array(50).keys()].map(d => (
