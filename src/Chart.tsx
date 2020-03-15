@@ -48,14 +48,18 @@ const getCasesForCountry = async (country: string): Promise<CountryCases> => {
 
 type Point = { x: number; y: number | null };
 
-const NUM_DAYS_TO_SHOW = 30;
-
-const casesToPoints = (cases: CountryCases, offset: number): Point[] => {
+const casesToPoints = (
+  cases: CountryCases,
+  offset: number,
+  zoom: number
+): Point[] => {
   const dayToCases = _.fromPairs(
     _.map(cases, ({ cases, year }) => [year, cases])
   );
 
-  return range(NUM_DAYS_TO_SHOW).map(idx => ({
+  const daysToShow = Math.max(6 - zoom, 1) * 10;
+
+  return range(daysToShow).map(idx => ({
     x: idx,
     y: dayToCases[idx - offset] || null
   }));
@@ -65,7 +69,7 @@ const colors = ["red", "green", "blue"];
 
 type CountryToOffset = { [country: string]: number };
 
-const getData = async (countryToOffset: CountryToOffset) => {
+const getData = async (countryToOffset: CountryToOffset, zoom: number) => {
   const countryToCases: any = {};
 
   const sortedCountries = _.sortBy(Object.keys(countryToOffset));
@@ -101,7 +105,7 @@ const getData = async (countryToOffset: CountryToOffset) => {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: casesToPoints(countryToCases[country], offset)
+      data: casesToPoints(countryToCases[country], offset, zoom)
     };
   });
 
@@ -114,10 +118,12 @@ const getData = async (countryToOffset: CountryToOffset) => {
 
 function _Chart({
   regions,
-  setRegions
+  setRegions,
+  zoom
 }: {
   regions: IRegion[];
   setRegions: (regions: IRegion[]) => void;
+  zoom: number;
 }) {
   const countryToOffset = _.fromPairs(
     _.map(regions, ({ country, offset }) => [country, offset])
@@ -126,14 +132,14 @@ function _Chart({
   const [data, setData] = useState<any>(null);
 
   const fetchData = async () => {
-    const _data = await getData(countryToOffset);
+    const _data = await getData(countryToOffset, zoom);
     setData(_data);
   };
 
   const countryOffsetState = JSON.stringify(countryToOffset);
   useEffect(() => {
     fetchData();
-  }, [countryOffsetState]);
+  }, [countryOffsetState, zoom]);
 
   if (!data) {
     return <div>loading</div>;
@@ -221,7 +227,8 @@ function _Chart({
   );
 }
 const mapStateToProps = (state: AppState) => ({
-  regions: state.regions
+  regions: state.regions,
+  zoom: state.zoom
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
