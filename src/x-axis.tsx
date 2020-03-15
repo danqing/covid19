@@ -75,10 +75,25 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
     this.setState({ enteringRegion: false });
   }
 
+  dayClass(day: dayjs.Dayjs): string {
+    let cls = ["region-day"];
+    const date = day.date();
+    if (date % 3 === 1 && day.add(1, "day").date() !== 1) {
+      cls.push("region-day-3");
+    }
+    if (date % 4 === 1 && day.add(1, "day").date() !== 1) {
+      cls.push("region-day-4");
+    }
+    return cls.join(" ");
+  }
+
   dayString(day: dayjs.Dayjs): string {
     const date = day.date();
-    if (date === 1 || date % 5 === 0) {
+    if (date % 4 === 1 && day.add(1, "day").date() !== 1) {
       return day.format("MMM D");
+    }
+    if (date % 2 === 0) {
+      return "·";
     }
     return day.format("D");
   }
@@ -95,8 +110,13 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
           }}
         >
           {[...Array(50).keys()].map(d => (
-            <div key={d} className="region-day">
-              {this.dayString(zero.add(d, "day"))}
+            <div key={d} className={this.dayClass(zero.add(d, "day"))}>
+              <div className="region-day-inner">
+                {this.dayString(zero.add(d, "day"))}
+              </div>
+              <div className="region-day-inner-mobile">
+                {zero.add(d, "day").format("M/D")}
+              </div>
             </div>
           ))}
         </div>

@@ -62,15 +62,15 @@ footer {
 
 @media (max-width: 500px) {
   #app-wrapper {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 
   #title-row {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
   }
 
   #page-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   #page-subtitle {
