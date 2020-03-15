@@ -1,0 +1,57 @@
+.tooltip-desc {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  text-shadow:
+    0 0 5px white,
+    -1px -1px 0 white,
+    0   -1px 0 white,
+    1px -1px 0 white,
+    1px  0   0 white,
+    1px  1px 0 white,
+    0    1px 0 white,
+    -1px  1px 0 white,
+    -1px  0   0 white;
+}
+
+.tooltip-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-shadow:
+    0 0 10px white,
+    -2px -2px 0 white,
+    0   -2px 0 white,
+    2px -2px 0 white,
+    2px  0   0 white,
+    2px  2px 0 white,
+    0    2px 0 white,
+    -2px  2px 0 white,
+    -2px  0   0 white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tooltip-desc {
+    text-shadow:
+      0 0 5px #1d2024,
+      -1px -1px 0 #1d2024,
+      0   -1px 0 #1d2024,
+      1px -1px 0 #1d2024,
+      1px  0   0 #1d2024,
+      1px  1px 0 #1d2024,
+      0    1px 0 #1d2024,
+      -1px  1px 0 #1d2024,
+      -1px  0   0 #1d2024;
+  }
+
+  .tooltip-value {
+    text-shadow:
+      0 0 10px #1d2024,
+      -2px -2px 0 #1d2024,
+      0   -2px 0 #1d2024,
+      2px -2px 0 #1d2024,
+      2px  0   0 #1d2024,
+      2px  2px 0 #1d2024,
+      0    2px 0 #1d2024,
+      -2px  2px 0 #1d2024,
+      -2px  0   0 #1d2024;
+  }
+}
