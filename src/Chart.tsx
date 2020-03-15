@@ -31,7 +31,7 @@ type CasesPerDayRow = {
   cases: number;
 };
 
-const getAllConfirmedCases = async (): Promise<CasesPerDayRow[]> => {
+export const getAllConfirmedCases = async (): Promise<CasesPerDayRow[]> => {
   return await fetchCsv<CasesPerDayRow>("/data/total-cases-covid-19-who.csv");
 };
 

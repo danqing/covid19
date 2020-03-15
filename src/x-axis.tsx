@@ -9,8 +9,10 @@ import * as region from "./redux/region";
 import * as svg from "./svg";
 
 import "./x-axis.css";
+import { AddRegion } from "./AddCountry";
 
-type TXAxisProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type TXAxisProps = ReturnType<typeof mapStateToProps> &
+  ReturnType<typeof mapDispatchToProps>;
 
 interface IXAxisState {
   enteringRegion: boolean;
@@ -20,7 +22,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
   constructor(props: TXAxisProps) {
     super(props);
 
-    this.state = {enteringRegion: false};
+    this.state = { enteringRegion: false };
     this.addRegion = this.addRegion.bind(this);
     this.removeRegion = this.removeRegion.bind(this);
     this.shiftRegionBack1 = this.shiftRegionBack1.bind(this);
@@ -66,11 +68,11 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
   }
 
   showNewRegionInput() {
-    this.setState({enteringRegion: true});
+    this.setState({ enteringRegion: true });
   }
 
   dismissNewRegionInput() {
-    this.setState({enteringRegion: false});
+    this.setState({ enteringRegion: false });
   }
 
   dayString(day: dayjs.Dayjs): string {
@@ -85,10 +87,13 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
     const zero = dayjs("2020-01-21");
     return (
       <div className="region-days-wrapper">
-        <div className="region-days-gradient"/>
-        <div className="region-days baseline-flex" style={{
-          transform: `translateX(${offset * 10}%`
-        }}>
+        <div className="region-days-gradient" />
+        <div
+          className="region-days baseline-flex"
+          style={{
+            transform: `translateX(${offset * 10}%`
+          }}
+        >
           {[...Array(50).keys()].map(d => (
             <div key={d} className="region-day">
               {this.dayString(zero.add(d, "day"))}
@@ -100,44 +105,30 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
   }
 
   renderRegion(r: region.IRegion, i: number): JSX.Element {
-    const buttonAttrs = {className: "btn btn-link", "data-index": i};
+    const buttonAttrs = { className: "btn btn-link", "data-index": i };
     return (
       <div className="region-row" key={r.country}>
         <div className="region-shifter region-shifter-left">
           <button {...buttonAttrs} onClick={this.shiftRegionBack5}>
-            <svg.ChevronsLeft/>
+            <svg.ChevronsLeft />
           </button>
           <button {...buttonAttrs} onClick={this.shiftRegionBack1}>
-            <svg.ChevronLeft/>
+            <svg.ChevronLeft />
           </button>
         </div>
         <div className="region-name-wrapper">
           <div className="region-name">{r.country}</div>
           <button {...buttonAttrs} onClick={this.removeRegion}>
-            <svg.TrashSign/>
+            <svg.TrashSign />
           </button>
         </div>
         {this.renderDays(r.offset)}
         <div className="region-shifter region-shifter-right">
           <button {...buttonAttrs} onClick={this.shiftRegionForward1}>
-            <svg.ChevronRight/>
+            <svg.ChevronRight />
           </button>
           <button {...buttonAttrs} onClick={this.shiftRegionForward5}>
-            <svg.ChevronsRight/>
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  renderRegionInput(): JSX.Element {
-    return (
-      <div id="region-input-row" className="region-row">
-        <div className="region-name-wrapper">
-          <input className="form-control" type="text" autoFocus={true}
-            placeholder="Country or region" onKeyUp={this.addRegion}/>
-          <button className="btn btn-link" onClick={this.dismissNewRegionInput}>
-            <svg.TrashSign/>
+            <svg.ChevronsRight />
           </button>
         </div>
       </div>
@@ -148,7 +139,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
     return (
       <div id="add-region" className="region-row">
         <button className="btn btn-primary" onClick={this.showNewRegionInput}>
-          <svg.PlusSign/>
+          <svg.PlusSign />
           <span>Add Country / Region</span>
         </button>
       </div>
@@ -158,17 +149,20 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
   render(): JSX.Element {
     return (
       <div id="x-axis">
-        <hr/>
+        <hr />
         {this.props.regions.map((r, i) => this.renderRegion(r, i))}
-        {this.state.enteringRegion ?
-          this.renderRegionInput() : this.renderAddRegion()}
+        {this.state.enteringRegion ? (
+          <AddRegion onSuccess={() => this.dismissNewRegionInput()} />
+        ) : (
+          this.renderAddRegion()
+        )}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state: AppState) => ({
-  regions: state.regions,
+  regions: state.regions
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
