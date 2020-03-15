@@ -1,10 +1,9 @@
 import algoliasearch from "algoliasearch/lite";
-import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom";
 import * as svg from "./svg";
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { AnyAction, bindActionCreators, Dispatch } from "redux";
-import { addRegion } from "./redux/actions";
+import React, {useEffect, useState} from "react";
+import {connect} from "react-redux";
+import {AnyAction, bindActionCreators, Dispatch} from "redux";
+import {addRegion} from "./redux/actions";
 
 const searchClient = algoliasearch(
   "ZOOMT5L4JY",
