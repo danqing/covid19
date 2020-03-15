@@ -1,13 +1,18 @@
 import Papa from "papaparse";
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import produce from "immer";
 import _ from "lodash";
-import { AppState } from "./redux/reducers";
-import { AnyAction, bindActionCreators, Dispatch } from "redux";
-import { setRegions } from "./redux/actions";
+import { AppState, EScale } from "./redux/reducers";
 import { connect } from "react-redux";
 import { IRegion } from "./redux/region";
+import dayjs from "dayjs";
+import dayOfYear from "dayjs/plugin/dayOfYear";
+
+dayjs.extend(dayOfYear);
+
+const START_DATE = dayjs("2020-01-27");
+
+const range = (n: number): number[] => Array.from(Array(n).keys());
 
 async function fetchCsv<RowType>(path: string): Promise<RowType[]> {
   const file = await fetch(path);
@@ -38,26 +43,53 @@ const getCasesForCountry = async (country: string): Promise<CountryCases> => {
   return allCases.filter(({ entity }) => entity === country);
 };
 
-type Point = { x: number; y: number };
+type Point = { x: number; y: number | null };
 
-const casesToPoints = (cases: CountryCases, offset: number): Point[] => {
-  return cases.map(({ year, cases }) => ({ x: year + offset, y: cases }));
+const casesToPoints = (
+  cases: CountryCases,
+  offset: number,
+  zoom: number
+): Point[] => {
+  const dayToCases = _.fromPairs(
+    _.map(cases, ({ cases, year }) => [year, cases])
+  );
+
+  const daysToShow = Math.max(6 - zoom, 1) * 10;
+
+  return range(daysToShow).map(idx => ({
+    x: idx,
+    y: dayToCases[idx - offset] || null
+  }));
 };
 
-const colors = ["red", "green", "blue"];
+const colors = [
+  "red",
+  "green",
+  "blue",
+  "purple",
+  "brown",
+  "gray",
+  "orange",
+  "turquoise",
+  "gray"
+];
 
-type CountryToOffset = { [country: string]: number };
-
-const getData = async (countryToOffset: CountryToOffset) => {
-  const countryToCases: any = {};
-
-  const sortedCountries = _.sortBy(Object.keys(countryToOffset));
-  const countryToColor = _.fromPairs(
-    _.map(countryToOffset, (_offset, country) => {
+export const getCountryToColor = (countries: string[]) => {
+  const sortedCountries = _.sortBy(countries);
+  return _.fromPairs(
+    _.map(countries, country => {
       const countryIdx = sortedCountries.indexOf(country);
       return [country, colors[countryIdx]];
     })
   );
+};
+
+type CountryToOffset = { [country: string]: number };
+
+const getData = async (countryToOffset: CountryToOffset, zoom: number) => {
+  const countryToCases: any = {};
+
+  const countryToColor = getCountryToColor(Object.keys(countryToOffset));
 
   for (const country of Object.keys(countryToOffset)) {
     countryToCases[country] = await getCasesForCountry(country);
@@ -84,7 +116,7 @@ const getData = async (countryToOffset: CountryToOffset) => {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: casesToPoints(countryToCases[country], offset)
+      data: casesToPoints(countryToCases[country], offset, zoom)
     };
   });
 
@@ -97,10 +129,12 @@ const getData = async (countryToOffset: CountryToOffset) => {
 
 function _Chart({
   regions,
-  setRegions
+  zoom,
+  scale
 }: {
   regions: IRegion[];
-  setRegions: (regions: IRegion[]) => void;
+  zoom: number;
+  scale: EScale;
 }) {
   const countryToOffset = _.fromPairs(
     _.map(regions, ({ country, offset }) => [country, offset])
@@ -109,14 +143,14 @@ function _Chart({
   const [data, setData] = useState<any>(null);
 
   const fetchData = async () => {
-    const _data = await getData(countryToOffset);
+    const _data = await getData(countryToOffset, zoom);
     setData(_data);
   };
 
   const countryOffsetState = JSON.stringify(countryToOffset);
   useEffect(() => {
     fetchData();
-  }, [countryOffsetState]);
+  }, [countryOffsetState, zoom]);
 
   if (!data) {
     return <div>loading</div>;
@@ -124,7 +158,6 @@ function _Chart({
 
   return (
     <div>
-      <h2>Line Example</h2>
       <Line
         legend={null}
         data={data}
@@ -135,58 +168,49 @@ function _Chart({
                 type: "linear",
                 ticks: {
                   min: 0
+                },
+                display: false,
+                gridLines: {
+                  drawBorder: true
+                }
+              }
+            ],
+            yAxes: [
+              {
+                type: scale === EScale.Linear ? "linear" : "logarithmic",
+                ticks: {
+                  min: 0
                 }
               }
             ]
+          },
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItem: any, data: any) {
+                console.log(tooltipItem, data);
+                const { datasetIndex, index } = tooltipItem;
+                const dataset = data.datasets[datasetIndex];
+                const country = dataset["label"];
+
+                const countryOffset = countryToOffset[country];
+
+                const dayString = START_DATE.add(
+                  index - countryOffset,
+                  "day"
+                ).format("MMM D");
+                return `${country} ${dayString}`;
+              }
+            }
           }
         }}
       />
-
-      <div>
-        {_.map(countryToOffset, (offset, country) => (
-          <div key={country}>
-            {country} {offset}
-            <div
-              className="btn btn-link btn-sm"
-              onClick={() => {
-                const newRegions = produce(regions, draft => {
-                  draft.forEach(region => {
-                    if (region.country === country) {
-                      region.offset -= 1;
-                    }
-                  });
-                });
-                setRegions(newRegions);
-              }}
-            >
-              -
-            </div>
-            <div
-              className="btn btn-link btn-sm"
-              onClick={() => {
-                const newRegions = produce(regions, draft => {
-                  draft.forEach(region => {
-                    if (region.country === country) {
-                      region.offset += 1;
-                    }
-                  });
-                });
-                setRegions(newRegions);
-              }}
-            >
-              +
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
 const mapStateToProps = (state: AppState) => ({
-  regions: state.regions
+  regions: state.regions,
+  zoom: state.zoom,
+  scale: state.scale
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
-  bindActionCreators({ setRegions }, dispatch);
-
-export const Chart = connect(mapStateToProps, mapDispatchToProps)(_Chart);
+export const Chart = connect(mapStateToProps)(_Chart);
