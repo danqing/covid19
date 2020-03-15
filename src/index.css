@@ -21,6 +21,10 @@ button.btn {
   transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
 }
 
+button * {
+  pointer-events: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html, body {
     background-color: #1d2024;

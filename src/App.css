@@ -8,11 +8,20 @@ h1 {
   color: var(--gray-dark);
 }
 
+h5 {
+  color: var(--gray);
+}
+
 #title-separator {
   width: 120px;
   height: 4px;
   background-color: var(--yellow);
   margin-top: 20px;
+}
+
+footer {
+  margin-top: 60px;
+  padding: 40px;
 }
 
 @media (prefers-color-scheme: dark) {
