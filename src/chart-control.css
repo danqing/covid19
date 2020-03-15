@@ -1,5 +1,6 @@
 #chart-control {
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 #mode-control button {
