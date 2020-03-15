@@ -1,17 +1,141 @@
+.region-row {
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.region-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.region-days-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.region-days-gradient {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, white, #ffffffcc 150px, #ffffff00 200px);
+}
+
+.region-days {
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+  line-height: 1.875rem;
+  color: var(--gray);
+}
+
+.region-day {
+  flex: 0 0 10%;
+  text-align: center;
+}
+
+.region-shifter {
+  position: absolute;
+  top: 0.5rem;
+  line-height: 1.875rem;
+  display: flex;
+}
+
+.region-shifter button {
+  padding: 0 0.125rem;
+  height: 1.875rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  color: var(--yellow);
+}
+
+.region-shifter button:hover,
+.region-shifter button:focus,
+.region-shifter button:active {
+  color: var(--yellow);
+  transform: scale(1.2);
+}
+
+.region-shifter button svg {
+  width: 24px;
+}
+
+.region-shifter-left {
+  left: -60px;
+}
+
+.region-shifter-right {
+  right: -60px;
+}
+
+#region-input-row, #add-region {
+  margin-top: 1rem;
+}
+
+#region-input-row input {
+  margin-left: -0.75rem;
+}
+
+.region-name-wrapper {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.region-name-wrapper input {
+  max-width: 240px;
+}
+
+.region-name-wrapper button {
+  color: var(--gray);
+}
+
+.region-name-wrapper button:hover {
+  color: var(--danger);
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.region-name-wrapper button svg {
+  width: 16px;
+  display: block;
+}
+
 #add-region svg {
   width: 1.25rem;
   margin-right: 0.25rem;
 }
 
 #add-region button {
+  margin-left: -2.25rem;
   height: 2.5rem;
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
 }
 
+#add-region button:hover {
+  transform: scale(1.02);
+}
+
 @media (prefers-color-scheme: dark) {
   #x-axis hr {
     border-color: var(--gray);
+    opacity: 0.3;
+  }
+
+  .region-name-wrapper {
+    box-shadow: 0 0 20px #1d2024;
+  }
+
+  .region-name {
+    color: white;
+  }
+
+  .region-days-gradient {
+    background: linear-gradient(to right, #1d2024, #1d2024cc 150px, #1d202400 200px);
   }
 }
