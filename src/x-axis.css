@@ -75,8 +75,15 @@
   right: -60px;
 }
 
-.region-name-wrapper input {
-  max-width: 240px;
+#region-input-row, #add-region {
+  margin-top: 1rem;
+}
+
+.region-name-wrapper {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  align-items: center;
 }
 
 .region-name-wrapper button {
@@ -115,10 +122,6 @@
   #x-axis hr {
     border-color: var(--gray);
     opacity: 0.3;
-  }
-
-  .region-name-wrapper {
-    box-shadow: 0 0 20px #1d2024;
   }
 
   .region-name {

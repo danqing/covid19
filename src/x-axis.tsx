@@ -6,10 +6,10 @@ import { AnyAction, bindActionCreators, Dispatch } from "redux";
 import { addRegion, removeRegion, shiftRegion } from "./redux/actions";
 import { AppState } from "./redux/reducers";
 import * as region from "./redux/region";
+import { AddRegion } from "./AddCountry";
 import * as svg from "./svg";
 
 import "./x-axis.css";
-import { AddRegion } from "./AddCountry";
 
 type TXAxisProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps>;

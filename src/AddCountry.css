@@ -1,0 +1,24 @@
+#region-input-row {
+  margin-left: -0.75rem;
+}
+
+#region-input-row .region-name-wrapper {
+  position: relative;
+}
+
+#region-input-row input {
+  max-width: 240px;
+}
+
+.autocomplete .btn-link {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  border: 1px solid var(--primary);
+  border-radius: 2rem;
+}
+
+.autocomplete .btn-link:hover {
+  text-decoration: none;
+  color: white;
+  background-color: var(--primary);
+}
