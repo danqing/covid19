@@ -199,44 +199,6 @@ function _Chart({
           }
         }}
       />
-
-      <div>
-        {_.map(countryToOffset, (offset, country) => (
-          <div key={country}>
-            {country} {offset}
-            <div
-              className="btn btn-link btn-sm"
-              onClick={() => {
-                const newRegions = produce(regions, draft => {
-                  draft.forEach(region => {
-                    if (region.country === country) {
-                      region.offset -= 1;
-                    }
-                  });
-                });
-                setRegions(newRegions);
-              }}
-            >
-              -
-            </div>
-            <div
-              className="btn btn-link btn-sm"
-              onClick={() => {
-                const newRegions = produce(regions, draft => {
-                  draft.forEach(region => {
-                    if (region.country === country) {
-                      region.offset += 1;
-                    }
-                  });
-                });
-                setRegions(newRegions);
-              }}
-            >
-              +
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
