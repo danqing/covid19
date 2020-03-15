@@ -8,16 +8,16 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="container">
+    <div id="app-wrapper">
       <div id="title-row" className="row">
         <div className="col-12 mx-auto">
-          <h1>COVID-19 Data Explorer</h1>
-          <h5>Let's flatten the curve together.</h5>
+          <h1 id="page-title">COVID-19 Data Explorer</h1>
+          <h5 id="page-subtitle">Let's flatten the curve together.</h5>
           <div id="title-separator" />
         </div>
       </div>
       <ChartControl />
-      <VX/>
+      <VX />
       <XAxis />
       <footer>Yada yada.</footer>
     </div>

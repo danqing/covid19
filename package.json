@@ -29,7 +29,6 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "d3-array": "^2.4.0",
-    "d3-time-format": "^2.2.3",
     "dayjs": "^1.8.22",
     "immer": "^6.0.1",
     "lodash": "^4.17.15",
