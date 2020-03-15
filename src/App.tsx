@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Chart } from "./Chart";
 import ChartControl from "./chart-control";
+import VX from "./vx";
 import XAxis from "./x-axis";
 
 import "./App.css";
@@ -17,7 +17,7 @@ function App() {
         </div>
       </div>
       <ChartControl />
-      <Chart />
+      <VX/>
       <XAxis />
       <footer>Yada yada.</footer>
     </div>

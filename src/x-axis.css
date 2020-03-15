@@ -1,3 +1,7 @@
+#x-axis hr {
+  margin-top: 0;
+}
+
 .region-row {
   position: relative;
   padding: 0.5rem 0;
