@@ -22,6 +22,30 @@ export class ChevronRight extends React.PureComponent {
   }
 }
 
+export class ChevronsLeft extends React.PureComponent {
+  render(): JSX.Element {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+        strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="11 17 6 12 11 7"/>
+        <polyline points="18 17 13 12 18 7"/>
+      </svg>
+    );
+  }
+}
+
+export class ChevronsRight extends React.PureComponent {
+  render(): JSX.Element {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+        strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="13 17 18 12 13 7"/>
+        <polyline points="6 17 11 12 6 7"/>
+      </svg>
+    );
+  }
+}
+
 export class PlusSign extends React.PureComponent {
   render(): JSX.Element {
     return (

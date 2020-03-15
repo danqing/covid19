@@ -6,7 +6,7 @@ import { AnyAction, bindActionCreators, Dispatch } from "redux";
 import { addRegion, removeRegion, shiftRegion } from "./redux/actions";
 import { AppState } from "./redux/reducers";
 import * as region from "./redux/region";
-import { PlusSign, TrashSign } from "./svg";
+import * as svg from "./svg";
 
 import "./x-axis.css";
 
@@ -45,6 +45,14 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
     this.setState({enteringRegion: false});
   }
 
+  dayString(day: dayjs.Dayjs): string {
+    const date = day.date();
+    if (date === 1 || date % 5 === 0) {
+      return day.format("MMM D");
+    }
+    return day.format("D");
+  }
+
   renderDays(offset: number): JSX.Element {
     const zero = dayjs("2020-01-21");
     return (
@@ -52,8 +60,8 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
         <div className="region-days-gradient"/>
         <div className="region-days baseline-flex">
           {[...Array(50).keys()].map(d => (
-            <div className="region-day">
-              {zero.add(d, "day").format("MMDD")}
+            <div key={d} className="region-day">
+              {this.dayString(zero.add(d, "day"))}
             </div>
           ))}
         </div>
@@ -64,13 +72,29 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
   renderRegion(r: region.IRegion): JSX.Element {
     return (
       <div className="region-row" key={r.country}>
+        <div className="region-shifter region-shifter-left">
+          <button className="btn btn-link">
+            <svg.ChevronsLeft/>
+          </button>
+          <button className="btn btn-link">
+            <svg.ChevronLeft/>
+          </button>
+        </div>
         <div className="region-name-wrapper">
           <div className="region-name">{r.country}</div>
           <button className="btn btn-link" onClick={this.removeRegion}>
-            <TrashSign />
+            <svg.TrashSign/>
           </button>
         </div>
         {this.renderDays(r.offset)}
+        <div className="region-shifter region-shifter-right">
+          <button className="btn btn-link">
+            <svg.ChevronRight/>
+          </button>
+          <button className="btn btn-link">
+            <svg.ChevronsRight/>
+          </button>
+        </div>
       </div>
     );
   }
@@ -82,7 +106,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
           <input className="form-control" type="text" autoFocus={true}
             placeholder="Country or region" onKeyUp={this.addRegion}/>
           <button className="btn btn-link" onClick={this.dismissNewRegionInput}>
-            <TrashSign />
+            <svg.TrashSign/>
           </button>
         </div>
       </div>
@@ -93,7 +117,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
     return (
       <div id="add-region" className="region-row">
         <button className="btn btn-primary" onClick={this.showNewRegionInput}>
-          <PlusSign/>
+          <svg.PlusSign/>
           <span>Add Country / Region</span>
         </button>
       </div>

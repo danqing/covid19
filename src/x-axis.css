@@ -23,7 +23,7 @@
 }
 
 .region-days {
-  font-size: 1.25rem;
+  line-height: 1.875rem;
   overflow: hidden;
   color: var(--gray);
 }
@@ -33,8 +33,47 @@
   text-align: center;
 }
 
+.region-shifter {
+  position: absolute;
+  top: 0.5rem;
+  line-height: 1.875rem;
+  display: flex;
+}
+
+.region-shifter button {
+  padding: 0 0.125rem;
+  height: 1.875rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  color: var(--yellow);
+}
+
+.region-shifter button:hover,
+.region-shifter button:focus,
+.region-shifter button:active {
+  color: var(--yellow);
+  transform: scale(1.2);
+}
+
+.region-shifter button svg {
+  width: 24px;
+}
+
+.region-shifter-left {
+  left: -60px;
+}
+
+.region-shifter-right {
+  right: -60px;
+}
+
 #region-input-row, #add-region {
   margin-top: 1rem;
+}
+
+#region-input-row input {
+  margin-left: -0.75rem;
 }
 
 .region-name-wrapper {
@@ -69,6 +108,7 @@
 }
 
 #add-region button {
+  margin-left: -2.25rem;
   height: 2.5rem;
   border-radius: 1.25rem;
   display: flex;
