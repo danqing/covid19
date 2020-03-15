@@ -65,20 +65,34 @@ const casesToPoints = (
   }));
 };
 
-const colors = ["red", "green", "blue"];
+const colors = [
+  "red",
+  "green",
+  "blue",
+  "purple",
+  "brown",
+  "gray",
+  "orange",
+  "turquoise",
+  "gray"
+];
+
+export const getCountryToColor = (countries: string[]) => {
+  const sortedCountries = _.sortBy(countries);
+  return _.fromPairs(
+    _.map(countries, country => {
+      const countryIdx = sortedCountries.indexOf(country);
+      return [country, colors[countryIdx]];
+    })
+  );
+};
 
 type CountryToOffset = { [country: string]: number };
 
 const getData = async (countryToOffset: CountryToOffset, zoom: number) => {
   const countryToCases: any = {};
 
-  const sortedCountries = _.sortBy(Object.keys(countryToOffset));
-  const countryToColor = _.fromPairs(
-    _.map(countryToOffset, (_offset, country) => {
-      const countryIdx = sortedCountries.indexOf(country);
-      return [country, colors[countryIdx]];
-    })
-  );
+  const countryToColor = getCountryToColor(Object.keys(countryToOffset));
 
   for (const country of Object.keys(countryToOffset)) {
     countryToCases[country] = await getCasesForCountry(country);
