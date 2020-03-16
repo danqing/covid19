@@ -21,6 +21,7 @@ import { AppState, EScale } from "./redux/reducers";
 import "./vx.css";
 
 const range = (n: number): number[] => Array.from(Array(n).keys());
+const logTicks = new Set([1, 10, 100, 1000, 10000, 100000]);
 
 interface IVXDataPoint {
   date: number;
@@ -211,6 +212,12 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       curve: curveMonotoneX
     };
 
+    const logFormat = (n: number | { valueOf(): number; }, i: number) => {
+      let value = typeof n === "number" ? n : n.valueOf();
+      return logTicks.has(value) ? format(".2s")(n) : "";
+    };
+    const axisFormat = scale === EScale.Log ? logFormat : format(".2s");
+
     return (
       <Measure
         bounds
@@ -220,18 +227,21 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       >
         {({ measureRef }) => (
           <div ref={measureRef}>
-            <svg width={dims.width} height={350}>
+            <svg width={dims.width} height={300}>
               <AxisLeft
                 top={margin.top}
                 left={0}
                 scale={yScale}
                 hideZero
                 numTicks={5}
-                tickFormat={format(".2s")}
+                tickFormat={axisFormat}
+                tickStroke="transparent"
+                stroke="transparent"
                 tickLabelProps={() => ({
                   fill: "var(--gray)",
                   textAnchor: "end",
                   fontSize: 10,
+                  dx: "0em",
                   dy: "0.25em"
                 })}
                 tickComponent={({ formattedValue, ...tickProps }) => (
@@ -263,7 +273,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                 x={0}
                 y={0}
                 width={dims.width}
-                height={350}
+                height={300}
                 fill="transparent"
                 onTouchStart={handleTooltip}
                 onTouchMove={handleTooltip}

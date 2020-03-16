@@ -41,7 +41,10 @@
     to right,
     white,
     #ffffffcc 150px,
-    #ffffff00 200px
+    #ffffff00 200px,
+    #ffffff00 85%,
+    #ffffffcc 90%,
+    white
   );
 }
 
@@ -60,15 +63,11 @@
   height: 1.875rem;
 }
 
-.region-day-inner, .region-day-inner-mobile {
+.region-day-inner {
   position: absolute;
   width: 100%;
   text-align: center;
   left: -50%;
-}
-
-.region-day-inner-mobile {
-  display: none;
 }
 
 .region-shifter {
@@ -113,8 +112,27 @@
 .region-name-wrapper {
   z-index: 2;
   position: absolute;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.region-name-wrapper, .region-name-wrapper-inner {
   display: flex;
   align-items: center;
+}
+
+.region-name-wrapper .delta {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.region-name-wrapper .delta-ahead {
+  color: var(--green);
+}
+
+.region-name-wrapper .delta-behind {
+  color: var(--red);
 }
 
 .region-name-wrapper button {
@@ -164,7 +182,10 @@
       to right,
       #1d2024,
       #1d2024cc 150px,
-      #1d202400 200px
+      #1d202400 200px,
+      #1d202400 85%,
+      #1d2024cc 90%,
+      #1d2024
     );
   }
 }
@@ -211,33 +232,7 @@
     display: none;
   }
 
-  .region-day {
-    opacity: 0;
-  }
-
-  .region-day-3 {
-    opacity: 1;
-  }
-
-  .region-day-inner {
-    display: none;
-  }
-
-  .region-day-inner-mobile {
-    display: block;
-  }
-
   #add-region svg {
     width: 1rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .region-day-3 {
-    opacity: 0;
-  }
-
-  .region-day.region-day-4 {
-    opacity: 1;
   }
 }

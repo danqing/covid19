@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import dayOfYear from "dayjs/plugin/dayOfYear";
 import React from "react";
+import Measure, { BoundingRect } from "react-measure";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
 
@@ -19,13 +20,24 @@ type TXAxisProps = ReturnType<typeof mapStateToProps> &
 
 interface IXAxisState {
   enteringRegion: boolean;
+  dims: BoundingRect;
 }
 
 class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
   constructor(props: TXAxisProps) {
     super(props);
 
-    this.state = { enteringRegion: false };
+    this.state = {
+      enteringRegion: false,
+      dims: {
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        width: 1000,
+        height: 1000
+      }
+    };
     this.addRegion = this.addRegion.bind(this);
     this.removeRegion = this.removeRegion.bind(this);
     this.shiftRegionBack1 = this.shiftRegionBack1.bind(this);
@@ -78,30 +90,18 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
     this.setState({ enteringRegion: false });
   }
 
-  dayClass(day: dayjs.Dayjs): string {
-    let cls = ["region-day"];
-    const date = day.dayOfYear();
-    if (date % 3 === 1) {
-      cls.push("region-day-3");
-    }
-    if (date % 4 === 1) {
-      cls.push("region-day-4");
-    }
-    return cls.join(" ");
-  }
-
   dayString(day: dayjs.Dayjs): string {
+    let modulo = 2;
+    if (this.state.dims.width < 500) {
+      modulo = 4;
+    } else if (this.state.dims.width < 700) {
+      modulo = 3;
+    }
     const date = day.dayOfYear();
-    if (date % 4 === 1) {
-      return day.format("MMM D");
-    }
-    if (date % 2 === 0) {
-      return "·";
-    }
-    return day.format("D");
+    return date % modulo === 0 ? day.format("M/D") : "·";
   }
 
-  renderDays(offset: number): JSX.Element {
+  renderDays(offset: number, i: number): JSX.Element {
     const zero = dayjs("2020-01-21");
     return (
       <div className="region-days-wrapper">
@@ -109,20 +109,37 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
         <div
           className="region-days baseline-flex"
           style={{
-            transform: `translateX(${(offset * 100) / 16}%`
+            transform: `translateX(${(offset * 100) / 16}%`,
+            color: `var(--series-color-${i % 6})`,
           }}
         >
           {[...Array(60).keys()].map(d => (
-            <div key={d} className={this.dayClass(zero.add(d, "day"))}>
+            <div key={d} className="region-day">
               <div className="region-day-inner">
                 {this.dayString(zero.add(d, "day"))}
-              </div>
-              <div className="region-day-inner-mobile">
-                {zero.add(d, "day").format("M/D")}
               </div>
             </div>
           ))}
         </div>
+      </div>
+    );
+  }
+
+  renderOffset(offset: number): JSX.Element {
+    if (this.props.regions.length === 0) {
+      return <div/>;
+    }
+
+    const base = this.props.regions[0].offset;
+    const delta = offset - base;
+    if (delta === 0) {
+      return <div/>;
+    }
+
+    const cls = delta > 0 ? "delta-ahead": "delta-behind";
+    return (
+      <div className={cls + " delta"}>
+        {`${Math.abs(delta)}d ${delta > 0 ? "ahead" : "behind"}`}
       </div>
     );
   }
@@ -140,15 +157,18 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
           </button>
         </div>
         <div className="region-name-wrapper">
-          <div className="region-icon" style={{
-            backgroundColor: `var(--series-color-${i % 6})`
-          }}/>
-          <div className="region-name">{r.country}</div>
-          <button {...buttonAttrs} onClick={this.removeRegion}>
-            <svg.TrashSign />
-          </button>
+          <div className="region-name-wrapper-inner">
+            <div className="region-icon" style={{
+              backgroundColor: `var(--series-color-${i % 6})`
+            }}/>
+            <div className="region-name">{r.country}</div>
+            <button {...buttonAttrs} onClick={this.removeRegion}>
+              <svg.TrashSign />
+            </button>
+          </div>
+          {this.renderOffset(r.offset)}
         </div>
-        {this.renderDays(r.offset)}
+        {this.renderDays(r.offset, i)}
         <div className="region-shifter region-shifter-right">
           <button {...buttonAttrs} onClick={this.shiftRegionForward1}>
             <svg.ChevronRight />
@@ -174,15 +194,22 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
 
   render(): JSX.Element {
     return (
-      <div id="x-axis">
-        <hr />
-        {this.props.regions.map((r, i) => this.renderRegion(r, i))}
-        {this.state.enteringRegion ? (
-          <AddRegion onSuccess={() => this.dismissNewRegionInput()} />
-        ) : (
-          this.renderAddRegion()
+      <Measure
+        bounds
+        onResize={r => { r.bounds && this.setState({dims: r.bounds}); }}
+      >
+        {({ measureRef }) => (
+          <div id="x-axis" ref={measureRef}>
+            <hr />
+            {this.props.regions.map((r, i) => this.renderRegion(r, i))}
+            {this.state.enteringRegion ? (
+              <AddRegion onSuccess={() => this.dismissNewRegionInput()} />
+            ) : (
+              this.renderAddRegion()
+            )}
+          </div>
         )}
-      </div>
+      </Measure>
     );
   }
 }
