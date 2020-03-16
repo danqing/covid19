@@ -33,6 +33,10 @@
   margin-right: 0.5rem;
 }
 
+.chart {
+  overflow-y: hidden;
+}
+
 footer {
   margin-top: 60px;
   padding: 40px 0;

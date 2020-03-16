@@ -23,12 +23,12 @@ function App() {
         </div>
       </div>
       <ChartControl />
-      <div className="vx-wrapper">
-        <VX />
+      <div className="chart">
+        <div className="vx-wrapper">
+          <VX />
+        </div>
+        <XAxis />
       </div>
-
-      <XAxis />
-
       <footer>
         <p>
           Made by <a href={"https://twitter.com/danqing_liu"}>@danqing_liu</a>{" "}

@@ -285,7 +285,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                 <g>
                   <Line
                     from={{ x: tooltipLeft, y: 0 }}
-                    to={{ x: tooltipLeft, y: yMax }}
+                    to={{ x: tooltipLeft, y: 10000 }}
                     stroke="var(--gray)"
                     strokeWidth={1}
                     style={{ pointerEvents: "none" }}

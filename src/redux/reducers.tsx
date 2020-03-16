@@ -77,7 +77,7 @@ function setRegions(state: AppState, regions: IRegion[]): AppState {
 
 function addRegion(state: AppState, name: string): AppState {
   let regions = [...state.regions];
-  regions.push({ country: name, offset: 0 });
+  regions.push({ country: name, offset: -30 });
   return persistedState({ ...state, regions });
 }
 
