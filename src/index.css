@@ -7,6 +7,12 @@
   --series-color-5: #173db8;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
