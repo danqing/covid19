@@ -113,7 +113,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
             transform: `translateX(${offset * 100 / 16}%`
           }}
         >
-          {[...Array(50).keys()].map(d => (
+          {[...Array(60).keys()].map(d => (
             <div key={d} className={this.dayClass(zero.add(d, "day"))}>
               <div className="region-day-inner">
                 {this.dayString(zero.add(d, "day"))}
