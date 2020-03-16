@@ -23,7 +23,14 @@
   width: 120px;
   height: 4px;
   background-color: var(--yellow);
+}
+
+.divider {
   margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 0.5rem;
 }
 
 footer {
