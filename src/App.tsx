@@ -5,6 +5,7 @@ import VX from "./vx";
 import XAxis from "./x-axis";
 
 import "./App.css";
+import { TwitterButton } from "./TwitterButton";
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
           <h5 id="page-subtitle">
             Understand COVID growth rates between different countries.
           </h5>
-          <div id="title-separator" />
+          <div className="divider">
+            <div id="title-separator" />
+            <TwitterButton/>
+          </div>
         </div>
       </div>
       <ChartControl />
