@@ -5,7 +5,6 @@ import VX from "./vx";
 import XAxis from "./x-axis";
 
 import "./App.css";
-import { TwitterButton } from "./TwitterButton";
 
 function App() {
   return (

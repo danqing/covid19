@@ -28,7 +28,13 @@
 
 footer {
   margin-top: 60px;
-  padding: 40px;
+  padding: 40px 0;
+  color: var(--gray);
+  font-size: 0.75rem;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,11 +45,11 @@ footer {
 
 @media (max-width: 700px) {
   #app-wrapper {
-    padding: 0 2.5rem;
+    padding: 0 2rem;
   }
 
   #title-row {
-    padding: 2.5rem 0;
+    padding: 2rem 0;
   }
 
   #page-title {
@@ -83,6 +89,6 @@ footer {
   }
 
   footer {
-    padding: 10px;
+    padding: 10px 0;
   }
 }

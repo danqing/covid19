@@ -17,10 +17,6 @@
   padding-right: 1rem;
 }
 
-/* #scale-toggle {
-  margin-right: 1rem;
-} */
-
 #scale-toggle button {
   color: var(--gray-dark);
   text-decoration: none;
@@ -50,5 +46,21 @@
 @media (prefers-color-scheme: dark) {
   #scale-toggle button, #zoom-control svg {
     color: white;
+  }
+}
+
+@media (max-width: 500px) {
+  #mode-control button {
+    padding-left: 0.5rem;
+    padding-right: 0.25rem;
+  }
+
+  #mode-control button:after {
+    margin: 0 0.125rem 0 0.25rem;
+  }
+
+  #mode-control .dropdown-item {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
