@@ -6,6 +6,10 @@
   overflow: visible;
 }
 
+.vx-tooltip-portal {
+  z-index: 10;
+}
+
 .tooltip-desc {
   font-size: 0.75rem;
   margin-bottom: 0.5rem;
