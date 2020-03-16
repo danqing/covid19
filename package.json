@@ -50,7 +50,7 @@
   },
   "scripts": {
     "start": "PORT=2020 react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -r docs && mv build docs && echo 'cream.io' > docs/CNAME",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
