@@ -124,8 +124,6 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       const xValue = localPoint(event)?.x || 0;
       const index = Math.round(xScale.invert(xValue));
 
-      console.log(index);
-
       let tooltipData: IVXTooltipData[] = [];
       for (let i = 0; i < vxData.length; i++) {
         const currentData = vxData[i];
