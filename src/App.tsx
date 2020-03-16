@@ -45,6 +45,8 @@ function App() {
           <a href={"https://github.com/danqing/covid19/"}>Github</a>. Credit to
           Algolia for search.
         </p>
+
+        <p>Last updated on March 15 21:00 ET.</p>
       </footer>
     </div>
   );
