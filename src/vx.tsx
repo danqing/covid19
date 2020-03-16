@@ -195,13 +195,13 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
     }
     let yScale = scaleLinear({
       range: [dims.height, 0],
-      domain: [0, (maxY * 6) / 5],
+      domain: [0, maxY],
       nice: true
     });
     if (scale === EScale.Log) {
       yScale = scaleLog({
         range: [dims.height, 0],
-        domain: [1, (maxY * 6) / 5],
+        domain: [1, maxY],
         nice: true
       });
     }
