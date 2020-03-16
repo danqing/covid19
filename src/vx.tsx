@@ -297,16 +297,21 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
             {tooltipData && (
               <div>
                 {tooltipData.map(d => {
+                  let style = {
+                    color: d.color,
+                    backgroundColor: "transparent",
+                    boxShadow: "none"
+                  };
+                  if (d.date > 10) {
+                    style["transform"] = "translateX(-100%)";
+                    style["textAlign"] = "right";
+                  }
                   return (
                     <Tooltip
                       key={d.name}
                       top={d.y - 30}
                       left={tooltipLeft}
-                      style={{
-                        color: d.color,
-                        backgroundColor: "transparent",
-                        boxShadow: "none"
-                      }}
+                      style={style}
                     >
                       <div className="tooltip-desc">
                         <b>{`${d.name}`}</b>

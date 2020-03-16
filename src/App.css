@@ -34,7 +34,7 @@
 }
 
 .chart {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 footer {
