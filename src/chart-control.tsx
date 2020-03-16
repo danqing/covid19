@@ -9,6 +9,7 @@ import { AppState, EScale } from "./redux/reducers";
 import { PlusSign, MinusSign } from "./svg";
 
 import "./chart-control.css";
+import { TwitterButton } from "./TwitterButton";
 
 type TChartControlProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps>;
@@ -108,6 +109,7 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
         {this.renderModePicker()}
         <div className="baseline-flex">
           {this.renderScaleToggle()}
+          <TwitterButton />
         </div>
       </div>
     );

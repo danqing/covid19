@@ -81,4 +81,8 @@ footer {
     width: 80px;
     height: 2px;
   }
+
+  footer {
+    padding: 10px;
+  }
 }
