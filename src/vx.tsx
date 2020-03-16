@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { max } from "d3-array";
 import React from "react";
 import Measure, { BoundingRect } from "react-measure";
@@ -108,6 +109,9 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       const index = Math.round(xScale.invert(xValue));
       let tooltipData: IVXTooltipData[] = [];
       for (let i = 0; i < vxData.length; i++) {
+        if (index >= vxData[i].points.length) {
+          continue;
+        }
         const value = y(vxData[i].points[index]);
         tooltipData.push({
           name: vxData[i].name,
@@ -270,7 +274,10 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                       boxShadow: "none"
                     }}
                   >
-                    <div className="tooltip-desc">{`${d.name}`}</div>
+                    <div className="tooltip-desc">
+                      <b>{`${d.name}`}</b>
+                      <span>{`- ${dayjs("2020-01-21").add(d.date + d.offset, "day").format("MMM D")}`}</span>
+                    </div>
                     <div className="tooltip-value">{`${d.value}`}</div>
                   </Tooltip>
                 ))}
