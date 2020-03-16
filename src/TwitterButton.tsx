@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Twitter } from "react-social-sharing";
 
 export const TwitterButton = () => {
   const [url, setUrl] = useState(window["location"].href);
@@ -9,7 +8,7 @@ export const TwitterButton = () => {
   }, [window["location"].href]);
 
   return (
-    <div style={{ marginLeft: 10, display: "inline-block" }}>
+    <div style={{ marginLeft: 10 }}>
       <a
         style={{ display: "none" }}
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"

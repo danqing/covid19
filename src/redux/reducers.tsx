@@ -1,10 +1,10 @@
 import qs from "query-string";
 
 import * as actions from "./actions";
-import {ReduxAction} from "./actions";
+import { ReduxAction } from "./actions";
 import * as mode from "./mode";
 import * as region from "./region";
-import {IRegion} from "./region";
+import { IRegion } from "./region";
 
 export enum EScale {
   Linear = "linear",
@@ -23,8 +23,9 @@ const defaultState: AppState = {
   zoom: 3,
   mode: mode.EMode.TotalCases,
   regions: [
-    { country: "United States", offset: -10 },
-    { country: "China", offset: 20 }
+    { country: "United States", offset: -38 },
+    { country: "Italy", offset: -27 },
+    { country: "South Korea", offset: -23 }
   ]
 };
 
@@ -75,19 +76,19 @@ function setRegions(state: AppState, regions: IRegion[]): AppState {
 }
 
 function addRegion(state: AppState, name: string): AppState {
-  let regions = [ ...state.regions ];
+  let regions = [...state.regions];
   regions.push({ country: name, offset: 0 });
   return persistedState({ ...state, regions });
 }
 
 function removeRegion(state: AppState, index: number): AppState {
-  let regions = [ ...state.regions ];
+  let regions = [...state.regions];
   regions.splice(index, 1);
   return persistedState({ ...state, regions });
 }
 
 function shiftRegion(state: AppState, index: number, by: number): AppState {
-  let regions = [ ...state.regions ];
+  let regions = [...state.regions];
   regions[index] = { ...regions[index], offset: regions[index].offset + by };
   return persistedState({ ...state, regions });
 }
