@@ -17,7 +17,6 @@ import { localPoint } from "@vx/event";
 
 import { ModeToAllCountryData } from "./redux/mode";
 import { AppState, EScale } from "./redux/reducers";
-import { hashCode } from "./util";
 
 import "./vx.css";
 
@@ -108,15 +107,43 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
           date: idx,
           value: dayToCases[idx - offset] || 0
         }))
-        .filter(point => point.value != null && point.value != 0);
+        .filter(point => point.value !== null && point.value !== 0);
 
       vxData.push({
         name: country,
-        color: `var(--series-color-${hashCode(country) % 8})`,
+        color: `var(--series-color-${vxData.length % 6})`,
         offset,
         points
       });
     });
+
+    const tooltipShifter = (data: IVXTooltipData[]): IVXTooltipData[] => {
+      if (data.length < 2) {
+        return data;
+      }
+
+      data = data.sort((a, b) => (a.y > b.y) ? 1 : -1);
+      const middle = Math.floor(data.length / 2);
+
+      if (data[middle].y - data[middle - 1].y < 40) {
+        data[middle].y = data[middle].y + 20;
+        data[middle - 1].y = data[middle - 1].y - 20;
+      }
+
+      for (let i = middle - 2; i >= 0; i--) {
+        if (data[i + 1].y - data[i].y < 40) {
+          data[i].y = data[i + 1].y - 40;
+        }
+      }
+
+      for (let i = middle + 1; i < data.length; i++) {
+        if (data[i].y - data[i - 1].y < 40) {
+          data[i].y = data[i - 1].y + 40;
+        }
+      }
+
+      return data;
+    }
 
     const handleTooltip = (
       event: React.TouchEvent<SVGRectElement> | React.MouseEvent<SVGRectElement>
@@ -150,7 +177,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       }
 
       showTooltip({
-        tooltipData,
+        tooltipData: tooltipShifter(tooltipData),
         tooltipLeft: xScale(index),
         tooltipTop: 0
       });
@@ -167,13 +194,13 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
     }
     let yScale = scaleLinear({
       range: [dims.height, 0],
-      domain: [0, (maxY * 6) / 5],
+      domain: [0, maxY],
       nice: true
     });
     if (scale === EScale.Log) {
       yScale = scaleLog({
         range: [dims.height, 0],
-        domain: [1, (maxY * 6) / 5],
+        domain: [1, maxY],
         nice: true
       });
     }
@@ -193,21 +220,18 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       >
         {({ measureRef }) => (
           <div ref={measureRef}>
-            <svg width={dims.width} height={300}>
+            <svg width={dims.width} height={350}>
               <AxisLeft
                 top={margin.top}
                 left={0}
                 scale={yScale}
                 hideZero
                 numTicks={5}
-                stroke="var(--gray)"
-                tickStroke="var(--gray)"
                 tickFormat={format(".2s")}
                 tickLabelProps={() => ({
                   fill: "var(--gray)",
                   textAnchor: "end",
                   fontSize: 10,
-                  dx: "-0.25em",
                   dy: "0.25em"
                 })}
                 tickComponent={({ formattedValue, ...tickProps }) => (
@@ -239,7 +263,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                 x={0}
                 y={0}
                 width={dims.width}
-                height={300}
+                height={350}
                 fill="transparent"
                 onTouchStart={handleTooltip}
                 onTouchMove={handleTooltip}
