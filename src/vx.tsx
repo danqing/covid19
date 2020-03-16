@@ -221,7 +221,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       >
         {({ measureRef }) => (
           <div ref={measureRef}>
-            <svg width={dims.width} height={300}>
+            <svg width={dims.width} height={350}>
               <AxisLeft
                 top={margin.top}
                 left={0}
@@ -264,7 +264,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                 x={0}
                 y={0}
                 width={dims.width}
-                height={300}
+                height={350}
                 fill="transparent"
                 onTouchStart={handleTooltip}
                 onTouchMove={handleTooltip}

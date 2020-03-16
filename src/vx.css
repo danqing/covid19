@@ -9,6 +9,7 @@
 .tooltip-desc {
   font-size: 0.75rem;
   margin-bottom: 0.5rem;
+  white-space: nowrap;
   text-shadow:
     0 0 5px white,
     -1px -1px 0 white,
