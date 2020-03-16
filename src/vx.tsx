@@ -267,6 +267,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                 fill="transparent"
                 onTouchStart={handleTooltip}
                 onTouchMove={handleTooltip}
+                onTouchEnd={hideTooltip}
                 onMouseEnter={handleTooltip}
                 onMouseMove={handleTooltip}
                 onMouseLeave={hideTooltip}
