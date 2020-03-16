@@ -126,20 +126,20 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       data = data.sort((a, b) => (a.y > b.y) ? 1 : -1);
       const middle = Math.floor(data.length / 2);
 
-      if (data[middle].y - data[middle - 1].y < 40) {
-        data[middle].y = data[middle].y + 20;
-        data[middle - 1].y = data[middle - 1].y - 20;
+      if (data[middle].y - data[middle - 1].y < 50) {
+        data[middle].y = data[middle].y + 25;
+        data[middle - 1].y = data[middle - 1].y - 25;
       }
 
       for (let i = middle - 2; i >= 0; i--) {
-        if (data[i + 1].y - data[i].y < 40) {
-          data[i].y = data[i + 1].y - 40;
+        if (data[i + 1].y - data[i].y < 50) {
+          data[i].y = data[i + 1].y - 50;
         }
       }
 
       for (let i = middle + 1; i < data.length; i++) {
-        if (data[i].y - data[i - 1].y < 40) {
-          data[i].y = data[i - 1].y + 40;
+        if (data[i].y - data[i - 1].y < 50) {
+          data[i].y = data[i - 1].y + 50;
         }
       }
 

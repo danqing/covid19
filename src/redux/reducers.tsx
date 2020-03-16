@@ -23,9 +23,9 @@ const defaultState: AppState = {
   zoom: 3,
   mode: mode.EMode.TotalCases,
   regions: [
-    { country: "United States", offset: -38 },
-    { country: "Italy", offset: -27 },
-    { country: "South Korea", offset: -23 }
+    { country: "United States", offset: -39 },
+    { country: "Italy", offset: -28 },
+    { country: "South Korea", offset: -24 }
   ]
 };
 
