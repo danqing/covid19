@@ -26,6 +26,11 @@ code {
   align-items: baseline;
 }
 
+.center-flex {
+  display: flex;
+  align-items: center;
+}
+
 button.btn {
   transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
 }

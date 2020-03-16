@@ -107,7 +107,7 @@ class ChartControl extends React.PureComponent<TChartControlProps, {}> {
     return (
       <div id="chart-control" className="baseline-flex">
         {this.renderModePicker()}
-        <div className="baseline-flex">
+        <div className="center-flex">
           {this.renderScaleToggle()}
           <TwitterButton />
         </div>
