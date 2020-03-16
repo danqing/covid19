@@ -1,14 +1,21 @@
-#title-row {
-  padding: 60px 0;
+#app-wrapper {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 4rem;
 }
 
-h1 {
+#title-row {
+  padding: 4rem 0;
+}
+
+#page-title {
   font-family: 'DM Serif Text', serif;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--gray-dark);
 }
 
-h5 {
+#page-subtitle {
+  font-size: 1.5rem;
   color: var(--gray);
 }
 
@@ -25,7 +32,53 @@ footer {
 }
 
 @media (prefers-color-scheme: dark) {
-  h1 {
+  #page-title {
     color: white;
+  }
+}
+
+@media (max-width: 700px) {
+  #app-wrapper {
+    padding: 0 2.5rem;
+  }
+
+  #title-row {
+    padding: 2.5rem 0;
+  }
+
+  #page-title {
+    font-size: 2rem;
+  }
+
+  #page-subtitle {
+    font-size: 1.25rem;
+  }
+
+  #title-separator {
+    width: 100px;
+    height: 3px;
+  }
+}
+
+@media (max-width: 500px) {
+  #app-wrapper {
+    padding: 0 1rem;
+  }
+
+  #title-row {
+    padding: 1rem 0 2rem 0;
+  }
+
+  #page-title {
+    font-size: 1.75rem;
+  }
+
+  #page-subtitle {
+    font-size: 1rem;
+  }
+
+  #title-separator {
+    width: 80px;
+    height: 2px;
   }
 }

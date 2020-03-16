@@ -1,6 +1,6 @@
 #chart-control {
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 #mode-control button {
@@ -17,9 +17,9 @@
   padding-right: 1rem;
 }
 
-#scale-toggle {
+/* #scale-toggle {
   margin-right: 1rem;
-}
+} */
 
 #scale-toggle button {
   color: var(--gray-dark);

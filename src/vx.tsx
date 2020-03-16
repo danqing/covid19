@@ -1,20 +1,25 @@
+import dayjs from "dayjs";
 import { max } from "d3-array";
 import React from "react";
 import Measure, { BoundingRect } from "react-measure";
 import { connect } from "react-redux";
 import _ from "lodash";
+import { format } from "d3-format";
 
+import { AxisLeft } from "@vx/axis";
+import { Grid } from "@vx/grid";
 import { Bar, Line, LinePath } from "@vx/shape";
 import { curveMonotoneX } from "@vx/curve";
-import { scaleLinear } from "@vx/scale";
+import { scaleLinear, scaleLog } from "@vx/scale";
 import { Tooltip, withTooltip } from "@vx/tooltip";
 import { WithTooltipProvidedProps } from "@vx/tooltip/lib/enhancers/withTooltip";
 import { localPoint } from "@vx/event";
 
-import { AppState } from "./redux/reducers";
+import { ModeToAllCountryData } from "./redux/mode";
+import { AppState, EScale } from "./redux/reducers";
+import { hashCode } from "./util";
 
 import "./vx.css";
-import { ModeToAllCountryData } from "./redux/mode";
 
 const range = (n: number): number[] => Array.from(Array(n).keys());
 
@@ -60,19 +65,7 @@ type TVXProps = IVXProps &
   IVXProvidedProps &
   ReturnType<typeof mapStateToProps>;
 
-const DAYS_TO_SHOW = 15;
-
-const COLORS = [
-  "red",
-  "green",
-  "blue",
-  "purple",
-  "brown",
-  "gray",
-  "orange",
-  "turquoise",
-  "gray"
-];
+const DAYS_TO_SHOW = 17;
 
 const VX = withTooltip<TVXProps, IVXTooltipData[]>(
   ({
@@ -83,6 +76,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
     tooltipTop = 0,
     tooltipLeft = 0,
     mode,
+    scale,
     regions
   }: TVXProps & WithTooltipProvidedProps<IVXTooltipData[]>) => {
     const [dims, setDims] = React.useState<BoundingRect>({
@@ -94,6 +88,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       height: 100
     });
 
+    const xMax = dims.width - margin.left - margin.right;
     const yMax = dims.height - margin.top - margin.bottom;
 
     const handleTooltip = (
@@ -103,7 +98,10 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       const index = Math.round(xScale.invert(xValue));
       let tooltipData: IVXTooltipData[] = [];
       for (let i = 0; i < vxData.length; i++) {
-        const value = y(vxData[i].points[index - 1]);
+        if (index >= vxData[i].points.length) {
+          continue;
+        }
+        const value = y(vxData[i].points[index]);
         tooltipData.push({
           name: vxData[i].name,
           color: vxData[i].color,
@@ -135,33 +133,40 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
 
       const points = range(DAYS_TO_SHOW)
         .map(idx => ({
-          date: idx + 1,
-          value: dayToCases[idx - offset] || null
+          date: idx,
+          value: dayToCases[idx - offset] || 0
         }))
-        .filter(point => point.value != null);
+        .filter(point => point.value != null && point.value != 0);
 
       vxData.push({
         name: country,
-        color: COLORS[idx],
-        offset: 10,
+        color: `var(--series-color-${hashCode(country) % 8})`,
+        offset,
         points
       });
     });
 
     const xScale = scaleLinear({
       range: [0, dims.width],
-      domain: [1, 10]
+      domain: [0, DAYS_TO_SHOW - 1]
     });
 
     let maxY = 0;
     for (let i = 0; i < vxData.length; i++) {
       maxY = Math.max(max(vxData[i].points, y) || 0, maxY);
     }
-    const yScale = scaleLinear({
+    let yScale = scaleLinear({
       range: [dims.height, 0],
       domain: [0, (maxY * 6) / 5],
       nice: true
     });
+    if (scale === EScale.Log) {
+      yScale = scaleLog({
+        range: [dims.height, 0],
+        domain: [1, (maxY * 6) / 5],
+        nice: true
+      });
+    }
 
     const common = {
       x: (d: IVXDataPoint) => xScale(x(d)),
@@ -179,6 +184,38 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
         {({ measureRef }) => (
           <div ref={measureRef}>
             <svg width={dims.width} height={300}>
+              <AxisLeft
+                top={margin.top}
+                left={0}
+                scale={yScale}
+                hideZero
+                numTicks={5}
+                stroke="var(--gray)"
+                tickStroke="var(--gray)"
+                tickFormat={format(".2s")}
+                tickLabelProps={() => ({
+                  fill: "var(--gray)",
+                  textAnchor: "end",
+                  fontSize: 10,
+                  dx: "-0.25em",
+                  dy: "0.25em"
+                })}
+                tickComponent={({ formattedValue, ...tickProps }) => (
+                  <text {...tickProps}>{formattedValue}</text>
+                )}
+              />
+              <Grid
+                top={margin.top}
+                left={margin.left}
+                xScale={xScale}
+                yScale={yScale}
+                stroke="var(--gray)"
+                opacity={0.1}
+                width={xMax}
+                height={yMax}
+                numTicksRows={5}
+                numTicksColumns={10}
+              />
               {vxData.map(d => (
                 <LinePath
                   key={d.name}
@@ -215,21 +252,28 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
             </svg>
             {tooltipData && (
               <div>
-                {tooltipData.map(d => (
-                  <Tooltip
-                    key={d.name}
-                    top={d.y - 20}
-                    left={tooltipLeft}
-                    style={{
-                      color: d.color,
-                      backgroundColor: "transparent",
-                      boxShadow: "none"
-                    }}
-                  >
-                    <div className="tooltip-desc">{`${d.name}`}</div>
-                    <div className="tooltip-value">{`${d.value}`}</div>
-                  </Tooltip>
-                ))}
+                {tooltipData.map(d => {
+                  return (
+                    <Tooltip
+                      key={d.name}
+                      top={d.y - 30}
+                      left={tooltipLeft}
+                      style={{
+                        color: d.color,
+                        backgroundColor: "transparent",
+                        boxShadow: "none"
+                      }}
+                    >
+                      <div className="tooltip-desc">
+                        <b>{`${d.name}`}</b>
+                        <span>{`- ${dayjs("2020-01-21")
+                          .add(d.date - d.offset, "day")
+                          .format("MMM D")}`}</span>
+                      </div>
+                      <div className="tooltip-value">{`${d.value}`}</div>
+                    </Tooltip>
+                  );
+                })}
               </div>
             )}
           </div>

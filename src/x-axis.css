@@ -1,3 +1,7 @@
+#x-axis {
+  padding: 0 60px;
+}
+
 #x-axis hr {
   margin-top: 0;
 }
@@ -7,9 +11,17 @@
   padding: 0.5rem 0;
 }
 
+.region-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.75rem;
+  border-radius: 50%;
+}
+
 .region-name {
   font-size: 1.25rem;
   font-weight: bold;
+  color: var(--gray-dark);
 }
 
 .region-days-wrapper {
@@ -40,8 +52,22 @@
 }
 
 .region-day {
-  flex: 0 0 10%;
+  flex: 0 0 6.25%;
   text-align: center;
+  white-space: nowrap;
+  position: relative;
+  height: 1.875rem;
+}
+
+.region-day-inner, .region-day-inner-mobile {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: -50%;
+}
+
+.region-day-inner-mobile {
+  display: none;
 }
 
 .region-shifter {
@@ -115,6 +141,7 @@
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
+  margin-left: -0.875rem;
 }
 
 #add-region button:hover {
@@ -138,5 +165,78 @@
       #1d2024cc 150px,
       #1d202400 200px
     );
+  }
+}
+
+@media (max-width: 700px) {
+  #x-axis {
+    padding: 0 20px;
+  }
+
+  .region-row {
+    padding: 0;
+  }
+
+  .region-name-wrapper {
+    position: relative;
+  }
+
+  .region-name {
+    font-size: 1rem;
+  }
+
+  .region-days-gradient {
+    display: none;
+  }
+
+  .region-days-wrapper {
+    line-height: 1;
+  }
+
+  .region-shifter {
+    top: 1rem;
+  }
+
+  .region-shifter-left {
+    left: -30px;
+  }
+
+  .region-shifter-right {
+    right: -30px;
+  }
+
+  .region-shifter-left button:first-child,
+  .region-shifter-right button:last-child {
+    display: none;
+  }
+
+  .region-day {
+    opacity: 0;
+  }
+
+  .region-day-3 {
+    opacity: 1;
+  }
+
+  .region-day-inner {
+    display: none;
+  }
+
+  .region-day-inner-mobile {
+    display: block;
+  }
+
+  #add-region svg {
+    width: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .region-day-3 {
+    opacity: 0;
+  }
+
+  .region-day.region-day-4 {
+    opacity: 1;
   }
 }

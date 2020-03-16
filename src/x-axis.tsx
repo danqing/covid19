@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import dayOfYear from "dayjs/plugin/dayOfYear";
 import React from "react";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
@@ -8,8 +9,11 @@ import { AppState } from "./redux/reducers";
 import * as region from "./redux/region";
 import { AddRegion } from "./AddCountry";
 import * as svg from "./svg";
+import { hashCode } from "./util";
 
 import "./x-axis.css";
+
+dayjs.extend(dayOfYear);
 
 type TXAxisProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps>;
@@ -45,25 +49,25 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
 
   shiftRegionBack1(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -1);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 1);
     }
   }
 
   shiftRegionBack5(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -5);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 5);
     }
   }
 
   shiftRegionForward1(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 1);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -1);
     }
   }
 
   shiftRegionForward5(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 5);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -5);
     }
   }
 
@@ -75,10 +79,25 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
     this.setState({ enteringRegion: false });
   }
 
+  dayClass(day: dayjs.Dayjs): string {
+    let cls = ["region-day"];
+    const date = day.dayOfYear();
+    if (date % 3 === 1) {
+      cls.push("region-day-3");
+    }
+    if (date % 4 === 1) {
+      cls.push("region-day-4");
+    }
+    return cls.join(" ");
+  }
+
   dayString(day: dayjs.Dayjs): string {
-    const date = day.date();
-    if (date === 1 || date % 5 === 0) {
+    const date = day.dayOfYear();
+    if (date % 4 === 1) {
       return day.format("MMM D");
+    }
+    if (date % 2 === 0) {
+      return "·";
     }
     return day.format("D");
   }
@@ -91,12 +110,17 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
         <div
           className="region-days baseline-flex"
           style={{
-            transform: `translateX(${offset * 10}%`
+            transform: `translateX(${offset * 100 / 16}%`
           }}
         >
           {[...Array(50).keys()].map(d => (
-            <div key={d} className="region-day">
-              {this.dayString(zero.add(d, "day"))}
+            <div key={d} className={this.dayClass(zero.add(d, "day"))}>
+              <div className="region-day-inner">
+                {this.dayString(zero.add(d, "day"))}
+              </div>
+              <div className="region-day-inner-mobile">
+                {zero.add(d, "day").format("M/D")}
+              </div>
             </div>
           ))}
         </div>
@@ -117,6 +141,9 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
           </button>
         </div>
         <div className="region-name-wrapper">
+          <div className="region-icon" style={{
+            backgroundColor: `var(--series-color-${hashCode(r.country) % 8})`
+          }}/>
           <div className="region-name">{r.country}</div>
           <button {...buttonAttrs} onClick={this.removeRegion}>
             <svg.TrashSign />
