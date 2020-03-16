@@ -229,12 +229,6 @@
   #add-region svg {
     width: 1rem;
   }
-
-  #add-region button {
-    height: 2rem;
-    border-radius: 1rem;
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 500px) {
