@@ -7,7 +7,7 @@ import _ from "lodash";
 import { format } from "d3-format";
 
 import { AxisLeft } from "@vx/axis";
-import { Grid } from '@vx/grid';
+import { Grid } from "@vx/grid";
 import { Bar, Line, LinePath } from "@vx/shape";
 import { curveMonotoneX } from "@vx/curve";
 import { scaleLinear, scaleLog } from "@vx/scale";
@@ -141,7 +141,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       vxData.push({
         name: country,
         color: `var(--series-color-${hashCode(country) % 8})`,
-        offset: 10,
+        offset,
         points
       });
     });
@@ -194,11 +194,11 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                 tickStroke="var(--gray)"
                 tickFormat={format(".2s")}
                 tickLabelProps={() => ({
-                  fill: 'var(--gray)',
-                  textAnchor: 'end',
+                  fill: "var(--gray)",
+                  textAnchor: "end",
                   fontSize: 10,
-                  dx: '-0.25em',
-                  dy: '0.25em'
+                  dx: "-0.25em",
+                  dy: "0.25em"
                 })}
                 tickComponent={({ formattedValue, ...tickProps }) => (
                   <text {...tickProps}>{formattedValue}</text>
@@ -252,24 +252,28 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
             </svg>
             {tooltipData && (
               <div>
-                {tooltipData.map(d => (
-                  <Tooltip
-                    key={d.name}
-                    top={d.y - 30}
-                    left={tooltipLeft}
-                    style={{
-                      color: d.color,
-                      backgroundColor: "transparent",
-                      boxShadow: "none"
-                    }}
-                  >
-                    <div className="tooltip-desc">
-                      <b>{`${d.name}`}</b>
-                      <span>{`- ${dayjs("2020-01-21").add(d.date + d.offset, "day").format("MMM D")}`}</span>
-                    </div>
-                    <div className="tooltip-value">{`${d.value}`}</div>
-                  </Tooltip>
-                ))}
+                {tooltipData.map(d => {
+                  return (
+                    <Tooltip
+                      key={d.name}
+                      top={d.y - 30}
+                      left={tooltipLeft}
+                      style={{
+                        color: d.color,
+                        backgroundColor: "transparent",
+                        boxShadow: "none"
+                      }}
+                    >
+                      <div className="tooltip-desc">
+                        <b>{`${d.name}`}</b>
+                        <span>{`- ${dayjs("2020-01-21")
+                          .add(d.date - d.offset, "day")
+                          .format("MMM D")}`}</span>
+                      </div>
+                      <div className="tooltip-value">{`${d.value}`}</div>
+                    </Tooltip>
+                  );
+                })}
               </div>
             )}
           </div>
