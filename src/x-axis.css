@@ -137,6 +137,7 @@
 
 .region-name-wrapper button {
   color: var(--gray);
+  opacity: 0.7;
 }
 
 .region-name-wrapper button:hover {
