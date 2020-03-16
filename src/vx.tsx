@@ -15,11 +15,11 @@ import { Tooltip, withTooltip } from "@vx/tooltip";
 import { WithTooltipProvidedProps } from "@vx/tooltip/lib/enhancers/withTooltip";
 import { localPoint } from "@vx/event";
 
+import { ModeToAllCountryData } from "./redux/mode";
 import { AppState, EScale } from "./redux/reducers";
+import { hashCode } from "./util";
 
 import "./vx.css";
-import { ModeToAllCountryData } from "./redux/mode";
-import { hashCode } from "./util";
 
 const range = (n: number): number[] => Array.from(Array(n).keys());
 

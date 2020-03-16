@@ -11,6 +11,13 @@
   padding: 0.5rem 0;
 }
 
+.region-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.75rem;
+  border-radius: 50%;
+}
+
 .region-name {
   font-size: 1.25rem;
   font-weight: bold;

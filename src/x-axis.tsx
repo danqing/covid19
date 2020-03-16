@@ -9,6 +9,7 @@ import { AppState } from "./redux/reducers";
 import * as region from "./redux/region";
 import { AddRegion } from "./AddCountry";
 import * as svg from "./svg";
+import { hashCode } from "./util";
 
 import "./x-axis.css";
 
@@ -140,6 +141,9 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
           </button>
         </div>
         <div className="region-name-wrapper">
+          <div className="region-icon" style={{
+            backgroundColor: `var(--series-color-${hashCode(r.country) % 8})`
+          }}/>
           <div className="region-name">{r.country}</div>
           <button {...buttonAttrs} onClick={this.removeRegion}>
             <svg.TrashSign />
