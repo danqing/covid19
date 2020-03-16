@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import dayOfYear from "dayjs/plugin/dayOfYear";
 import React from "react";
 import { connect } from "react-redux";
 import { AnyAction, bindActionCreators, Dispatch } from "redux";
@@ -10,6 +11,8 @@ import { AddRegion } from "./AddCountry";
 import * as svg from "./svg";
 
 import "./x-axis.css";
+
+dayjs.extend(dayOfYear);
 
 type TXAxisProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps>;
@@ -77,11 +80,11 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
 
   dayClass(day: dayjs.Dayjs): string {
     let cls = ["region-day"];
-    const date = day.date();
-    if (date % 3 === 1 && day.add(1, "day").date() !== 1) {
+    const date = day.dayOfYear();
+    if (date % 3 === 1) {
       cls.push("region-day-3");
     }
-    if (date % 4 === 1 && day.add(1, "day").date() !== 1) {
+    if (date % 4 === 1) {
       cls.push("region-day-4");
     }
     return cls.join(" ");
