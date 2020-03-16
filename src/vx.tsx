@@ -91,34 +91,6 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
     const xMax = dims.width - margin.left - margin.right;
     const yMax = dims.height - margin.top - margin.bottom;
 
-    const handleTooltip = (
-      event: React.TouchEvent<SVGRectElement> | React.MouseEvent<SVGRectElement>
-    ) => {
-      const xValue = localPoint(event)?.x || 0;
-      const index = Math.round(xScale.invert(xValue));
-      let tooltipData: IVXTooltipData[] = [];
-      for (let i = 0; i < vxData.length; i++) {
-        if (index >= vxData[i].points.length) {
-          continue;
-        }
-        const value = y(vxData[i].points[index]);
-        tooltipData.push({
-          name: vxData[i].name,
-          color: vxData[i].color,
-          offset: vxData[i].offset,
-          date: index,
-          value,
-          y: yScale(value)
-        });
-      }
-
-      showTooltip({
-        tooltipData,
-        tooltipLeft: xScale(index),
-        tooltipTop: 0
-      });
-    };
-
     const vxData: IVXDataSeries[] = [];
     const allCountryData = ModeToAllCountryData[mode];
 
@@ -145,6 +117,46 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
         points
       });
     });
+
+    const handleTooltip = (
+      event: React.TouchEvent<SVGRectElement> | React.MouseEvent<SVGRectElement>
+    ) => {
+      const xValue = localPoint(event)?.x || 0;
+      const index = Math.round(xScale.invert(xValue));
+
+      console.log(index);
+
+      let tooltipData: IVXTooltipData[] = [];
+      for (let i = 0; i < vxData.length; i++) {
+        const currentData = vxData[i];
+        const { name, color, offset } = currentData;
+        const date = index;
+
+        const matchingPoint = currentData.points.find(
+          point => point.date === date
+        );
+        if (!matchingPoint) {
+          continue;
+        }
+
+        const value = matchingPoint.value;
+
+        tooltipData.push({
+          name,
+          color,
+          offset,
+          date: index,
+          value,
+          y: yScale(value)
+        });
+      }
+
+      showTooltip({
+        tooltipData,
+        tooltipLeft: xScale(index),
+        tooltipTop: 0
+      });
+    };
 
     const xScale = scaleLinear({
       range: [0, dims.width],
