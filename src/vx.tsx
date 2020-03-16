@@ -136,7 +136,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
           date: idx,
           value: dayToCases[idx - offset] || 0
         }))
-        .filter(point => point.value != null);
+        .filter(point => point.value != null && point.value != 0);
 
       vxData.push({
         name: country,
