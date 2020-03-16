@@ -131,7 +131,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
         data[middle - 1].y = data[middle - 1].y - 20;
       }
 
-      for (let i = middle - 2; i > 0; i--) {
+      for (let i = middle - 2; i >= 0; i--) {
         if (data[i + 1].y - data[i].y < 40) {
           data[i].y = data[i + 1].y - 40;
         }
