@@ -9,12 +9,12 @@ import { AxisLeft } from "@vx/axis";
 import { Grid } from '@vx/grid';
 import { Bar, Line, LinePath } from "@vx/shape";
 import { curveMonotoneX } from "@vx/curve";
-import { scaleLinear } from "@vx/scale";
+import { scaleLinear, scaleLog } from "@vx/scale";
 import { Tooltip, withTooltip } from "@vx/tooltip";
 import { WithTooltipProvidedProps } from "@vx/tooltip/lib/enhancers/withTooltip";
 import { localPoint } from "@vx/event";
 
-import { AppState } from "./redux/reducers";
+import { AppState, EScale } from "./redux/reducers";
 
 import "./vx.css";
 import { ModeToAllCountryData } from "./redux/mode";
@@ -86,6 +86,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
     tooltipTop = 0,
     tooltipLeft = 0,
     mode,
+    scale,
     regions
   }: TVXProps & WithTooltipProvidedProps<IVXTooltipData[]>) => {
     const [dims, setDims] = React.useState<BoundingRect>({
@@ -161,11 +162,18 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
     for (let i = 0; i < vxData.length; i++) {
       maxY = Math.max(max(vxData[i].points, y) || 0, maxY);
     }
-    const yScale = scaleLinear({
+    let yScale = scaleLinear({
       range: [dims.height, 0],
       domain: [0, (maxY * 6) / 5],
       nice: true
     });
+    if (scale === EScale.Log) {
+      yScale = scaleLog({
+        range: [dims.height, 0],
+        domain: [1, (maxY * 6) / 5],
+        nice: true
+      });
+    }
 
     const common = {
       x: (d: IVXDataPoint) => xScale(x(d)),
