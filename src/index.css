@@ -1,12 +1,10 @@
 :root {
-  --series-color-1: #6610f2;
-  --series-color-2: #6f42c1;
-  --series-color-3: #e83e8c;
-  --series-color-4: #dc3545;
-  --series-color-5: #fd7e14;
-  --series-color-6: #28a745;
-  --series-color-7: #20c997;
-  --series-color-0: #17a2b8;
+  --series-color-0: #6610f2;
+  --series-color-1: #e83e8c;
+  --series-color-2: #fdab14;
+  --series-color-3: #37a728;
+  --series-color-4: #20b0c9;
+  --series-color-5: #173db8;
 }
 
 body {
@@ -38,14 +36,12 @@ button * {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --series-color-1: #9f64ff;
-    --series-color-2: #b791ff;
-    --series-color-3: #ff80bb;
-    --series-color-4: #ff7785;
-    --series-color-5: #ffb87d;
-    --series-color-6: #73fa92;
-    --series-color-7: #86ffdb;
-    --series-color-0: #91f0ff;
+    --series-color-0: #b485ff;
+    --series-color-1: #ff6fb2;
+    --series-color-2: #ffce65;
+    --series-color-3: #80ff6f;
+    --series-color-4: #74eaff;
+    --series-color-5: #5263ff;
   }
 
   html, body {

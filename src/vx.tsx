@@ -17,7 +17,6 @@ import { localPoint } from "@vx/event";
 
 import { ModeToAllCountryData } from "./redux/mode";
 import { AppState, EScale } from "./redux/reducers";
-import { hashCode } from "./util";
 
 import "./vx.css";
 
@@ -112,7 +111,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
 
       vxData.push({
         name: country,
-        color: `var(--series-color-${hashCode(country) % 8})`,
+        color: `var(--series-color-${vxData.length % 6})`,
         offset,
         points
       });
