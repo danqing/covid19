@@ -108,7 +108,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
           date: idx,
           value: dayToCases[idx - offset] || 0
         }))
-        .filter(point => point.value != null && point.value != 0);
+        .filter(point => point.value !== null && point.value !== 0);
 
       vxData.push({
         name: country,
@@ -118,13 +118,39 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       });
     });
 
+    const tooltipShifter = (data: IVXTooltipData[]): IVXTooltipData[] => {
+      if (data.length < 2) {
+        return data;
+      }
+
+      data = data.sort((a, b) => (a.y > b.y) ? 1 : -1);
+      const middle = Math.floor(data.length / 2);
+
+      if (data[middle].y - data[middle - 1].y < 40) {
+        data[middle].y = data[middle].y + 20;
+        data[middle - 1].y = data[middle - 1].y - 20;
+      }
+
+      for (let i = middle - 2; i > 0; i--) {
+        if (data[i + 1].y - data[i].y < 40) {
+          data[i].y = data[i + 1].y - 40;
+        }
+      }
+
+      for (let i = middle + 1; i < data.length; i++) {
+        if (data[i].y - data[i - 1].y < 40) {
+          data[i].y = data[i - 1].y + 40;
+        }
+      }
+
+      return data;
+    }
+
     const handleTooltip = (
       event: React.TouchEvent<SVGRectElement> | React.MouseEvent<SVGRectElement>
     ) => {
       const xValue = localPoint(event)?.x || 0;
       const index = Math.round(xScale.invert(xValue));
-
-      console.log(index);
 
       let tooltipData: IVXTooltipData[] = [];
       for (let i = 0; i < vxData.length; i++) {
@@ -152,7 +178,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
       }
 
       showTooltip({
-        tooltipData,
+        tooltipData: tooltipShifter(tooltipData),
         tooltipLeft: xScale(index),
         tooltipTop: 0
       });
@@ -202,14 +228,11 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                 scale={yScale}
                 hideZero
                 numTicks={5}
-                stroke="var(--gray)"
-                tickStroke="var(--gray)"
                 tickFormat={format(".2s")}
                 tickLabelProps={() => ({
                   fill: "var(--gray)",
                   textAnchor: "end",
                   fontSize: 10,
-                  dx: "-0.25em",
                   dy: "0.25em"
                 })}
                 tickComponent={({ formattedValue, ...tickProps }) => (
