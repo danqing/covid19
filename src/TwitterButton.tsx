@@ -8,11 +8,14 @@ export const TwitterButton = () => {
   }, [window["location"].href]);
 
   return (
-    <div style={{
-      marginLeft: "0.5rem",
-      display: "flex",
-      alignItems: "center"
-    }}>
+    <div
+      style={{
+        width: 80,
+        marginLeft: "0.5rem",
+        display: "flex",
+        alignItems: "center"
+      }}
+    >
       <a
         style={{ display: "none" }}
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"
