@@ -49,25 +49,25 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
 
   shiftRegionBack1(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 1);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -1);
     }
   }
 
   shiftRegionBack5(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 5);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -5);
     }
   }
 
   shiftRegionForward1(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -1);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 1);
     }
   }
 
   shiftRegionForward5(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -5);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 5);
     }
   }
 
@@ -110,10 +110,10 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
         <div
           className="region-days baseline-flex"
           style={{
-            transform: `translateX(${offset * 100 / 16}%`
+            transform: `translateX(${(offset * 100) / 16}%`
           }}
         >
-          {[...Array(50).keys()].map(d => (
+          {[...Array(60).keys()].map(d => (
             <div key={d} className={this.dayClass(zero.add(d, "day"))}>
               <div className="region-day-inner">
                 {this.dayString(zero.add(d, "day"))}
@@ -141,9 +141,12 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
           </button>
         </div>
         <div className="region-name-wrapper">
-          <div className="region-icon" style={{
-            backgroundColor: `var(--series-color-${hashCode(r.country) % 8})`
-          }}/>
+          <div
+            className="region-icon"
+            style={{
+              backgroundColor: `var(--series-color-${hashCode(r.country) % 8})`
+            }}
+          />
           <div className="region-name">{r.country}</div>
           <button {...buttonAttrs} onClick={this.removeRegion}>
             <svg.TrashSign />
