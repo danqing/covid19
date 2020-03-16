@@ -19,6 +19,7 @@ import { AppState, EScale } from "./redux/reducers";
 
 import "./vx.css";
 import { ModeToAllCountryData } from "./redux/mode";
+import { hashCode } from "./util";
 
 const range = (n: number): number[] => Array.from(Array(n).keys());
 
@@ -65,18 +66,6 @@ type TVXProps = IVXProps &
   ReturnType<typeof mapStateToProps>;
 
 const DAYS_TO_SHOW = 17;
-
-const COLORS = [
-  "red",
-  "green",
-  "blue",
-  "purple",
-  "brown",
-  "gray",
-  "orange",
-  "turquoise",
-  "gray"
-];
 
 const VX = withTooltip<TVXProps, IVXTooltipData[]>(
   ({
@@ -151,7 +140,7 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
 
       vxData.push({
         name: country,
-        color: COLORS[idx],
+        color: `var(--series-color-${hashCode(country) % 8})`,
         offset: 10,
         points
       });
