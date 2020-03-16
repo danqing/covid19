@@ -48,25 +48,25 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
 
   shiftRegionBack1(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 1);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -1);
     }
   }
 
   shiftRegionBack5(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 5);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -5);
     }
   }
 
   shiftRegionForward1(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -1);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 1);
     }
   }
 
   shiftRegionForward5(e: React.MouseEvent<HTMLElement>) {
     if (e.target instanceof HTMLElement) {
-      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), -5);
+      this.props.shiftRegion(parseInt(e.target.dataset["index"]!), 5);
     }
   }
 
@@ -109,7 +109,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
         <div
           className="region-days baseline-flex"
           style={{
-            transform: `translateX(${offset * 100 / 16}%`
+            transform: `translateX(${(offset * 100) / 16}%`
           }}
         >
           {[...Array(60).keys()].map(d => (
