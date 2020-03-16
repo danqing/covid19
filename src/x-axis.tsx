@@ -92,8 +92,8 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
   }
 
   dayString(day: dayjs.Dayjs): string {
-    const date = day.date();
-    if (date % 4 === 1 && day.add(1, "day").date() !== 1) {
+    const date = day.dayOfYear();
+    if (date % 4 === 1) {
       return day.format("MMM D");
     }
     if (date % 2 === 0) {
