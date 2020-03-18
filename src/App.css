@@ -84,7 +84,7 @@ footer p {
   }
 
   #title-row {
-    padding: 2rem 0;
+    padding: 2rem 0 3rem 0;
   }
 
   #page-title {
@@ -107,7 +107,7 @@ footer p {
   }
 
   #title-row {
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 3rem 0;
   }
 
   #page-title {
@@ -121,6 +121,10 @@ footer p {
   #title-separator {
     width: 80px;
     height: 2px;
+  }
+
+  #share-prompt {
+    width: 70%;
   }
 
   footer {
