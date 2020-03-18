@@ -18,14 +18,16 @@ export interface AppState {
   regions: region.IRegion[];
 }
 
+const BASE_OFFSET = -2;
+
 const defaultState: AppState = {
   scale: EScale.Linear,
   zoom: 3,
   mode: mode.EMode.TotalCases,
   regions: [
-    { country: "United States", offset: -39 },
-    { country: "Italy", offset: -28 },
-    { country: "South Korea", offset: -24 }
+    { country: "United States", offset: -39 + BASE_OFFSET },
+    { country: "Italy", offset: -28 + BASE_OFFSET },
+    { country: "South Korea", offset: -24 + BASE_OFFSET }
   ]
 };
 

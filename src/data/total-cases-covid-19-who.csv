@@ -19,6 +19,8 @@ Afghanistan,AFG,51,7
 Afghanistan,AFG,52,7
 Afghanistan,AFG,53,7
 Afghanistan,AFG,54,10
+Afghanistan,AFG,55,16
+Afghanistan,AFG,56,21
 Albania,ALB,48,2
 Albania,ALB,49,2
 Albania,ALB,50,10
@@ -26,6 +28,8 @@ Albania,ALB,51,10
 Albania,ALB,52,23
 Albania,ALB,53,33
 Albania,ALB,54,38
+Albania,ALB,55,42
+Albania,ALB,56,51
 Algeria,DZA,36,1
 Algeria,DZA,37,1
 Algeria,DZA,38,1
@@ -45,6 +49,8 @@ Algeria,DZA,51,25
 Algeria,DZA,52,25
 Algeria,DZA,53,26
 Algeria,DZA,54,37
+Algeria,DZA,55,49
+Algeria,DZA,56,60
 Andorra,AND,42,1
 Andorra,AND,43,1
 Andorra,AND,44,1
@@ -58,8 +64,12 @@ Andorra,AND,51,1
 Andorra,AND,52,1
 Andorra,AND,53,2
 Andorra,AND,54,2
+Andorra,AND,55,2
+Andorra,AND,56,14
 Antigua and Barbuda,ATG,53,1
 Antigua and Barbuda,ATG,54,1
+Antigua and Barbuda,ATG,55,1
+Antigua and Barbuda,ATG,56,1
 Argentina,ARG,43,1
 Argentina,ARG,44,1
 Argentina,ARG,45,1
@@ -72,6 +82,8 @@ Argentina,ARG,51,19
 Argentina,ARG,52,31
 Argentina,ARG,53,34
 Argentina,ARG,54,45
+Argentina,ARG,55,56
+Argentina,ARG,56,65
 Armenia,ARM,41,1
 Armenia,ARM,42,1
 Armenia,ARM,43,1
@@ -86,6 +98,9 @@ Armenia,ARM,51,1
 Armenia,ARM,52,1
 Armenia,ARM,53,8
 Armenia,ARM,54,8
+Armenia,ARM,55,26
+Armenia,ARM,56,52
+Aruba,ABW,56,2
 Australia,AUS,4,3
 Australia,AUS,5,4
 Australia,AUS,6,4
@@ -137,6 +152,8 @@ Australia,AUS,51,122
 Australia,AUS,52,140
 Australia,AUS,53,197
 Australia,AUS,54,249
+Australia,AUS,55,298
+Australia,AUS,56,375
 Austria,AUT,36,2
 Austria,AUT,37,2
 Austria,AUT,38,4
@@ -156,6 +173,8 @@ Austria,AUT,51,302
 Austria,AUT,52,361
 Austria,AUT,53,504
 Austria,AUT,54,800
+Austria,AUT,55,959
+Austria,AUT,56,1132
 Azerbaijan,AZE,40,3
 Azerbaijan,AZE,41,3
 Azerbaijan,AZE,42,3
@@ -171,6 +190,9 @@ Azerbaijan,AZE,51,9
 Azerbaijan,AZE,52,11
 Azerbaijan,AZE,53,11
 Azerbaijan,AZE,54,19
+Azerbaijan,AZE,55,19
+Azerbaijan,AZE,56,19
+Bahamas,BHS,56,1
 Bahrain,BHR,35,8
 Bahrain,BHR,36,26
 Bahrain,BHR,37,33
@@ -191,6 +213,8 @@ Bahrain,BHR,51,189
 Bahrain,BHR,52,195
 Bahrain,BHR,53,210
 Bahrain,BHR,54,211
+Bahrain,BHR,55,221
+Bahrain,BHR,56,229
 Bangladesh,BGD,48,3
 Bangladesh,BGD,49,3
 Bangladesh,BGD,50,3
@@ -198,6 +222,8 @@ Bangladesh,BGD,51,3
 Bangladesh,BGD,52,3
 Bangladesh,BGD,53,3
 Bangladesh,BGD,54,3
+Bangladesh,BGD,55,5
+Bangladesh,BGD,56,8
 Belarus,BLR,38,1
 Belarus,BLR,39,1
 Belarus,BLR,40,1
@@ -215,6 +241,8 @@ Belarus,BLR,51,12
 Belarus,BLR,52,12
 Belarus,BLR,53,21
 Belarus,BLR,54,21
+Belarus,BLR,55,36
+Belarus,BLR,56,36
 Belgium,BEL,15,1
 Belgium,BEL,16,1
 Belgium,BEL,17,1
@@ -255,6 +283,9 @@ Belgium,BEL,51,314
 Belgium,BEL,52,314
 Belgium,BEL,53,599
 Belgium,BEL,54,689
+Belgium,BEL,55,1085
+Belgium,BEL,56,1085
+Benin,BEN,56,1
 Bhutan,BTN,45,1
 Bhutan,BTN,46,1
 Bhutan,BTN,47,1
@@ -265,11 +296,15 @@ Bhutan,BTN,51,1
 Bhutan,BTN,52,1
 Bhutan,BTN,53,1
 Bhutan,BTN,54,1
+Bhutan,BTN,55,1
+Bhutan,BTN,56,1
 Bolivia,BOL,50,2
 Bolivia,BOL,51,2
 Bolivia,BOL,52,3
 Bolivia,BOL,53,3
 Bolivia,BOL,54,3
+Bolivia,BOL,55,11
+Bolivia,BOL,56,11
 Bosnia and Herzegovina,BIH,44,2
 Bosnia and Herzegovina,BIH,45,2
 Bosnia and Herzegovina,BIH,46,2
@@ -281,6 +316,8 @@ Bosnia and Herzegovina,BIH,51,4
 Bosnia and Herzegovina,BIH,52,4
 Bosnia and Herzegovina,BIH,53,11
 Bosnia and Herzegovina,BIH,54,18
+Bosnia and Herzegovina,BIH,55,18
+Bosnia and Herzegovina,BIH,56,19
 Brazil,BRA,37,1
 Brazil,BRA,38,1
 Brazil,BRA,39,1
@@ -299,12 +336,16 @@ Brazil,BRA,51,52
 Brazil,BRA,52,77
 Brazil,BRA,53,98
 Brazil,BRA,54,121
+Brazil,BRA,55,200
+Brazil,BRA,56,234
 Brunei,BRN,49,1
 Brunei,BRN,50,1
 Brunei,BRN,51,12
 Brunei,BRN,52,12
 Brunei,BRN,53,25
 Brunei,BRN,54,40
+Brunei,BRN,55,50
+Brunei,BRN,56,50
 Bulgaria,BGR,47,2
 Bulgaria,BGR,48,4
 Bulgaria,BGR,49,4
@@ -313,11 +354,15 @@ Bulgaria,BGR,51,7
 Bulgaria,BGR,52,7
 Bulgaria,BGR,53,7
 Bulgaria,BGR,54,43
+Bulgaria,BGR,55,51
+Bulgaria,BGR,56,67
 Burkina Faso,BFA,50,2
 Burkina Faso,BFA,51,2
 Burkina Faso,BFA,52,2
 Burkina Faso,BFA,53,2
 Burkina Faso,BFA,54,3
+Burkina Faso,BFA,55,3
+Burkina Faso,BFA,56,15
 Cambodia,KHM,7,1
 Cambodia,KHM,8,1
 Cambodia,KHM,9,1
@@ -366,6 +411,8 @@ Cambodia,KHM,51,3
 Cambodia,KHM,52,5
 Cambodia,KHM,53,7
 Cambodia,KHM,54,7
+Cambodia,KHM,55,12
+Cambodia,KHM,56,24
 Cameroon,CMR,45,1
 Cameroon,CMR,46,2
 Cameroon,CMR,47,2
@@ -376,6 +423,8 @@ Cameroon,CMR,51,2
 Cameroon,CMR,52,2
 Cameroon,CMR,53,2
 Cameroon,CMR,54,3
+Cameroon,CMR,55,3
+Cameroon,CMR,56,5
 Canada,CAN,6,1
 Canada,CAN,7,2
 Canada,CAN,8,3
@@ -425,9 +474,15 @@ Canada,CAN,51,93
 Canada,CAN,52,138
 Canada,CAN,53,176
 Canada,CAN,54,244
+Canada,CAN,55,304
+Canada,CAN,56,424
 Cayman Islands,CYM,53,1
 Cayman Islands,CYM,54,1
+Cayman Islands,CYM,55,1
+Cayman Islands,CYM,56,1
 Central African Republic,CAF,54,1
+Central African Republic,CAF,55,1
+Central African Republic,CAF,56,1
 Chile,CHL,43,1
 Chile,CHL,44,1
 Chile,CHL,45,1
@@ -440,6 +495,8 @@ Chile,CHL,51,23
 Chile,CHL,52,33
 Chile,CHL,53,43
 Chile,CHL,54,61
+Chile,CHL,55,75
+Chile,CHL,56,156
 China,CHN,0,278
 China,CHN,1,310
 China,CHN,2,574
@@ -495,6 +552,8 @@ China,CHN,51,80981
 China,CHN,52,80991
 China,CHN,53,81021
 China,CHN,54,81048
+China,CHN,55,81077
+China,CHN,56,81116
 Colombia,COL,46,1
 Colombia,COL,47,1
 Colombia,COL,48,1
@@ -504,7 +563,11 @@ Colombia,COL,51,9
 Colombia,COL,52,9
 Colombia,COL,53,16
 Colombia,COL,54,24
+Colombia,COL,55,24
+Colombia,COL,56,45
 Congo,COG,54,1
+Congo,COG,55,1
+Congo,COG,56,1
 Costa Rica,CRI,47,5
 Costa Rica,CRI,48,9
 Costa Rica,CRI,49,9
@@ -513,10 +576,14 @@ Costa Rica,CRI,51,13
 Costa Rica,CRI,52,22
 Costa Rica,CRI,53,23
 Costa Rica,CRI,54,23
+Costa Rica,CRI,55,23
+Costa Rica,CRI,56,41
 Cote d'Ivoire,CIV,51,1
 Cote d'Ivoire,CIV,52,1
 Cote d'Ivoire,CIV,53,1
 Cote d'Ivoire,CIV,54,3
+Cote d'Ivoire,CIV,55,3
+Cote d'Ivoire,CIV,56,6
 Croatia,HRV,36,2
 Croatia,HRV,37,3
 Croatia,HRV,38,3
@@ -536,16 +603,24 @@ Croatia,HRV,51,16
 Croatia,HRV,52,16
 Croatia,HRV,53,27
 Croatia,HRV,54,37
+Croatia,HRV,55,49
+Croatia,HRV,56,56
 Cuba,CUB,52,3
 Cuba,CUB,53,4
 Cuba,CUB,54,4
+Cuba,CUB,55,4
+Cuba,CUB,56,5
 Curacao,CUW,54,2
+Curacao,CUW,55,2
+Curacao,CUW,56,3
 Cyprus,CYP,49,2
 Cyprus,CYP,50,2
 Cyprus,CYP,51,6
 Cyprus,CYP,52,6
 Cyprus,CYP,53,14
 Cyprus,CYP,54,21
+Cyprus,CYP,55,33
+Cyprus,CYP,56,33
 Czech Republic,CZE,41,3
 Czech Republic,CZE,42,3
 Czech Republic,CZE,43,5
@@ -560,11 +635,15 @@ Czech Republic,CZE,51,94
 Czech Republic,CZE,52,116
 Czech Republic,CZE,53,150
 Czech Republic,CZE,54,214
+Czech Republic,CZE,55,298
+Czech Republic,CZE,56,383
 Democratic Republic of Congo,COD,50,1
 Democratic Republic of Congo,COD,51,1
 Democratic Republic of Congo,COD,52,1
 Democratic Republic of Congo,COD,53,2
 Democratic Republic of Congo,COD,54,2
+Democratic Republic of Congo,COD,55,2
+Democratic Republic of Congo,COD,56,3
 Denmark,DNK,37,1
 Denmark,DNK,38,1
 Denmark,DNK,39,2
@@ -583,6 +662,8 @@ Denmark,DNK,51,615
 Denmark,DNK,52,674
 Denmark,DNK,53,801
 Denmark,DNK,54,827
+Denmark,DNK,55,898
+Denmark,DNK,56,960
 Dominican Republic,DOM,41,1
 Dominican Republic,DOM,42,1
 Dominican Republic,DOM,43,1
@@ -597,6 +678,8 @@ Dominican Republic,DOM,51,5
 Dominican Republic,DOM,52,5
 Dominican Republic,DOM,53,5
 Dominican Republic,DOM,54,5
+Dominican Republic,DOM,55,5
+Dominican Republic,DOM,56,21
 Ecuador,ECU,40,1
 Ecuador,ECU,41,1
 Ecuador,ECU,42,6
@@ -612,6 +695,8 @@ Ecuador,ECU,51,17
 Ecuador,ECU,52,17
 Ecuador,ECU,53,23
 Ecuador,ECU,54,23
+Ecuador,ECU,55,37
+Ecuador,ECU,56,58
 Egypt,EGY,25,1
 Egypt,EGY,26,1
 Egypt,EGY,27,1
@@ -642,7 +727,11 @@ Egypt,EGY,51,67
 Egypt,EGY,52,67
 Egypt,EGY,53,93
 Egypt,EGY,54,93
+Egypt,EGY,55,126
+Egypt,EGY,56,166
 Equatorial Guinea,GNQ,54,1
+Equatorial Guinea,GNQ,55,1
+Equatorial Guinea,GNQ,56,1
 Estonia,EST,37,1
 Estonia,EST,38,1
 Estonia,EST,39,1
@@ -661,8 +750,12 @@ Estonia,EST,51,13
 Estonia,EST,52,13
 Estonia,EST,53,79
 Estonia,EST,54,79
+Estonia,EST,55,205
+Estonia,EST,56,205
 Ethiopia,ETH,53,1
 Ethiopia,ETH,54,1
+Ethiopia,ETH,55,1
+Ethiopia,ETH,56,5
 Faeroe Islands,FRO,47,1
 Faeroe Islands,FRO,48,2
 Faeroe Islands,FRO,49,2
@@ -671,6 +764,8 @@ Faeroe Islands,FRO,51,2
 Faeroe Islands,FRO,52,2
 Faeroe Islands,FRO,53,3
 Faeroe Islands,FRO,54,9
+Faeroe Islands,FRO,55,11
+Faeroe Islands,FRO,56,47
 Finland,FIN,9,1
 Finland,FIN,10,1
 Finland,FIN,11,1
@@ -717,6 +812,8 @@ Finland,FIN,51,40
 Finland,FIN,52,109
 Finland,FIN,53,109
 Finland,FIN,54,210
+Finland,FIN,55,267
+Finland,FIN,56,272
 France,FRA,4,3
 France,FRA,5,3
 France,FRA,6,3
@@ -768,6 +865,8 @@ France,FRA,51,2269
 France,FRA,52,2860
 France,FRA,53,3640
 France,FRA,54,4469
+France,FRA,55,5380
+France,FRA,56,6573
 French Guiana,GUF,47,5
 French Guiana,GUF,48,5
 French Guiana,GUF,49,5
@@ -776,12 +875,18 @@ French Guiana,GUF,51,5
 French Guiana,GUF,52,6
 French Guiana,GUF,53,6
 French Guiana,GUF,54,7
+French Guiana,GUF,55,7
+French Guiana,GUF,56,7
 French Polynesia,PYF,51,1
 French Polynesia,PYF,52,1
 French Polynesia,PYF,53,1
 French Polynesia,PYF,54,3
+French Polynesia,PYF,55,3
+French Polynesia,PYF,56,3
 Gabon,GAB,53,1
 Gabon,GAB,54,1
+Gabon,GAB,55,1
+Gabon,GAB,56,1
 Georgia,GEO,37,1
 Georgia,GEO,38,1
 Georgia,GEO,39,2
@@ -800,6 +905,8 @@ Georgia,GEO,51,23
 Georgia,GEO,52,25
 Georgia,GEO,53,25
 Georgia,GEO,54,30
+Georgia,GEO,55,33
+Georgia,GEO,56,33
 Germany,DEU,7,1
 Germany,DEU,8,4
 Germany,DEU,9,4
@@ -848,8 +955,12 @@ Germany,DEU,51,1567
 Germany,DEU,52,2369
 Germany,DEU,53,3062
 Germany,DEU,54,3795
+Germany,DEU,55,4838
+Germany,DEU,56,6012
 Ghana,GHA,53,1
 Ghana,GHA,54,2
+Ghana,GHA,55,2
+Ghana,GHA,56,6
 Gibraltar,GIB,44,1
 Gibraltar,GIB,45,1
 Gibraltar,GIB,46,1
@@ -861,6 +972,8 @@ Gibraltar,GIB,51,1
 Gibraltar,GIB,52,1
 Gibraltar,GIB,53,1
 Gibraltar,GIB,54,1
+Gibraltar,GIB,55,1
+Gibraltar,GIB,56,3
 Greece,GRC,37,1
 Greece,GRC,38,3
 Greece,GRC,39,3
@@ -879,23 +992,38 @@ Greece,GRC,51,98
 Greece,GRC,52,98
 Greece,GRC,53,98
 Greece,GRC,54,228
+Greece,GRC,55,331
+Greece,GRC,56,331
 Guadeloupe,GLP,53,1
 Guadeloupe,GLP,54,3
+Guadeloupe,GLP,55,6
+Guadeloupe,GLP,56,18
+Guam,GUM,56,3
+Guatemala,GTM,55,1
+Guatemala,GTM,56,1
 Guernsey,GGY,49,1
 Guernsey,GGY,50,1
 Guernsey,GGY,51,1
 Guernsey,GGY,52,1
 Guernsey,GGY,53,1
 Guernsey,GGY,54,1
+Guernsey,GGY,55,1
+Guernsey,GGY,56,1
 Guinea,GIN,53,1
 Guinea,GIN,54,1
+Guinea,GIN,55,1
+Guinea,GIN,56,1
 Guyana,GUY,52,1
-Guyana,GUY,53,6
-Guyana,GUY,54,7
+Guyana,GUY,53,1
+Guyana,GUY,54,1
+Guyana,GUY,55,4
+Guyana,GUY,56,4
 Honduras,HND,51,2
 Honduras,HND,52,2
 Honduras,HND,53,2
 Honduras,HND,54,2
+Honduras,HND,55,2
+Honduras,HND,56,8
 Hungary,HUN,44,2
 Hungary,HUN,45,2
 Hungary,HUN,46,5
@@ -907,6 +1035,8 @@ Hungary,HUN,51,13
 Hungary,HUN,52,16
 Hungary,HUN,53,19
 Hungary,HUN,54,32
+Hungary,HUN,55,39
+Hungary,HUN,56,50
 Iceland,ISL,41,2
 Iceland,ISL,42,9
 Iceland,ISL,43,16
@@ -921,6 +1051,8 @@ Iceland,ISL,51,61
 Iceland,ISL,52,61
 Iceland,ISL,53,61
 Iceland,ISL,54,138
+Iceland,ISL,55,138
+Iceland,ISL,56,199
 India,IND,9,1
 India,IND,10,1
 India,IND,11,1
@@ -967,6 +1099,8 @@ India,IND,51,73
 India,IND,52,74
 India,IND,53,82
 India,IND,54,107
+India,IND,55,114
+India,IND,56,137
 Indonesia,IDN,41,2
 Indonesia,IDN,42,2
 Indonesia,IDN,43,2
@@ -981,6 +1115,8 @@ Indonesia,IDN,51,34
 Indonesia,IDN,52,34
 Indonesia,IDN,53,69
 Indonesia,IDN,54,117
+Indonesia,IDN,55,117
+Indonesia,IDN,56,172
 International,,16,20
 International,,17,61
 International,,18,64
@@ -1020,6 +1156,8 @@ International,,51,696
 International,,52,696
 International,,53,697
 International,,54,697
+International,,55,712
+International,,56,712
 Iran,IRN,30,2
 Iran,IRN,31,5
 Iran,IRN,32,18
@@ -1045,6 +1183,8 @@ Iran,IRN,51,9000
 Iran,IRN,52,10075
 Iran,IRN,53,11364
 Iran,IRN,54,12729
+Iran,IRN,55,14991
+Iran,IRN,56,14991
 Iraq,IRQ,35,1
 Iraq,IRQ,36,5
 Iraq,IRQ,37,6
@@ -1065,6 +1205,8 @@ Iraq,IRQ,51,70
 Iraq,IRQ,52,70
 Iraq,IRQ,53,93
 Iraq,IRQ,54,93
+Iraq,IRQ,55,124
+Iraq,IRQ,56,124
 Ireland,IRL,40,1
 Ireland,IRL,41,1
 Ireland,IRL,42,1
@@ -1080,6 +1222,8 @@ Ireland,IRL,51,43
 Ireland,IRL,52,70
 Ireland,IRL,53,90
 Ireland,IRL,54,129
+Ireland,IRL,55,169
+Ireland,IRL,56,223
 Israel,ISR,32,1
 Israel,ISR,33,1
 Israel,ISR,34,1
@@ -1103,6 +1247,8 @@ Israel,ISR,51,75
 Israel,ISR,52,75
 Israel,ISR,53,100
 Israel,ISR,54,178
+Israel,ISR,55,200
+Israel,ISR,56,250
 Italy,ITA,10,2
 Italy,ITA,11,2
 Italy,ITA,12,2
@@ -1148,11 +1294,15 @@ Italy,ITA,51,12462
 Italy,ITA,52,15113
 Italy,ITA,53,17660
 Italy,ITA,54,21157
+Italy,ITA,55,24747
+Italy,ITA,56,27980
 Jamaica,JAM,50,1
 Jamaica,JAM,51,1
 Jamaica,JAM,52,1
 Jamaica,JAM,53,7
 Jamaica,JAM,54,8
+Jamaica,JAM,55,10
+Jamaica,JAM,56,10
 Japan,JPN,0,1
 Japan,JPN,1,1
 Japan,JPN,2,1
@@ -1208,9 +1358,13 @@ Japan,JPN,51,620
 Japan,JPN,52,675
 Japan,JPN,53,716
 Japan,JPN,54,780
+Japan,JPN,55,814
+Japan,JPN,56,829
 Jersey,JEY,52,2
 Jersey,JEY,53,2
 Jersey,JEY,54,2
+Jersey,JEY,55,2
+Jersey,JEY,56,2
 Jordan,JOR,42,1
 Jordan,JOR,43,1
 Jordan,JOR,44,1
@@ -1224,9 +1378,15 @@ Jordan,JOR,51,1
 Jordan,JOR,52,1
 Jordan,JOR,53,1
 Jordan,JOR,54,1
+Jordan,JOR,55,6
+Jordan,JOR,56,35
 Kazakhstan,KAZ,54,6
+Kazakhstan,KAZ,55,6
+Kazakhstan,KAZ,56,6
 Kenya,KEN,53,1
 Kenya,KEN,54,1
+Kenya,KEN,55,1
+Kenya,KEN,56,3
 Kuwait,KWT,34,3
 Kuwait,KWT,35,8
 Kuwait,KWT,36,12
@@ -1248,6 +1408,8 @@ Kuwait,KWT,51,80
 Kuwait,KWT,52,80
 Kuwait,KWT,53,100
 Kuwait,KWT,54,112
+Kuwait,KWT,55,112
+Kuwait,KWT,56,130
 Latvia,LVA,42,1
 Latvia,LVA,43,1
 Latvia,LVA,44,1
@@ -1261,6 +1423,8 @@ Latvia,LVA,51,16
 Latvia,LVA,52,16
 Latvia,LVA,53,16
 Latvia,LVA,54,30
+Latvia,LVA,55,31
+Latvia,LVA,56,36
 Lebanon,LBN,32,1
 Lebanon,LBN,33,1
 Lebanon,LBN,34,1
@@ -1284,6 +1448,9 @@ Lebanon,LBN,51,66
 Lebanon,LBN,52,66
 Lebanon,LBN,53,77
 Lebanon,LBN,54,93
+Lebanon,LBN,55,99
+Lebanon,LBN,56,109
+Liberia,LBR,56,1
 Liechtenstein,LIE,44,1
 Liechtenstein,LIE,45,1
 Liechtenstein,LIE,46,1
@@ -1295,6 +1462,8 @@ Liechtenstein,LIE,51,1
 Liechtenstein,LIE,52,4
 Liechtenstein,LIE,53,4
 Liechtenstein,LIE,54,4
+Liechtenstein,LIE,55,7
+Liechtenstein,LIE,56,7
 Lithuania,LTU,38,1
 Lithuania,LTU,39,1
 Lithuania,LTU,40,1
@@ -1312,6 +1481,8 @@ Lithuania,LTU,51,3
 Lithuania,LTU,52,3
 Lithuania,LTU,53,6
 Lithuania,LTU,54,9
+Lithuania,LTU,55,14
+Lithuania,LTU,56,17
 Luxembourg,LUX,41,1
 Luxembourg,LUX,42,1
 Luxembourg,LUX,43,1
@@ -1326,6 +1497,8 @@ Luxembourg,LUX,51,17
 Luxembourg,LUX,52,17
 Luxembourg,LUX,53,38
 Luxembourg,LUX,54,38
+Luxembourg,LUX,55,38
+Luxembourg,LUX,56,81
 Macedonia,MKD,37,1
 Macedonia,MKD,38,1
 Macedonia,MKD,39,1
@@ -1344,6 +1517,8 @@ Macedonia,MKD,51,7
 Macedonia,MKD,52,7
 Macedonia,MKD,53,9
 Macedonia,MKD,54,13
+Macedonia,MKD,55,13
+Macedonia,MKD,56,19
 Malaysia,MYS,5,3
 Malaysia,MYS,6,4
 Malaysia,MYS,7,4
@@ -1394,6 +1569,8 @@ Malaysia,MYS,51,129
 Malaysia,MYS,52,129
 Malaysia,MYS,53,197
 Malaysia,MYS,54,238
+Malaysia,MYS,55,553
+Malaysia,MYS,56,553
 Maldives,MDV,47,2
 Maldives,MDV,48,4
 Maldives,MDV,49,4
@@ -1402,6 +1579,8 @@ Maldives,MDV,51,8
 Maldives,MDV,52,8
 Maldives,MDV,53,9
 Maldives,MDV,54,10
+Maldives,MDV,55,13
+Maldives,MDV,56,13
 Malta,MLT,47,3
 Malta,MLT,48,3
 Malta,MLT,49,4
@@ -1410,6 +1589,8 @@ Malta,MLT,51,6
 Malta,MLT,52,9
 Malta,MLT,53,12
 Malta,MLT,54,12
+Malta,MLT,55,21
+Malta,MLT,56,30
 Martinique,MTQ,47,2
 Martinique,MTQ,48,2
 Martinique,MTQ,49,2
@@ -1418,8 +1599,14 @@ Martinique,MTQ,51,3
 Martinique,MTQ,52,4
 Martinique,MTQ,53,6
 Martinique,MTQ,54,10
+Martinique,MTQ,55,15
+Martinique,MTQ,56,16
 Mauritania,MRT,54,1
+Mauritania,MRT,55,1
+Mauritania,MRT,56,1
 Mayotte,MYT,54,1
+Mayotte,MYT,55,1
+Mayotte,MYT,56,1
 Mexico,MEX,39,2
 Mexico,MEX,40,2
 Mexico,MEX,41,5
@@ -1436,6 +1623,8 @@ Mexico,MEX,51,11
 Mexico,MEX,52,12
 Mexico,MEX,53,26
 Mexico,MEX,54,41
+Mexico,MEX,55,53
+Mexico,MEX,56,53
 Moldova,MDA,47,1
 Moldova,MDA,48,1
 Moldova,MDA,49,1
@@ -1444,6 +1633,8 @@ Moldova,MDA,51,4
 Moldova,MDA,52,4
 Moldova,MDA,53,8
 Moldova,MDA,54,12
+Moldova,MDA,55,23
+Moldova,MDA,56,29
 Monaco,MCO,40,1
 Monaco,MCO,41,1
 Monaco,MCO,42,1
@@ -1459,12 +1650,16 @@ Monaco,MCO,51,1
 Monaco,MCO,52,1
 Monaco,MCO,53,2
 Monaco,MCO,54,2
+Monaco,MCO,55,9
+Monaco,MCO,56,9
 Mongolia,MNG,49,1
 Mongolia,MNG,50,1
 Mongolia,MNG,51,1
 Mongolia,MNG,52,1
 Mongolia,MNG,53,1
 Mongolia,MNG,54,1
+Mongolia,MNG,55,1
+Mongolia,MNG,56,4
 Morocco,MAR,42,1
 Morocco,MAR,43,1
 Morocco,MAR,44,2
@@ -1478,7 +1673,11 @@ Morocco,MAR,51,5
 Morocco,MAR,52,6
 Morocco,MAR,53,7
 Morocco,MAR,54,18
+Morocco,MAR,55,28
+Morocco,MAR,56,38
 Namibia,NAM,54,2
+Namibia,NAM,55,2
+Namibia,NAM,56,2
 Nepal,NPL,4,1
 Nepal,NPL,5,1
 Nepal,NPL,6,1
@@ -1530,6 +1729,8 @@ Nepal,NPL,51,1
 Nepal,NPL,52,1
 Nepal,NPL,53,1
 Nepal,NPL,54,1
+Nepal,NPL,55,1
+Nepal,NPL,56,1
 Netherlands,NLD,38,1
 Netherlands,NLD,39,2
 Netherlands,NLD,40,7
@@ -1547,6 +1748,8 @@ Netherlands,NLD,51,503
 Netherlands,NLD,52,614
 Netherlands,NLD,53,804
 Netherlands,NLD,54,959
+Netherlands,NLD,55,1135
+Netherlands,NLD,56,1413
 New Zealand,NZL,38,1
 New Zealand,NZL,39,1
 New Zealand,NZL,40,1
@@ -1564,6 +1767,8 @@ New Zealand,NZL,51,5
 New Zealand,NZL,52,5
 New Zealand,NZL,53,6
 New Zealand,NZL,54,6
+New Zealand,NZL,55,6
+New Zealand,NZL,56,11
 Nigeria,NGA,38,1
 Nigeria,NGA,39,1
 Nigeria,NGA,40,1
@@ -1581,6 +1786,8 @@ Nigeria,NGA,51,2
 Nigeria,NGA,52,2
 Nigeria,NGA,53,2
 Nigeria,NGA,54,2
+Nigeria,NGA,55,2
+Nigeria,NGA,56,2
 Norway,NOR,37,1
 Norway,NOR,38,4
 Norway,NOR,39,6
@@ -1599,6 +1806,8 @@ Norway,NOR,51,489
 Norway,NOR,52,489
 Norway,NOR,53,750
 Norway,NOR,54,907
+Norway,NOR,55,1077
+Norway,NOR,56,1169
 Oman,OMN,35,2
 Oman,OMN,36,4
 Oman,OMN,37,4
@@ -1619,6 +1828,8 @@ Oman,OMN,51,18
 Oman,OMN,52,18
 Oman,OMN,53,19
 Oman,OMN,54,20
+Oman,OMN,55,22
+Oman,OMN,56,24
 Pakistan,PAK,37,2
 Pakistan,PAK,38,2
 Pakistan,PAK,39,2
@@ -1637,6 +1848,8 @@ Pakistan,PAK,51,19
 Pakistan,PAK,52,20
 Pakistan,PAK,53,21
 Pakistan,PAK,54,28
+Pakistan,PAK,55,52
+Pakistan,PAK,56,187
 Palestine,PSE,44,4
 Palestine,PSE,45,7
 Palestine,PSE,46,16
@@ -1648,12 +1861,16 @@ Palestine,PSE,51,30
 Palestine,PSE,52,31
 Palestine,PSE,53,35
 Palestine,PSE,54,38
+Palestine,PSE,55,38
+Palestine,PSE,56,39
 Panama,PAN,49,1
 Panama,PAN,50,8
 Panama,PAN,51,10
 Panama,PAN,52,14
 Panama,PAN,53,27
 Panama,PAN,54,27
+Panama,PAN,55,43
+Panama,PAN,56,69
 Paraguay,PRY,48,1
 Paraguay,PRY,49,1
 Paraguay,PRY,50,5
@@ -1661,6 +1878,8 @@ Paraguay,PRY,51,5
 Paraguay,PRY,52,5
 Paraguay,PRY,53,6
 Paraguay,PRY,54,6
+Paraguay,PRY,55,8
+Paraguay,PRY,56,9
 Peru,PER,46,1
 Peru,PER,47,6
 Peru,PER,48,6
@@ -1670,6 +1889,8 @@ Peru,PER,51,17
 Peru,PER,52,22
 Peru,PER,53,28
 Peru,PER,54,43
+Peru,PER,55,71
+Peru,PER,56,86
 Philippines,PHL,9,1
 Philippines,PHL,10,1
 Philippines,PHL,11,1
@@ -1716,6 +1937,8 @@ Philippines,PHL,51,52
 Philippines,PHL,52,52
 Philippines,PHL,53,64
 Philippines,PHL,54,111
+Philippines,PHL,55,140
+Philippines,PHL,56,187
 Poland,POL,43,1
 Poland,POL,44,1
 Poland,POL,45,1
@@ -1728,6 +1951,8 @@ Poland,POL,51,44
 Poland,POL,52,49
 Poland,POL,53,64
 Poland,POL,54,111
+Poland,POL,55,150
+Poland,POL,56,150
 Portugal,PRT,42,2
 Portugal,PRT,43,2
 Portugal,PRT,44,7
@@ -1741,8 +1966,12 @@ Portugal,PRT,51,41
 Portugal,PRT,52,41
 Portugal,PRT,53,112
 Portugal,PRT,54,112
+Portugal,PRT,55,245
+Portugal,PRT,56,331
 Puerto Rico,PRI,53,3
 Puerto Rico,PRI,54,3
+Puerto Rico,PRI,55,3
+Puerto Rico,PRI,56,3
 Qatar,QAT,40,1
 Qatar,QAT,41,3
 Qatar,QAT,42,7
@@ -1758,9 +1987,13 @@ Qatar,QAT,51,262
 Qatar,QAT,52,262
 Qatar,QAT,53,262
 Qatar,QAT,54,337
+Qatar,QAT,55,401
+Qatar,QAT,56,439
 Reunion,REU,52,3
 Reunion,REU,53,5
 Reunion,REU,54,6
+Reunion,REU,55,9
+Reunion,REU,56,9
 Romania,ROU,37,1
 Romania,ROU,38,1
 Romania,ROU,39,3
@@ -1779,6 +2012,8 @@ Romania,ROU,51,48
 Romania,ROU,52,48
 Romania,ROU,53,64
 Romania,ROU,54,123
+Romania,ROU,55,158
+Romania,ROU,56,158
 Russia,RUS,11,2
 Russia,RUS,12,2
 Russia,RUS,13,2
@@ -1823,6 +2058,10 @@ Russia,RUS,51,20
 Russia,RUS,52,34
 Russia,RUS,53,34
 Russia,RUS,54,34
+Russia,RUS,55,63
+Russia,RUS,56,93
+Rwanda,RWA,55,5
+Rwanda,RWA,56,7
 Saint Barthlemy,,44,1
 Saint Barthlemy,,45,1
 Saint Barthlemy,,46,1
@@ -1834,6 +2073,10 @@ Saint Barthlemy,,51,1
 Saint Barthlemy,,52,1
 Saint Barthlemy,,53,1
 Saint Barthlemy,,54,1
+Saint Barthlemy,,55,3
+Saint Barthlemy,,56,3
+Saint Lucia,LCA,55,1
+Saint Lucia,LCA,56,2
 Saint Martin (French part),MAF,44,2
 Saint Martin (French part),MAF,45,2
 Saint Martin (French part),MAF,46,2
@@ -1845,9 +2088,13 @@ Saint Martin (French part),MAF,51,2
 Saint Martin (French part),MAF,52,2
 Saint Martin (French part),MAF,53,2
 Saint Martin (French part),MAF,54,2
+Saint Martin (French part),MAF,55,2
+Saint Martin (French part),MAF,56,2
 Saint Vincent and the Grenadines,VCT,52,1
 Saint Vincent and the Grenadines,VCT,53,1
 Saint Vincent and the Grenadines,VCT,54,1
+Saint Vincent and the Grenadines,VCT,55,1
+Saint Vincent and the Grenadines,VCT,56,1
 San Marino,SMR,39,1
 San Marino,SMR,40,1
 San Marino,SMR,41,1
@@ -1864,6 +2111,8 @@ San Marino,SMR,51,63
 San Marino,SMR,52,63
 San Marino,SMR,53,66
 San Marino,SMR,54,92
+San Marino,SMR,55,92
+San Marino,SMR,56,102
 Saudi Arabia,SAU,42,1
 Saudi Arabia,SAU,43,1
 Saudi Arabia,SAU,44,2
@@ -1877,6 +2126,8 @@ Saudi Arabia,SAU,51,21
 Saudi Arabia,SAU,52,21
 Saudi Arabia,SAU,53,62
 Saudi Arabia,SAU,54,103
+Saudi Arabia,SAU,55,103
+Saudi Arabia,SAU,56,133
 Senegal,SEN,42,1
 Senegal,SEN,43,1
 Senegal,SEN,44,4
@@ -1890,6 +2141,8 @@ Senegal,SEN,51,4
 Senegal,SEN,52,10
 Senegal,SEN,53,10
 Senegal,SEN,54,21
+Senegal,SEN,55,26
+Senegal,SEN,56,27
 Serbia,SRB,45,1
 Serbia,SRB,46,1
 Serbia,SRB,47,1
@@ -1900,6 +2153,10 @@ Serbia,SRB,51,19
 Serbia,SRB,52,19
 Serbia,SRB,53,31
 Serbia,SRB,54,41
+Serbia,SRB,55,41
+Serbia,SRB,56,70
+Seychelles,SYC,55,2
+Seychelles,SYC,56,4
 Singapore,SGP,3,1
 Singapore,SGP,4,3
 Singapore,SGP,5,4
@@ -1952,6 +2209,8 @@ Singapore,SGP,51,178
 Singapore,SGP,52,187
 Singapore,SGP,53,200
 Singapore,SGP,54,212
+Singapore,SGP,55,243
+Singapore,SGP,56,243
 Slovakia,SVK,46,1
 Slovakia,SVK,47,3
 Slovakia,SVK,48,5
@@ -1961,6 +2220,8 @@ Slovakia,SVK,51,10
 Slovakia,SVK,52,21
 Slovakia,SVK,53,30
 Slovakia,SVK,54,44
+Slovakia,SVK,55,61
+Slovakia,SVK,56,72
 Slovenia,SVN,44,1
 Slovenia,SVN,45,6
 Slovenia,SVN,46,9
@@ -1972,6 +2233,9 @@ Slovenia,SVN,51,57
 Slovenia,SVN,52,57
 Slovenia,SVN,53,141
 Slovenia,SVN,54,141
+Slovenia,SVN,55,219
+Slovenia,SVN,56,253
+Somalia,SOM,56,1
 South Africa,ZAF,45,1
 South Africa,ZAF,46,1
 South Africa,ZAF,47,2
@@ -1982,6 +2246,8 @@ South Africa,ZAF,51,13
 South Africa,ZAF,52,17
 South Africa,ZAF,53,17
 South Africa,ZAF,54,38
+South Africa,ZAF,55,51
+South Africa,ZAF,56,62
 South Korea,KOR,0,1
 South Korea,KOR,1,1
 South Korea,KOR,2,1
@@ -2037,6 +2303,8 @@ South Korea,KOR,51,7869
 South Korea,KOR,52,7979
 South Korea,KOR,53,8086
 South Korea,KOR,54,8162
+South Korea,KOR,55,8236
+South Korea,KOR,56,8320
 Spain,ESP,11,1
 Spain,ESP,12,1
 Spain,ESP,13,1
@@ -2081,6 +2349,8 @@ Spain,ESP,51,2140
 Spain,ESP,52,2965
 Spain,ESP,53,4231
 Spain,ESP,54,5753
+Spain,ESP,55,7753
+Spain,ESP,56,9191
 Sri Lanka,LKA,7,1
 Sri Lanka,LKA,8,1
 Sri Lanka,LKA,9,1
@@ -2129,9 +2399,17 @@ Sri Lanka,LKA,51,2
 Sri Lanka,LKA,52,3
 Sri Lanka,LKA,53,6
 Sri Lanka,LKA,54,11
+Sri Lanka,LKA,55,19
+Sri Lanka,LKA,56,29
 Sudan,SDN,53,1
 Sudan,SDN,54,1
+Sudan,SDN,55,1
+Sudan,SDN,56,2
+Suriname,SUR,55,1
+Suriname,SUR,56,1
 Swaziland,SWZ,54,1
+Swaziland,SWZ,55,1
+Swaziland,SWZ,56,1
 Sweden,SWE,11,1
 Sweden,SWE,12,1
 Sweden,SWE,13,1
@@ -2176,6 +2454,8 @@ Sweden,SWE,51,461
 Sweden,SWE,52,620
 Sweden,SWE,53,775
 Sweden,SWE,54,924
+Sweden,SWE,55,992
+Sweden,SWE,56,1059
 Switzerland,CHE,36,1
 Switzerland,CHE,37,1
 Switzerland,CHE,38,6
@@ -2195,6 +2475,9 @@ Switzerland,CHE,51,645
 Switzerland,CHE,52,858
 Switzerland,CHE,53,1125
 Switzerland,CHE,54,1359
+Switzerland,CHE,55,2200
+Switzerland,CHE,56,2200
+Tanzania,TZA,56,1
 Thailand,THA,0,2
 Thailand,THA,1,2
 Thailand,THA,2,4
@@ -2250,6 +2533,8 @@ Thailand,THA,51,70
 Thailand,THA,52,75
 Thailand,THA,53,75
 Thailand,THA,54,75
+Thailand,THA,55,114
+Thailand,THA,56,147
 Togo,TGO,46,1
 Togo,TGO,47,1
 Togo,TGO,48,1
@@ -2259,8 +2544,12 @@ Togo,TGO,51,1
 Togo,TGO,52,1
 Togo,TGO,53,1
 Togo,TGO,54,1
+Togo,TGO,55,1
+Togo,TGO,56,1
 Trinidad and Tobago,TTO,53,1
 Trinidad and Tobago,TTO,54,1
+Trinidad and Tobago,TTO,55,2
+Trinidad and Tobago,TTO,56,5
 Tunisia,TUN,42,1
 Tunisia,TUN,43,1
 Tunisia,TUN,44,1
@@ -2274,10 +2563,14 @@ Tunisia,TUN,51,6
 Tunisia,TUN,52,7
 Tunisia,TUN,53,16
 Tunisia,TUN,54,16
+Tunisia,TUN,55,18
+Tunisia,TUN,56,20
 Turkey,TUR,51,1
 Turkey,TUR,52,1
 Turkey,TUR,53,5
 Turkey,TUR,54,5
+Turkey,TUR,55,5
+Turkey,TUR,56,47
 Ukraine,UKR,43,1
 Ukraine,UKR,44,1
 Ukraine,UKR,45,1
@@ -2290,6 +2583,8 @@ Ukraine,UKR,51,1
 Ukraine,UKR,52,3
 Ukraine,UKR,53,3
 Ukraine,UKR,54,3
+Ukraine,UKR,55,3
+Ukraine,UKR,56,7
 United Arab Emirates,ARE,8,4
 United Arab Emirates,ARE,9,4
 United Arab Emirates,ARE,10,4
@@ -2337,6 +2632,8 @@ United Arab Emirates,ARE,51,74
 United Arab Emirates,ARE,52,85
 United Arab Emirates,ARE,53,85
 United Arab Emirates,ARE,54,85
+United Arab Emirates,ARE,55,98
+United Arab Emirates,ARE,56,98
 United Kingdom,GBR,11,2
 United Kingdom,GBR,12,2
 United Kingdom,GBR,13,2
@@ -2381,6 +2678,8 @@ United Kingdom,GBR,51,460
 United Kingdom,GBR,52,594
 United Kingdom,GBR,53,802
 United Kingdom,GBR,54,1144
+United Kingdom,GBR,55,1395
+United Kingdom,GBR,56,1547
 United States,USA,2,1
 United States,USA,3,1
 United States,USA,4,2
@@ -2434,6 +2733,13 @@ United States,USA,51,987
 United States,USA,52,1264
 United States,USA,53,1678
 United States,USA,54,1678
+United States,USA,55,1678
+United States,USA,56,3503
+United States Virgin Islands,VIR,56,2
+Uruguay,URY,55,4
+Uruguay,URY,56,6
+Uzbekistan,UZB,55,4
+Uzbekistan,UZB,56,4
 Vatican,VAT,46,1
 Vatican,VAT,47,1
 Vatican,VAT,48,1
@@ -2443,8 +2749,12 @@ Vatican,VAT,51,1
 Vatican,VAT,52,1
 Vatican,VAT,53,1
 Vatican,VAT,54,1
+Vatican,VAT,55,1
+Vatican,VAT,56,1
 Venezuela,VEN,53,2
 Venezuela,VEN,54,2
+Venezuela,VEN,55,2
+Venezuela,VEN,56,33
 Vietnam,VNM,3,2
 Vietnam,VNM,4,2
 Vietnam,VNM,5,2
@@ -2497,6 +2807,8 @@ Vietnam,VNM,51,39
 Vietnam,VNM,52,39
 Vietnam,VNM,53,48
 Vietnam,VNM,54,53
+Vietnam,VNM,55,57
+Vietnam,VNM,56,61
 World,OWID_WRL,0,282
 World,OWID_WRL,1,314
 World,OWID_WRL,2,581
@@ -2550,5 +2862,7 @@ World,OWID_WRL,49,113702
 World,OWID_WRL,50,118319
 World,OWID_WRL,51,125260
 World,OWID_WRL,52,132758
-World,OWID_WRL,53,142539
-World,OWID_WRL,54,153523
+World,OWID_WRL,53,142534
+World,OWID_WRL,54,153517
+World,OWID_WRL,55,167506
+World,OWID_WRL,56,179112

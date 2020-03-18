@@ -1,10 +1,14 @@
 country,code,year,cases
 Albania,ALB,53,1
 Albania,ALB,54,1
+Albania,ALB,55,1
+Albania,ALB,56,1
 Algeria,DZA,51,1
 Algeria,DZA,52,1
 Algeria,DZA,53,2
 Algeria,DZA,54,3
+Algeria,DZA,55,3
+Algeria,DZA,56,4
 Argentina,ARG,47,1
 Argentina,ARG,48,1
 Argentina,ARG,49,1
@@ -13,6 +17,8 @@ Argentina,ARG,51,1
 Argentina,ARG,52,1
 Argentina,ARG,53,2
 Argentina,ARG,54,2
+Argentina,ARG,55,2
+Argentina,ARG,56,2
 Australia,AUS,41,1
 Australia,AUS,42,1
 Australia,AUS,43,1
@@ -27,18 +33,32 @@ Australia,AUS,51,3
 Australia,AUS,52,3
 Australia,AUS,53,3
 Australia,AUS,54,3
+Australia,AUS,55,5
+Australia,AUS,56,5
 Austria,AUT,52,1
 Austria,AUT,53,1
 Austria,AUT,54,1
+Austria,AUT,55,1
+Austria,AUT,56,3
+Bahrain,BHR,55,1
+Bahrain,BHR,56,1
+Belgium,BEL,55,5
+Belgium,BEL,56,5
 Bulgaria,BGR,51,1
 Bulgaria,BGR,52,1
 Bulgaria,BGR,53,1
 Bulgaria,BGR,54,2
+Bulgaria,BGR,55,2
+Bulgaria,BGR,56,2
 Canada,CAN,50,1
 Canada,CAN,51,1
 Canada,CAN,52,1
 Canada,CAN,53,1
 Canada,CAN,54,1
+Canada,CAN,55,1
+Canada,CAN,56,1
+Cayman Islands,CYM,55,1
+Cayman Islands,CYM,56,1
 China,CHN,0,6
 China,CHN,1,6
 China,CHN,2,17
@@ -94,6 +114,13 @@ China,CHN,51,3173
 China,CHN,52,3180
 China,CHN,53,3194
 China,CHN,54,3204
+China,CHN,55,3218
+China,CHN,56,3231
+Denmark,DNK,55,1
+Denmark,DNK,56,4
+Dominican Republic,DOM,56,1
+Ecuador,ECU,55,2
+Ecuador,ECU,56,2
 Egypt,EGY,48,1
 Egypt,EGY,49,1
 Egypt,EGY,50,1
@@ -101,6 +128,8 @@ Egypt,EGY,51,1
 Egypt,EGY,52,1
 Egypt,EGY,53,2
 Egypt,EGY,54,2
+Egypt,EGY,55,2
+Egypt,EGY,56,4
 France,FRA,26,1
 France,FRA,27,1
 France,FRA,28,1
@@ -130,27 +159,43 @@ France,FRA,51,48
 France,FRA,52,61
 France,FRA,53,79
 France,FRA,54,91
+France,FRA,55,127
+France,FRA,56,148
 Germany,DEU,49,2
 Germany,DEU,50,2
 Germany,DEU,51,3
 Germany,DEU,52,6
 Germany,DEU,53,6
 Germany,DEU,54,8
+Germany,DEU,55,12
+Germany,DEU,56,13
 Greece,GRC,51,1
 Greece,GRC,52,1
 Greece,GRC,53,1
 Greece,GRC,54,2
+Greece,GRC,55,4
+Greece,GRC,56,4
+Guatemala,GTM,55,1
+Guatemala,GTM,56,1
 Guyana,GUY,52,1
 Guyana,GUY,53,1
 Guyana,GUY,54,1
+Guyana,GUY,55,1
+Guyana,GUY,56,1
+Hungary,HUN,55,1
+Hungary,HUN,56,1
 India,IND,52,1
 India,IND,53,2
 India,IND,54,2
+India,IND,55,2
+India,IND,56,3
 Indonesia,IDN,50,1
 Indonesia,IDN,51,1
 Indonesia,IDN,52,1
 Indonesia,IDN,53,3
 Indonesia,IDN,54,4
+Indonesia,IDN,55,4
+Indonesia,IDN,56,5
 International,,30,2
 International,,31,2
 International,,32,2
@@ -176,6 +221,8 @@ International,,51,7
 International,,52,7
 International,,53,7
 International,,54,7
+International,,55,7
+International,,56,7
 Iran,IRN,30,2
 Iran,IRN,31,2
 Iran,IRN,32,4
@@ -201,6 +248,8 @@ Iran,IRN,51,354
 Iran,IRN,52,429
 Iran,IRN,53,514
 Iran,IRN,54,608
+Iran,IRN,55,853
+Iran,IRN,56,853
 Iraq,IRQ,44,2
 Iraq,IRQ,45,2
 Iraq,IRQ,46,4
@@ -212,10 +261,14 @@ Iraq,IRQ,51,7
 Iraq,IRQ,52,7
 Iraq,IRQ,53,9
 Iraq,IRQ,54,9
+Iraq,IRQ,55,9
+Iraq,IRQ,56,9
 Ireland,IRL,51,1
 Ireland,IRL,52,1
 Ireland,IRL,53,1
 Ireland,IRL,54,2
+Ireland,IRL,55,2
+Ireland,IRL,56,2
 Italy,ITA,33,2
 Italy,ITA,34,2
 Italy,ITA,35,6
@@ -238,6 +291,8 @@ Italy,ITA,51,827
 Italy,ITA,52,1016
 Italy,ITA,53,1268
 Italy,ITA,54,1441
+Italy,ITA,55,1809
+Italy,ITA,56,2503
 Japan,JPN,24,1
 Japan,JPN,25,1
 Japan,JPN,26,1
@@ -269,18 +324,26 @@ Japan,JPN,51,15
 Japan,JPN,52,19
 Japan,JPN,53,21
 Japan,JPN,54,22
+Japan,JPN,55,24
+Japan,JPN,56,28
 Lebanon,LBN,50,1
 Lebanon,LBN,51,3
 Lebanon,LBN,52,3
-Lebanon,LBN,53,4
-Lebanon,LBN,54,4
+Lebanon,LBN,53,3
+Lebanon,LBN,54,3
+Lebanon,LBN,55,3
+Lebanon,LBN,56,3
 Luxembourg,LUX,53,1
 Luxembourg,LUX,54,1
+Luxembourg,LUX,55,1
+Luxembourg,LUX,56,1
 Morocco,MAR,50,1
 Morocco,MAR,51,1
 Morocco,MAR,52,1
 Morocco,MAR,53,1
 Morocco,MAR,54,1
+Morocco,MAR,55,1
+Morocco,MAR,56,2
 Netherlands,NLD,46,1
 Netherlands,NLD,47,1
 Netherlands,NLD,48,3
@@ -290,14 +353,20 @@ Netherlands,NLD,51,5
 Netherlands,NLD,52,5
 Netherlands,NLD,53,10
 Netherlands,NLD,54,12
+Netherlands,NLD,55,20
+Netherlands,NLD,56,24
 Norway,NOR,52,1
 Norway,NOR,53,1
 Norway,NOR,54,1
+Norway,NOR,55,1
+Norway,NOR,56,3
 Panama,PAN,50,1
 Panama,PAN,51,1
 Panama,PAN,52,1
 Panama,PAN,53,1
 Panama,PAN,54,1
+Panama,PAN,55,1
+Panama,PAN,56,1
 Philippines,PHL,12,1
 Philippines,PHL,13,1
 Philippines,PHL,14,1
@@ -341,9 +410,13 @@ Philippines,PHL,51,2
 Philippines,PHL,52,2
 Philippines,PHL,53,2
 Philippines,PHL,54,6
+Philippines,PHL,55,12
+Philippines,PHL,56,12
 Poland,POL,52,1
 Poland,POL,53,1
 Poland,POL,54,3
+Poland,POL,55,3
+Poland,POL,56,3
 San Marino,SMR,47,1
 San Marino,SMR,48,1
 San Marino,SMR,49,2
@@ -352,6 +425,8 @@ San Marino,SMR,51,2
 San Marino,SMR,52,2
 San Marino,SMR,53,2
 San Marino,SMR,54,5
+San Marino,SMR,55,5
+San Marino,SMR,56,9
 South Korea,KOR,30,1
 South Korea,KOR,31,1
 South Korea,KOR,32,2
@@ -377,6 +452,8 @@ South Korea,KOR,51,66
 South Korea,KOR,52,66
 South Korea,KOR,53,72
 South Korea,KOR,54,75
+South Korea,KOR,55,75
+South Korea,KOR,56,81
 Spain,ESP,44,1
 Spain,ESP,45,3
 Spain,ESP,46,5
@@ -388,6 +465,12 @@ Spain,ESP,51,48
 Spain,ESP,52,84
 Spain,ESP,53,120
 Spain,ESP,54,136
+Spain,ESP,55,288
+Spain,ESP,56,309
+Sudan,SDN,55,1
+Sudan,SDN,56,1
+Sweden,SWE,55,3
+Sweden,SWE,56,3
 Switzerland,CHE,45,1
 Switzerland,CHE,46,1
 Switzerland,CHE,47,2
@@ -398,6 +481,8 @@ Switzerland,CHE,51,4
 Switzerland,CHE,52,6
 Switzerland,CHE,53,6
 Switzerland,CHE,54,11
+Switzerland,CHE,55,13
+Switzerland,CHE,56,14
 Thailand,THA,41,1
 Thailand,THA,42,1
 Thailand,THA,43,1
@@ -412,8 +497,12 @@ Thailand,THA,51,1
 Thailand,THA,52,1
 Thailand,THA,53,1
 Thailand,THA,54,1
+Thailand,THA,55,1
+Thailand,THA,56,1
 Ukraine,UKR,53,1
 Ukraine,UKR,54,1
+Ukraine,UKR,55,1
+Ukraine,UKR,56,1
 United Kingdom,GBR,46,1
 United Kingdom,GBR,47,2
 United Kingdom,GBR,48,2
@@ -423,6 +512,8 @@ United Kingdom,GBR,51,6
 United Kingdom,GBR,52,8
 United Kingdom,GBR,53,10
 United Kingdom,GBR,54,21
+United Kingdom,GBR,55,35
+United Kingdom,GBR,56,55
 United States,USA,42,2
 United States,USA,43,6
 United States,USA,44,9
@@ -436,6 +527,8 @@ United States,USA,51,29
 United States,USA,52,36
 United States,USA,53,41
 United States,USA,54,41
+United States,USA,55,41
+United States,USA,56,58
 World,OWID_WRL,0,6
 World,OWID_WRL,1,6
 World,OWID_WRL,2,17
@@ -489,5 +582,7 @@ World,OWID_WRL,49,4012
 World,OWID_WRL,50,4292
 World,OWID_WRL,51,4613
 World,OWID_WRL,52,4956
-World,OWID_WRL,53,5393
-World,OWID_WRL,54,5736
+World,OWID_WRL,53,5392
+World,OWID_WRL,54,5735
+World,OWID_WRL,55,6606
+World,OWID_WRL,56,7426
