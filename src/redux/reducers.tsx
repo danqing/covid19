@@ -12,6 +12,7 @@ export enum EScale {
 }
 
 export interface AppState {
+  change: boolean;
   scale: EScale;
   zoom: number;
   mode: mode.EMode;
@@ -21,6 +22,7 @@ export interface AppState {
 const BASE_OFFSET = -2;
 
 const defaultState: AppState = {
+  change: false,
   scale: EScale.Linear,
   zoom: 3,
   mode: mode.EMode.TotalCases,
@@ -103,6 +105,7 @@ function persistedState(state: AppState): AppState {
     r: state.regions.map(r => region.toString(r))
   };
   window.history.replaceState(null, "", "?" + qs.stringify(query));
+  state.change = true;
   return state;
 }
 

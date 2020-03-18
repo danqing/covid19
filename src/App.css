@@ -6,6 +6,7 @@
 
 #title-row {
   padding: 4rem 0;
+  position: relative;
 }
 
 #page-title {
@@ -31,6 +32,25 @@
   align-items: center;
   justify-content: space-between;
   margin-right: 0.5rem;
+}
+
+#share-prompt {
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+  font-size: 0.75rem;
+  color: #1b95e0;
+  position: absolute;
+  right: 20px;
+  bottom: -35px;
+  width: 50%;
+  text-align: right;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#share-prompt.shown {
+  opacity: 1;
+  transform: none;
 }
 
 .chart {

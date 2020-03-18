@@ -1,13 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 
+import { AppState } from "./redux/reducers";
 import ChartControl from "./chart-control";
+import { TwitterButton } from "./TwitterButton";
 import VX from "./vx";
 import XAxis from "./x-axis";
 
 import "./App.css";
-import { TwitterButton } from "./TwitterButton";
 
-function App() {
+function App({change}) {
   return (
     <div id="app-wrapper">
       <div id="title-row" className="row">
@@ -19,6 +21,9 @@ function App() {
           <div className="divider">
             <div id="title-separator" />
             <TwitterButton />
+          </div>
+          <div id="share-prompt" className={change ? "shown" : ""}>
+            Share this page and others can see exactly the chart you have made!
           </div>
         </div>
       </div>
@@ -52,4 +57,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state: AppState) => ({
+  change: state.change
+});
+
+export default connect(mapStateToProps)(App);
