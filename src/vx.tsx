@@ -15,8 +15,9 @@ import { Tooltip, withTooltip } from "@vx/tooltip";
 import { WithTooltipProvidedProps } from "@vx/tooltip/lib/enhancers/withTooltip";
 import { localPoint } from "@vx/event";
 
-import { ModeToAllCountryData } from "./redux/mode";
+import { EMode, ModeToAllCountryData } from "./redux/mode";
 import { AppState, EScale } from "./redux/reducers";
+import Population from "./data/country-pop.json";
 
 import "./vx.css";
 
@@ -94,13 +95,26 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
     const vxData: IVXDataSeries[] = [];
     const allCountryData = ModeToAllCountryData[mode];
 
+    const calcCases = (cases: number, mode: EMode, country: string): number => {
+      if (mode.endsWith("pp")) {
+        const population = Population[country];
+        if (isNaN(population)) {
+          return 0;
+        }
+        return (cases / population * 1000000);
+      }
+      return cases;
+    }
+
     regions.forEach(({ country, offset }, idx) => {
       const countryData = allCountryData.filter(
         countryRow => countryRow.country === country
       );
 
       const dayToCases = _.fromPairs(
-        _.map(countryData, ({ cases, year }) => [year, cases])
+        _.map(countryData, ({ cases, year }) => [
+          year, calcCases(cases, mode, country)
+        ])
       );
 
       const points = range(DAYS_TO_SHOW)
@@ -218,6 +232,13 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
     };
     const axisFormat = scale === EScale.Log ? logFormat : format(".2s");
 
+    const tooltipValue = (value: number): string => {
+      if (Number.isInteger(value)) {
+        return value.toFixed();
+      }
+      return value.toFixed(2);
+    }
+
     return (
       <Measure
         bounds
@@ -319,7 +340,9 @@ const VX = withTooltip<TVXProps, IVXTooltipData[]>(
                           .add(d.date - d.offset, "day")
                           .format("MMM D")}`}</span>
                       </div>
-                      <div className="tooltip-value">{`${d.value}`}</div>
+                      <div className="tooltip-value">
+                        {`${tooltipValue(d.value)}`}
+                      </div>
                     </Tooltip>
                   );
                 })}
