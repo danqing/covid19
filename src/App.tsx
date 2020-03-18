@@ -18,7 +18,7 @@ function App() {
           </h5>
           <div className="divider">
             <div id="title-separator" />
-            <TwitterButton/>
+            <TwitterButton />
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@ function App() {
           Algolia for search.
         </p>
 
-        <p>Last updated on March 15 21:00 ET.</p>
+        <p>Last updated on March 18 3:00 ET.</p>
       </footer>
     </div>
   );
