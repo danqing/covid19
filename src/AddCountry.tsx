@@ -36,8 +36,11 @@ export const _AddRegion = ({
   }, [q]);
 
   return (
-    <div id="region-input-row" className="region-row">
-      <div className="region-name-wrapper">
+    <div id="region-input-row" className="region-row text-center">
+      <div
+        className="region-name-wrapper"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
         <input
           value={q}
           onChange={e => setQ(e.target.value)}

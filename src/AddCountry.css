@@ -1,3 +1,7 @@
+#region-input-row {
+  padding: 0;
+}
+
 #region-input-row .region-name-wrapper {
   position: relative;
 }

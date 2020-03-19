@@ -110,7 +110,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
           className="region-days baseline-flex"
           style={{
             transform: `translateX(${(offset * 100) / 16}%`,
-            color: `var(--series-color-${i % 6})`,
+            color: `var(--series-color-${i % 6})`
           }}
         >
           {[...Array(60).keys()].map(d => (
@@ -127,16 +127,16 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
 
   renderOffset(offset: number): JSX.Element {
     if (this.props.regions.length === 0) {
-      return <div/>;
+      return <div />;
     }
 
     const base = this.props.regions[0].offset;
     const delta = offset - base;
     if (delta === 0) {
-      return <div/>;
+      return <div />;
     }
 
-    const cls = delta > 0 ? "delta-ahead": "delta-behind";
+    const cls = delta > 0 ? "delta-ahead" : "delta-behind";
     return (
       <div className={cls + " delta"}>
         {`${Math.abs(delta)}d ${delta > 0 ? "ahead" : "behind"}`}
@@ -158,9 +158,12 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
         </div>
         <div className="region-name-wrapper">
           <div className="region-name-wrapper-inner">
-            <div className="region-icon" style={{
-              backgroundColor: `var(--series-color-${i % 6})`
-            }}/>
+            <div
+              className="region-icon"
+              style={{
+                backgroundColor: `var(--series-color-${i % 6})`
+              }}
+            />
             <div className="region-name">{r.country}</div>
             <button {...buttonAttrs} onClick={this.removeRegion}>
               <svg.TrashSign />
@@ -168,7 +171,9 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
           </div>
           {this.renderOffset(r.offset)}
         </div>
+
         {this.renderDays(r.offset, i)}
+
         <div className="region-shifter region-shifter-right">
           <button {...buttonAttrs} onClick={this.shiftRegionForward1}>
             <svg.ChevronRight />
@@ -183,7 +188,10 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
 
   renderAddRegion(): JSX.Element {
     return (
-      <div id="add-region" className="region-row">
+      <div
+        id="add-region"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
         <button className="btn btn-primary" onClick={this.showNewRegionInput}>
           <svg.PlusSign />
           <span>Add Country / Region</span>
@@ -196,12 +204,23 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
     return (
       <Measure
         bounds
-        onResize={r => { r.bounds && this.setState({dims: r.bounds}); }}
+        onResize={r => {
+          r.bounds && this.setState({ dims: r.bounds });
+        }}
       >
         {({ measureRef }) => (
           <div id="x-axis" ref={measureRef}>
             <hr />
             {this.props.regions.map((r, i) => this.renderRegion(r, i))}
+
+            <p className="use-guide">
+              Tip: Use
+              <span style={{width: 24}} className={'yellow-arrow'}><svg.ChevronLeft /></span>
+              and{" "}
+              <span style={{width: 24}} className={'yellow-arrow'}><svg.ChevronRight /></span>
+              to shift and compare countries at different times.
+            </p>
+
             {this.state.enteringRegion ? (
               <AddRegion onSuccess={() => this.dismissNewRegionInput()} />
             ) : (
