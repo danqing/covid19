@@ -9,7 +9,7 @@ import XAxis from "./x-axis";
 
 import "./App.css";
 
-function App({change}) {
+function App({ change }) {
   return (
     <div id="app-wrapper">
       <div id="title-row" className="row">
@@ -32,6 +32,7 @@ function App({change}) {
         <div className="vx-wrapper">
           <VX />
         </div>
+
         <XAxis />
       </div>
       <footer>

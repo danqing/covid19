@@ -105,7 +105,8 @@
   right: -60px;
 }
 
-#region-input-row, #add-region {
+#region-input-row,
+#add-region {
   margin-top: 1rem;
 }
 
@@ -116,7 +117,8 @@
   justify-content: space-between;
 }
 
-.region-name-wrapper, .region-name-wrapper-inner {
+.region-name-wrapper,
+.region-name-wrapper-inner {
   display: flex;
   align-items: center;
 }
@@ -129,6 +131,15 @@
 
 .region-name-wrapper .delta-ahead {
   color: var(--green);
+}
+
+.yellow-arrow {
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+.yellow-arrow svg {
+  width: 24px;
 }
 
 .region-name-wrapper .delta-behind {
