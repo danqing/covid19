@@ -19,17 +19,15 @@ export interface AppState {
   regions: region.IRegion[];
 }
 
-const BASE_OFFSET = -2;
-
 const defaultState: AppState = {
   change: false,
   scale: EScale.Linear,
   zoom: 3,
   mode: mode.EMode.TotalCases,
   regions: [
-    { country: "United States", offset: -39 + BASE_OFFSET },
-    { country: "Italy", offset: -28 + BASE_OFFSET },
-    { country: "South Korea", offset: -24 + BASE_OFFSET }
+    { country: "United States", offset: -43 },
+    { country: "Italy", offset: -31 },
+    { country: "South Korea", offset: -27 }
   ]
 };
 
@@ -81,7 +79,7 @@ function setRegions(state: AppState, regions: IRegion[]): AppState {
 
 function addRegion(state: AppState, name: string): AppState {
   let regions = [...state.regions];
-  regions.push({ country: name, offset: -30 });
+  regions.push({ country: name, offset: -42 });
   return persistedState({ ...state, regions });
 }
 
