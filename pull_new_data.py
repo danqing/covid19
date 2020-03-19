@@ -25,19 +25,19 @@ import requests
 
 total_deaths = {
     'in': 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/total_deaths.csv',
-    'out': '/Users/victor/Code/covid19/src/data/total-deaths.json'
+    'out': 'src/data/total-deaths.json'
 }
 daily_deaths = {
     'in': 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/new_deaths.csv',
-    'out': '/Users/victor/Code/covid19/src/data/daily-deaths.json'
+    'out': 'src/data/daily-deaths.json'
 }
 total_cases = {
     'in': 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/total_cases.csv',
-    'out': '/Users/victor/Code/covid19/src/data/total-cases.json'
+    'out': 'src/data/total-cases.json'
 }
 daily_cases = {
     'in': 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/new_cases.csv',
-    'out': '/Users/victor/Code/covid19/src/data/daily-cases.json'
+    'out': 'src/data/daily-cases.json'
 }
 
 infos = [total_deaths, daily_deaths, total_cases, daily_cases]
