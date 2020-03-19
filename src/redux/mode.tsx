@@ -1,7 +1,7 @@
-import TotalDeaths from "../data/total-deaths-covid-19-who.json";
-import DailyDeaths from "../data/daily-deaths-covid-19-who.json";
-import TotalCases from "../data/total-cases-covid-19-who.json";
-import DailyCases from "../data/daily-cases-covid-19-who.json";
+import TotalDeaths from "../data/total-deaths.json";
+import DailyDeaths from "../data/daily-deaths.json";
+import TotalCases from "../data/total-cases.json";
+import DailyCases from "../data/daily-cases.json";
 
 export enum EMode {
   TotalCases = "tc",

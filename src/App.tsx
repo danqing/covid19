@@ -38,12 +38,13 @@ function App({ change }) {
       <footer>
         <p>
           Made by <a href={"https://twitter.com/danqing_liu"}>@danqing_liu</a>
-          &nbsp;and <a href={"https://twitter.com/victorpontis"}>@victorpontis</a>
+          &nbsp;and{" "}
+          <a href={"https://twitter.com/victorpontis"}>@victorpontis</a>
           &nbsp;with data pulled from&nbsp;
           <a href={"https://ourworldindata.org/coronavirus"}>
             Our World In Data
-          </a>
-          .
+          </a>{' '}
+          and the European CDC.
         </p>
 
         <p>
@@ -52,7 +53,7 @@ function App({ change }) {
           Algolia for search.
         </p>
 
-        <p>Last updated on March 18 3:00 ET.</p>
+        <p>Last updated on March 19 18:00 ET.</p>
       </footer>
     </div>
   );
