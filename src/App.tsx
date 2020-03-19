@@ -43,7 +43,7 @@ function App({ change }) {
           &nbsp;with data pulled from&nbsp;
           <a href={"https://ourworldindata.org/coronavirus"}>
             Our World In Data
-          </a>
+          </a>{' '}
           and the European CDC.
         </p>
 
