@@ -19,7 +19,7 @@ export interface AppState {
   regions: region.IRegion[];
 }
 
-const BASE_OFFSET = -2;
+const BASE_OFFSET = -4;
 
 const defaultState: AppState = {
   change: false,
