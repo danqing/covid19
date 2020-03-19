@@ -37,9 +37,9 @@ function App({ change }) {
       </div>
       <footer>
         <p>
-          Made by <a href={"https://twitter.com/danqing_liu"}>@danqing_liu</a>{" "}
-          and <a href={"https://twitter.com/victorpontis"}>@victorpontis</a>{" "}
-          with data pulled from{" "}
+          Made by <a href={"https://twitter.com/danqing_liu"}>@danqing_liu</a>
+          &nbsp;and <a href={"https://twitter.com/victorpontis"}>@victorpontis</a>
+          &nbsp;with data pulled from&nbsp;
           <a href={"https://ourworldindata.org/coronavirus"}>
             Our World In Data
           </a>
@@ -47,8 +47,8 @@ function App({ change }) {
         </p>
 
         <p>
-          Explore the code in{" "}
-          <a href={"https://github.com/danqing/covid19/"}>Github</a>. Credit to
+          Explore the code in&nbsp;
+          <a href={"https://github.com/danqing/covid19/"}>GitHub</a>. Credit to
           Algolia for search.
         </p>
 

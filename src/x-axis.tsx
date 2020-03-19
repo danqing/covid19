@@ -213,12 +213,12 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
             <hr />
             {this.props.regions.map((r, i) => this.renderRegion(r, i))}
 
-            <p className={"text-center my-2"}>
-              Use
+            <p className="use-guide">
+              Tip: Use
               <span style={{width: 24}} className={'yellow-arrow'}><svg.ChevronLeft /></span>
               and{" "}
               <span style={{width: 24}} className={'yellow-arrow'}><svg.ChevronRight /></span>
-              to compare countries at different times
+              to shift and compare countries at different times.
             </p>
 
             {this.state.enteringRegion ? (

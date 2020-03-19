@@ -176,11 +176,16 @@
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
-  margin-left: -0.875rem;
 }
 
 #add-region button:hover {
   transform: scale(1.02);
+}
+
+.use-guide {
+  color: var(--gray);
+  text-align: center;
+  padding: 1rem 0;
 }
 
 @media (prefers-color-scheme: dark) {
