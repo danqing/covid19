@@ -48,12 +48,12 @@ function App({ change }) {
         </p>
 
         <p>
-          Explore the code in&nbsp;
+          Explore the code on&nbsp;
           <a href={"https://github.com/danqing/covid19/"}>GitHub</a>. Credit to
           Algolia for search.
         </p>
 
-        <p>Last updated on March 19 18:00 ET.</p>
+        <p>Last updated on March 20 10:00 ET.</p>
       </footer>
     </div>
   );
