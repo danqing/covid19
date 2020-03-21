@@ -4,24 +4,12 @@ from pprint import pprint
 import json
 import csv
 from io import StringIO
-
 import requests
 
-# daily_cases_file = '/Users/victor/Code/covid19/src/data/daily-cases-covid-19-who.csv'
-#
-# countries = set()
-# with open(daily_cases_file) as f_:
-#     reader = csv.DictReader(f_)
-#     for line in reader:
-#         countries.add(line['country'])
-#
-# country_json = []
-# for country in countries:
-#     if country == 'World':
-#         continue
-#     country_json.append({'name': country})
-#
-# print(json.dumps(country_json))
+from algoliasearch.search_client import SearchClient
+
+client = SearchClient.create('ZOOMT5L4JY', '7157187130f0c6d53989725670982875')
+index = client.init_index('covid')
 
 total_deaths = {
     'in': 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/total_deaths.csv',
@@ -82,6 +70,20 @@ def output_json(country_to_values, output_dest: str):
     with open(output_dest, 'w') as f_:
         json.dump(output_array, f_)
 
+
+def update_index(url: str):
+    resp = requests.get(url)
+    string_io = StringIO(resp.text)
+    reader = csv.DictReader(string_io)
+
+    countries = [field for field in reader.fieldnames if field not in ['date']]
+    index_objects = [{'name': country, 'objectID': country} for country in countries if country != 'World']
+    index_objects.append({'name': 'Worldwide', 'objectID': 'World'})
+
+    index.replace_all_objects(index_objects)
+
+
+update_index(daily_cases['in'])
 
 for info in infos:
     github_url = info['in']
