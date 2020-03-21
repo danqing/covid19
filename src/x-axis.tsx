@@ -113,7 +113,7 @@ class XAxis extends React.PureComponent<TXAxisProps, IXAxisState> {
             color: `var(--series-color-${i % 6})`
           }}
         >
-          {[...Array(60).keys()].map(d => (
+          {[...Array(80).keys()].map(d => (
             <div key={d} className="region-day">
               <div className="region-day-inner">
                 {this.dayString(zero.add(d, "day"))}
