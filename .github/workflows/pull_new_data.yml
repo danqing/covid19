@@ -1,9 +1,9 @@
 name: Python package
 
-on: [push]
-#   schedule:
-#     # * is a special character in YAML so you have to quote this string
-#     - cron:  '*/5 * * * *'
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/2 * * * *'
 
 jobs:
   build:
@@ -23,3 +23,13 @@ jobs:
     - name: Pull New Data
       run: |
         pipenv run python pull_new_data.py
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Add changes" -a
+    - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.REPO_GITHUB_TOKEN }}
+  
