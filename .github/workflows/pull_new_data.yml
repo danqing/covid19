@@ -3,7 +3,7 @@ name: Pull New Data
 on:
   schedule:
     # run nightly at noon UTC (5am PT)
-    - cron:  '0 11-13 * * *'
+    - cron:  '0 12 * * *'
 
 jobs:
   pull_data:
