@@ -1,9 +1,9 @@
 name: Pull New Data
 
-on: [push]
-#   schedule:
-#     # run nightly at midnight
-#     - cron:  '0 0 * * *'
+on:
+  schedule:
+    # run nightly at noon UTC (5am PT)
+    - cron:  '0 12 * * *'
 
 jobs:
   pull_data:
