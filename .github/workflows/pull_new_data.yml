@@ -1,9 +1,9 @@
 name: Python package
 
-on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '*/2 * * * *'
+on: [push]
+#   schedule:
+#     # * is a special character in YAML so you have to quote this string
+#     - cron:  '*/2 * * * *'
 
 jobs:
   build:
@@ -31,5 +31,5 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-      github_token: ${{ secrets.REPO_GITHUB_TOKEN }}
+      github_token: ${{ secrets.GITHUB_TOKEN }}
   
