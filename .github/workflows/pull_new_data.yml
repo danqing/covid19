@@ -1,13 +1,12 @@
-name: Python package
+name: Pull New Data
 
-on: 
-  schedule:
-    # run nightly at midnight
-    - cron:  '0 0 * * *'
+on: [push]
+#   schedule:
+#     # run nightly at midnight
+#     - cron:  '0 0 * * *'
 
 jobs:
-  build:
-
+  pull_data:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
