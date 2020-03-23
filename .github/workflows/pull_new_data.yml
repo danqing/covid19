@@ -22,10 +22,11 @@ jobs:
     - name: Pull New Data
       run: |
         pipenv run python pull_new_data.py
-    - name: Build site
+    - name: Set up node
       uses: actions/setup-node@v1
       with:
         node-version: '12.16'
+    - name: Buld Site
       run: |
         npm install && npm run-script build
     # - name: Commit files
