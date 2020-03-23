@@ -1,6 +1,6 @@
 name: Pull New Data
 
-on:
+on: [push]
   schedule:
     # run nightly at noon UTC (5am PT)
     - cron:  '0 12 * * *'
@@ -22,13 +22,19 @@ jobs:
     - name: Pull New Data
       run: |
         pipenv run python pull_new_data.py
-    - name: Commit files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "Add changes" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    - name: Build site
+      uses: actions/setup-node@v1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        node-version: '12.16'
+      run: |
+        npm install && npm run-script build
+    # - name: Commit files
+    #   run: |
+    #     git config --local user.email "action@github.com"
+    #     git config --local user.name "GitHub Action"
+    #     git commit -m "Add changes" -a
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
   
