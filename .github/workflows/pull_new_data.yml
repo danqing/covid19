@@ -1,9 +1,9 @@
 name: Pull New Data
 
-on: [push]
-  # schedule:
-  #   # run nightly at noon UTC (5am PT)
-  #   - cron:  '0 12 * * *'
+on:
+  schedule:
+    # run nightly at noon UTC (5am PT)
+    - cron:  '0 12 * * *'
 
 jobs:
   pull_data:
@@ -26,16 +26,16 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.16'
-    - name: Buld Site
+    - name: Build Site
       run: |
         npm install && npm run-script build
-    # - name: Commit files
-    #   run: |
-    #     git config --local user.email "action@github.com"
-    #     git config --local user.name "GitHub Action"
-    #     git commit -m "Add changes" -a
-    # - name: Push changes
-    #   uses: ad-m/github-push-action@master
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
   
