@@ -25,9 +25,9 @@ const defaultState: AppState = {
   zoom: 3,
   mode: mode.EMode.TotalCases,
   regions: [
-    { country: "United States", offset: -47 },
-    { country: "Italy", offset: -37 },
-    { country: "South Korea", offset: -33 }
+    { country: "United States", offset: -49 },
+    { country: "Italy", offset: -39 },
+    { country: "South Korea", offset: -35 }
   ]
 };
 
@@ -79,7 +79,7 @@ function setRegions(state: AppState, regions: IRegion[]): AppState {
 
 function addRegion(state: AppState, name: string): AppState {
   let regions = [...state.regions];
-  regions.push({ country: name, offset: -45 });
+  regions.push({ country: name, offset: -47 });
   return persistedState({ ...state, regions });
 }
 

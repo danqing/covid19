@@ -53,7 +53,7 @@ function App({ change }) {
           Algolia for search.
         </p>
 
-        <p>Last updated on March 23 10:00 ET.</p>
+        <p>Updated daily at 12PM UTC.</p>
       </footer>
     </div>
   );
