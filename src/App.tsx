@@ -53,7 +53,7 @@ function App({ change }) {
           Algolia for search.
         </p>
 
-        <p>Updated daily at 12PM UTC.</p>
+        <p>Updated daily from <a href={'https://github.com/owid/covid-19-data'}>Our World in Data</a>.</p>
       </footer>
     </div>
   );
