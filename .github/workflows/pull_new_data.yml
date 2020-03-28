@@ -1,10 +1,10 @@
 name: Pull New Data
 
-on:
-  schedule:
-    # 3 times daily at 12pm, 2pm, and 4pm UTC (5am, 7am, and 9am PT)
-    # OWID has been updating their data later and later...
-    - cron:  0 12-16/2 * * *
+on: [push]
+  # schedule:
+  #   # 3 times daily at 12pm, 2pm, and 4pm UTC (5am, 7am, and 9am PT)
+  #   # OWID has been updating their data later and later...
+  #   - cron:  0 12-16/2 * * *
 
 jobs:
   pull_data:
@@ -32,10 +32,15 @@ jobs:
         npm install && npm run-script build
     - name: Commit files
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add --all
-        git commit -m "Pull data and build site"
+        if git status --porcelain | grep .; 
+        then 
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add --all
+          git commit -m "Pull data and build site"
+        else 
+          echo no change
+        fi
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
