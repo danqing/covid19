@@ -1,7 +1,7 @@
 name: Pull New Data
 
 on: [push]
-  # schedule:
+  # schedule: 
   #   # 3 times daily at 12pm, 2pm, and 4pm UTC (5am, 7am, and 9am PT)
   #   # OWID has been updating their data later and later...
   #   - cron:  0 12-16/2 * * *
