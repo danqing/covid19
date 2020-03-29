@@ -32,10 +32,14 @@ jobs:
         npm install && npm run-script build
     - name: Commit files
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add --all
-        git commit -m "Pull data and build site"
+        if git status --porcelain | grep .; then 
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add --all
+          git commit -m "Pull data and build site"
+        else 
+          echo no change
+        fi
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
