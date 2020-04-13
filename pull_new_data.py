@@ -8,7 +8,7 @@ import requests
 
 from algoliasearch.search_client import SearchClient
 
-client = SearchClient.create('3BK81OKMN1', 'f39a377b20879977bdb641f002ebf8db')
+client = SearchClient.create('ZOOMT5L4JY', '7157187130f0c6d53989725670982875')
 index = client.init_index('covid')
 
 total_deaths = {

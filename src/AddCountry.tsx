@@ -7,8 +7,8 @@ import { addRegion } from "./redux/actions";
 import "./AddCountry.css";
 
 const searchClient = algoliasearch(
-  "3BK81OKMN1",
-  "156309880d4fe2e742b637c8858f68ee"
+  "ZOOMT5L4JY",
+  "43a938b4fe4feea7874320d044a19bc5"
 );
 const searchIndex = searchClient.initIndex("covid");
 
